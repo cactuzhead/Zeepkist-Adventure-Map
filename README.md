@@ -1,7 +1,7 @@
 # Zeepkist Adventure Map
 <img src="docs/assets/Zeepkist Adventure Map - Hero Banner.png" alt="Zeepkist Adventure Map" style="width: 500px; height: auto;">
 
-<a href="https://cactuzhead.github.io/Zeepkist-Adventure-Map/">[ko-fi](https://cactuzhead.github.io/Zeepkist-Adventure-Map/)</a>
+<a href="https://cactuzhead.github.io/Zeepkist-Adventure-Map/">https://cactuzhead.github.io/Zeepkist-Adventure-Map/</a>
 
 
 This website lets you track your progress as well as view all level thumbnails and medal times from Zeepkist’s Adventure Mode.
