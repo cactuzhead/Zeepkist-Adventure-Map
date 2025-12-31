@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+    <head>
+        <meta charset="UTF-8">
+        <title>Zeepkist Adventure Map by cactuzhead</title>
+        <script>
+            document.documentElement.setAttribute(
+                'data-theme',
+                localStorage.getItem('theme') || 'dark'
+            );
+        </script>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header class="topbar">
+            <div class="brand">Zeepkist Adventure Map</div>
+
+            <div class="medals">
+                <div class="progress">
+                    <span class="medal cross">
+                    <span class="icon"></span>
+                    <span id="remainingCount">0</span>
+                    <span class="tooltip-text">Uncompleted levels</span>
+                </span>
+
+                <span class="medal bronze">
+                    <span class="icon"></span>
+                    <span id="bronzeCount">0</span>
+                    <span class="tooltip-text">Bronze levels completed</span>
+                </span>
+
+                <span class="medal silver">
+                    <span class="icon"></span>
+                    <span id="silverCount">0</span>
+                    <span class="tooltip-text">Silver levels completed</span>
+                </span>
+
+                <span class="medal gold">
+                    <span class="icon"></span>
+                    <span id="goldCount">0</span>
+                    <span class="tooltip-text">Gold levels completed</span>
+                </span>
+
+                <span class="medal author">
+                    <span class="icon"></span>
+                    <span id="authorCount">0</span>
+                    <span class="tooltip-text">Author levels completed</span>
+                </span>                       
+                    <span class="medal total">Total:<span id="totalCount">0</span></span>
+                </div>
+            </div>
+
+            <div class="controls">
+                <a href="https://cactuzhead.github.io/Zeepkist-Adventure-Map/README.md"
+                    target="_blank" rel="noopener" class="topbar-link">Read Me
+                </a>
+                <button id="exportBtn" class="topbar-link">Export</button>
+                <label class="topbar-link">
+                    Import
+                    <input type="file" id="importInput" accept="application/json" hidden>
+                </label>          
+
+                <label class="switch">
+                    <input id="themeToggle" type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+        </header>
+
+        <div class="map-container">
+            <img src="images/zeepkist_adventure_map_transparent.png" class="map" alt="Map">
+            <div id="dots"></div>
+        </div>
+
+        <div id="globalTooltip"></div>
+        <div id="globalMedalTooltip"></div>
+
+        <!-- <script src="create.js"></script> -->
+        <script src="script.js"></script>
+    </body>
+</html>

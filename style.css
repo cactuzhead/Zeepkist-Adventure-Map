@@ -1,0 +1,604 @@
+:root {
+    --bg: #f6f7fb;
+    --bg_end: #ffffff;
+    --card: #fdfdfd;
+    --muted: #6b7280;
+    --accent: #6200ee;
+    --text: #0f172a;
+    --glass: rgba(255,255,255,0.9);
+    --shadow: 0 2px 8px rgba(16,24,40,0.08);
+    --hover-btn: #dddddd;
+    --hover-btn-text: #000000;
+    --border: #aaaaaa;
+    --btn-bg: #f6f7fb;
+    --btn-text:#0f172a;
+    --tooltip-bg: rgba(20,20,20,0.95);
+    --tooltip-text: #fff;
+    --tooltip-border: rgba(20,20,20,0.95) transparent transparent transparent;
+    --select-dropdown: #f8f8f8;
+
+    --level-ez: #9942FF;
+    --level-a: #FEC430;
+    --level-b: #FFB7B5;
+    --level-c: #E1BBF8;
+    --level-d: #79D4FE;
+    --level-e: #6ADBC7;
+    --level-f: #14A1B8;
+    --level-g: #93D7A0;
+    --level-h: #CED926;
+    --level-i: #BF2F87;
+    --level-y: #D34026;
+    --level-cl: #504BDE;
+    --level-fl: #D59653;
+    --level-or: #3BCF6F;
+    --level-xg: #3877DA;
+    --level-x: #676767;
+}
+
+
+[data-theme="dark"] {
+    --bg: #18294d;
+    --bg_end: #2e4d88;
+    --card: #121e2e;
+    --muted: #9ca3af;
+    --accent: #586eea;
+    --text: #c9dcf4;
+    --glass: rgba(24, 41, 77, 0.9);
+    --shadow: 0 6px 18px rgba(2,6,23,0.6);
+    --hover-btn: #133F86;
+    --hover-btn-text: #C4D9F0;
+    --border: #102142;
+    --btn-bg: #223553;
+    --btn-text: #358eee;
+    --tooltip-bg: rgba(91, 166, 241, 1);
+    --tooltip-text: #000000;
+    --tooltip-border: rgba(91, 166, 241, 1) transparent transparent transparent;
+    --select-dropdown: #c9dcf4;
+}
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    padding-top: 64px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    font-family: Roboto, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    color: var(--text);
+    background: linear-gradient(180deg,var(--bg), var(--bg_end));
+}
+
+.level-ez { color: var(--level-ez); }
+.level-a  { color: var(--level-a); }
+.level-b  { color: var(--level-b); }
+.level-c  { color: var(--level-c); }
+.level-d  { color: var(--level-d); }
+.level-e  { color: var(--level-e); }
+.level-f  { color: var(--level-f); }
+.level-g  { color: var(--level-g); }
+.level-h  { color: var(--level-h); }
+.level-i  { color: var(--level-i); }
+.level-y  { color: var(--level-y); }
+.level-cl { color: var(--level-cl); }
+.level-fl { color: var(--level-fl); }
+.level-or { color: var(--level-or); }
+.level-xg { color: var(--level-xg); }
+.level-x  { color: var(--level-x); }
+
+
+.map-container {
+    position: relative;
+    display: inline-block;
+    width: max-content;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.map {
+    display: block;
+    max-width: 100vw;
+    height: auto;
+}
+
+#dots {
+    position: absolute;
+    inset: 0;
+}
+
+/* Actual visible dot */
+.dot {
+    position: absolute;
+    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    pointer-events: none;
+    border: 2px solid rgb(0, 0, 0);
+    transition: transform 0.15s ease;
+    width: clamp(18px, 3vw, 30px);
+    height: clamp(18px, 3vw, 30px);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    image-rendering: auto;
+}
+
+/* Invisible clickable area */
+.dot-wrapper {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    box-sizing: border-box;
+    z-index: 5;
+}
+
+.dot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.dot:active {
+    transform: scale(0.9);
+}
+
+.dot-wrapper:hover .dot {
+    box-shadow: 0 0 10px 10px rgba(170, 253, 4, 0.6);
+    transform:  scale(1.2);
+}
+
+/* Completion states */
+.state-0 { background-image: url("images/cross.png"); } /* uncompleted */
+.state-1 { background-image: url("images/bronze.png"); } /* bronze */
+.state-2 { background-image: url("images/silver.png"); } /* silver */
+.state-3 { background-image: url("images/gold.png"); } /* gold */
+.state-4 { background-image: url("images/check.png"); } /* author */
+
+.state-0 {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(209, 255, 2, 0.9); }
+    100% { box-shadow: 0 0 0 12px rgba(255,255,255,0); }
+}
+
+#globalTooltip {
+    position: fixed;
+    z-index: 999999;
+    min-width: 200px;
+
+    background: #1e1e1e; 
+    color: #fff;
+    border-radius: 8px;
+    padding: 12px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    pointer-events: none;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.12s ease;
+    border: 3px solid transparent;
+}
+
+#globalTooltip.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+#globalTooltip img {
+    width: 256px;
+    height: 144px;
+    object-fit: cover;
+}
+
+/* Borders for tiers */
+#globalTooltip.bronze  { border-color: #cd7f32; }
+#globalTooltip.silver  { border-color: #c0c0c0; }
+#globalTooltip.gold    { border-color: #ffd700; }
+#globalTooltip.author  { border-color: #69B53C; }
+
+/* Arrow */
+.tooltip::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 8px 8px 0;
+    border-style: solid;
+    border-color: #1c1c1c transparent transparent;
+    z-index: 1000;
+} */
+
+/* Show tooltip on hover */
+.dot-wrapper:hover .tooltip {
+    opacity: 1;
+}
+
+/* Tooltip content */
+.tooltip img {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 6px;
+}
+
+.tooltip h1 {
+    color: #ffffff;
+    margin: 4px 0;
+    font-size: 20px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.times {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 4px;
+}
+
+.times span {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tooltip-title {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+/* the line */
+.tooltip-title .title-accent {
+    width: 100px;
+    height: 10px;
+    border-radius: 999px;
+    background: currentColor;
+}
+
+
+/* Medal colors */
+#globalTooltip .bronze { color: #cd7f32; }
+#globalTooltip .silver { color: #c0c0c0; }
+#globalTooltip .gold { color: #ffd700; }
+#globalTooltip .author { color: #69B53C; }
+
+.current {
+    font-weight: bold;
+    text-shadow: 0 0 4px currentColor;
+}
+
+.tiers {
+    list-style: none;
+    padding: 0;
+    margin: 6px 0 0;
+}
+
+.tier {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    gap: 6px;
+    font-size: 16px;
+    opacity: 0.5;
+}
+
+.tier .check {
+    opacity: 0;
+}
+
+/* Achieved tiers */
+.tier.completed {
+    opacity: 1;
+}
+
+.tier.completed .check {
+    opacity: 1;
+}
+
+
+.check::before {
+    content: "✔";
+}
+
+.tier.completed .check {
+    animation: pop 0.2s ease-out;
+}
+
+@keyframes pop {
+    from { transform: scale(0.5); }
+    to { transform: scale(1); }
+}
+
+.tooltip {
+    background: #1c1c1c;
+    transition: background 0.2s ease;
+}
+
+.tooltip.completed {
+    background: linear-gradient(135deg, #1f7a3a, #2ecc71);
+}
+
+.tooltip.platinum {
+    background: linear-gradient(135deg, #555, #999);
+}
+
+.tooltip.completed::after {
+    border-color: #2ecc71 transparent transparent;
+}
+
+.tooltip.reset {
+    opacity: 0.8;
+}
+
+
+.topbar {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 64px;
+    min-height: 64px;
+    max-height: 64px;
+    box-sizing: border-box;
+
+    display: flex;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 16px;
+    justify-content: space-between;
+
+    padding: 0 16px;
+    overflow: hidden;
+
+    padding: 12px 20px;
+    background: var(--glass);
+    box-shadow: var(--shadow);
+    z-index: 1000;
+}
+
+.brand {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.topbar-link {
+    padding: 8px 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    background: var(--select-dropdown);
+    border: 1px solid rgba(15,23,42,0.06);
+    transition: background 0.15s ease, color 0.15s ease;
+    background-color: var(--btn-bg);
+    color: inherit;
+    font-family: inherit;
+    font-size: 0.95rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.topbar-link:hover {
+    background: var(--accent);
+    color: #fff;
+}
+
+
+
+.map-count {
+    font-size: 0.95rem;
+    color: var(--muted);
+    padding-right: 6px;
+    white-space: nowrap;
+}
+
+[data-theme="dark"] .map-count { color: #a7d7f9; }
+
+
+.switch {
+    display: inline-block;
+    position: relative;
+    width: 44px;
+    height: 26px;
+}
+
+.switch input { display: none; }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #e6e6e6;
+    border-radius: 26px;
+}
+
+.slider:before {
+    content: "";
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    top: 3px;
+    background: white;
+    border-radius: 50%;
+    transition: transform .2s;
+}
+
+.switch input:checked + .slider { background: var(--accent); }
+.switch input:checked + .slider:before { transform: translateX(18px); }
+
+.progress {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    font-size: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.medals {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    min-width: 0;
+}
+
+
+.medal.bronze { color: #cd7f32; }
+.medal.silver { color: #c0c0c0; }
+.medal.gold { color: #ffd700; }
+.medal.author { color: #69B53C; }
+.medal.cross { color: #D63632; }
+.medal.total { color: #6ecbff; }
+
+
+
+.controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+.controls button,
+.controls .importBtn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(15, 23, 42, 0.1);
+    background-color: var(--btn-bg);
+    color: inherit;
+    font-family: inherit;
+    font-size: 0.95rem;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.controls button,
+.controls .importBtn,
+.controls .switch {
+    flex-shrink: 0;
+}
+
+.controls .switch {
+    margin-left: 4px;
+    margin-right: 20px;
+}
+
+.controls button:hover,
+.controls .importBtn:hover {
+    background-color: var(--accent);
+}
+
+.controls button:active,
+.controls .importBtn:active {
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.medal {
+    padding: 4px 8px;
+    border-radius: 8px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.medal .icon {
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.medal.bronze .icon { background-image: url("images/bronze.png"); }
+.medal.silver .icon { background-image: url("images/silver.png"); }
+.medal.gold .icon { background-image: url("images/gold.png"); }
+.medal.author .icon { background-image: url("images/check.png"); }
+.medal.cross .icon { background-image: url("images/cross.png"); }
+
+@media (max-width: 800px) {
+  .progress {
+    justify-content: flex-start;
+    gap: 8px;
+    font-size: 0.85rem;
+  }
+}
+
+
+.medal {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    cursor: default;
+}
+
+.medal .tooltip-text {
+    visibility: hidden;
+    opacity: 0;
+    width: max-content;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 4px 8px;
+    border-radius: 6px;
+    position: absolute;
+    top: 56px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    z-index: 999;
+    transition: opacity 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.medal:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+#globalMedalTooltip {
+    position: fixed;
+    background: rgba(30,30,30,0.95);
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.15s ease;
+    z-index: 2000;
+    color: #fff;
+    background-color: var(--accent);
+    font-family: inherit;
+    font-size: 0.95rem;
+    text-align: center;
+    cursor: pointer;
+}
+#globalMedalTooltip.visible {
+    opacity: 1;
+    visibility: visible;
+}
