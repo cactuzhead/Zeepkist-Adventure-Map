@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Zeepkist Cosmetics</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+    <div class="brand">Zeepkist Cosmetics</div>
+        <div class="controls">
+            <span id="cosmeticCount" class="cosmetic-count">0 cosmetics</span>
+            <input id="search" type="search" placeholder="Search cosmetics..." aria-label="Search cosmetics">
+            <select id="filterEnv" aria-label="Filter by color">
+                <option value="">All Colors</option>
+            </select>
+            <select id="levelFilter" aria-label="Filter by Level">
+                <option value="">All Levels</option>
+            </select>
+            <select id="cosmeticTypeFilter" aria-label="Filter by Cosmetic Type">
+                <option value="">All Cosmetic Types</option>
+            </select>
+            <select id="sortBy" aria-label="Sort cosmetics">
+                <option value="name" selected>Name (A–Z)</option>
+                <option value="nameZA">Name (Z–A)</option>
+                <option value="level">Level (A–Z)</option>
+                <option value="levelZA">Level (Z–A)</option>
+                <option value="location">Location Order Asc</option>
+                <option value="locationDesc">Location Order Desc</option>
+            </select>            
+        </div>
+        <div class="controls">
+             <a href="index.html"
+                    target="_self" rel="noopener" class="topbar-link">Adventure Map
+                </a>
+            <a href="https://github.com/cactuzhead/Zeepkist-Adventure-Map"
+                target="_blank" rel="noopener" class="topbar-link">Read Me
+            </a>
+            <label class="switch">
+                <input id="themeToggle" type="checkbox">
+                <span class="slider"></span>
+            </label>
+        </div>
+</header>
+
+<main class="container">
+  <section id="grid" class="grid"></section>
+</main>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+
+    <div class="modal-content">
+        <button id="closeModal" class="levelcard-close">✕</button>
+
+        <iframe
+            id="modalVideo"
+            src=""
+            frameborder="0"
+            allow="autoplay; encrypted-media"
+            allowfullscreen>
+        </iframe>
+    </div>
+</div>
+
+<div id="hoverTooltip"></div>
+<script src="cosmetics.js"></script>
+</body>
+</html>
