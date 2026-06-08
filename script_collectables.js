@@ -3,7 +3,7 @@ let activeLevelId = null;
 let showSeasonalInTotal = false;
 const levelCard = document.getElementById('levelCard');
 let ALL_LEVELS = [];
-const MAP_COLLECTABLE_IDS = ['MAP01RedGifts_05112646', 'MAP02RedGifts_05112646', 'MAP03Wheel_10203517', 'MAP04BlueFeather_19205848', 'MAP05RedGift_05112846'];
+const MAP_COLLECTABLE_IDS = ['map01_1767531589174', 'map02_1767531710306', 'map03_1767531799236', 'map04_1767531884270', 'map05_1768074827328'];
 
        
 function isMapCollectableLevel(level) {
