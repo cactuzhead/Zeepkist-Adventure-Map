@@ -1,7 +1,167 @@
 [
+  {
+  "id": "map01_1767531589174",
+  "name": "map",
+  "x": 15.5,
+  "y": 91.2,
+  "times": {
+    "bronze": "0:00",
+    "silver": "0:00",
+    "gold": "0:00",
+    "author": "0:00"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+  },
+	"urls": {
+		"authorYT": "",
+		"giftsYT": "https://youtu.be/oSgpmoLWUxs?t=6",
+    "pumpkinsYT": "",
+    "snowflakesYT": ""
+	}
+},
+{
+  "id": "map02_1767531710306",
+  "name": "map",
+  "x": 31.1,
+  "y": 77.9,
+  "times": {
+    "bronze": "0:00",
+    "silver": "0:00",
+    "gold": "0:00",
+    "author": "0:00"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+  },
+	"urls": {
+		"authorYT": "",
+		"giftsYT": "https://youtu.be/oSgpmoLWUxs?t=22",
+    "pumpkinsYT": "",
+    "snowflakesYT": ""
+	}
+},
+{
+  "id": "map03_1767531799236",
+  "name": "map",
+  "x": 37.1,
+  "y": 37.9,
+  "times": {
+    "bronze": "0:00",
+    "silver": "0:00",
+    "gold": "0:00",
+    "author": "0:00"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 0,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+  },
+	"urls": {
+		"authorYT": "",
+		"giftsYT": "https://youtu.be/oSgpmoLWUxs?t=35",
+    "pumpkinsYT": "",
+    "snowflakesYT": ""
+	}
+},
+{
+  "id": "map04_1767531884270",
+  "name": "map",
+  "x": 32.9,
+  "y": 20.3,
+  "times": {
+    "bronze": "0:00",
+    "silver": "0:00",
+    "gold": "0:00",
+    "author": "0:00"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 0,
+      "blueFeathers": 1,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+  },
+  "urls": {
+    "authorYT": "",
+		"giftsYT": "https://youtu.be/oSgpmoLWUxs?t=58",
+    "pumpkinsYT": "",
+    "snowflakesYT": ""
+	}
+},
+{
+  "id": "map05_1768074827328",
+  "name": "Map",
+  "x": 90.3,
+  "y": 40.6,
+  "times": {
+    "bronze": "5:00",
+    "silver": "4:00",
+    "gold": "3:30",
+    "author": "3:00"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+  },
+	"urls": {
+		"authorYT": "",
+		"giftsYT": "https://youtu.be/oSgpmoLWUxs?t=97",
+    "pumpkinsYT": "",
+    "snowflakesYT": ""
+	}
+},
+
+
+
+
+
 {
   "id": "ez01_1766960215118",
-  "name": "ez01",
+  "name": "ez-01",
   "x": 26,
   "y": 95,
   "times": {
@@ -9,11 +169,30 @@
     "silver": "00:26.773",
     "gold": "00:24.542",
     "author": "00:23.311"
-  }
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 2,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 1
+    }
+  },
+  	"urls": {
+		"authorYT": "https://youtu.be/P60j1k9S3qc?t=6",
+		"giftsYT": "https://youtu.be/gmh9iMq597g?t=7",
+    "pumpkinsYT": "",
+    "snowflakesYT": ""
+	}
 },
 {
   "id": "ez02_1766960261558",
-  "name": "ez02",
+  "name": "ez-02",
   "x": 17.8,
   "y": 93.8,
   "times": {
@@ -21,11 +200,30 @@
     "silver": "00:39.262",
     "gold": "00:35.990",
     "author": "00:33.718"
-  }
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 2,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 0
+    }
+  },
+  	"urls": {
+		"authorYT": "https://youtu.be/P60j1k9S3qc?t=59",
+		"giftsYT": "https://youtu.be/gmh9iMq597g?t=131",
+    "pumpkinsYT": "",
+    "snowflakesYT": ""
+	}
 },
 {
   "id": "ez03_1766960290501",
-  "name": "ez03",
+  "name": "ez-03",
   "x": 9.7,
   "y": 95,
   "times": {
@@ -33,11 +231,31 @@
     "silver": "00:51.575",
     "gold": "00:47.277",
     "author": "00:43.979"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 2,
+      "strange": 0,
+      "medals": { "silver": 2 }
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 1
+    }
+  },
+  	"urls": {
+		"authorYT": "https://youtu.be/P60j1k9S3qc?t=125",
+		"giftsYT": "https://youtu.be/gmh9iMq597g?t=267",
+    "pumpkinsYT": "",
+    "snowflakesYT": ""
   }
 },
 {
   "id": "ez04_1766960315794",
-  "name": "ez04",
+  "name": "ez-04",
   "x": 8.4,
   "y": 91,
   "times": {
@@ -45,11 +263,30 @@
     "silver": "00:55.814",
     "gold": "00:51.163",
     "author": "00:47.512"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 2,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+  },
+  	"urls": {
+		"authorYT": "https://youtu.be/P60j1k9S3qc?t=206",
+		"giftsYT": "https://youtu.be/gmh9iMq597g?t=475",
+    "pumpkinsYT": "",
+    "snowflakesYT": ""
   }
 },
 {
   "id": "ez05_1766960328419",
-  "name": "ez05",
+  "name": "ez-05",
   "x": 4.8,
   "y": 88,
   "times": {
@@ -57,11 +294,30 @@
     "silver": "00:44.095",
     "gold": "00:40.421",
     "author": "00:37.746"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 2,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 1
+    }
+  },
+  	"urls": {
+		"authorYT": "https://youtu.be/P60j1k9S3qc?t=283",
+		"giftsYT": "https://youtu.be/gmh9iMq597g?t=684",
+    "pumpkinsYT": "",
+    "snowflakesYT": ""
   }
 },
 {
   "id": "ez06_1766960597746",
-  "name": "ez06",
+  "name": "ez-06",
   "x": 4.9,
   "y": 83.5,
   "times": {
@@ -69,6 +325,26 @@
     "silver": "00:31.992",
     "gold": "00:29.326",
     "author": "00:27.660"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 1,
+      "strange": 0,
+      "medals": { "gold": 5 }
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 1
+    }
+  },
+  	"urls": {
+		"authorYT": "https://youtu.be/P60j1k9S3qc?t=350",
+		"giftsYT": "https://youtu.be/gmh9iMq597g?t=793",
+    "pumpkinsYT": "",
+    "snowflakesYT": ""
   }
 },
 
@@ -76,20 +352,40 @@
   
 
 {
-  "id": "a01_1766955823062",
-  "name": "a01",
-  "x": 9.7,
-  "y": 79.2,
-  "times": {
-    "bronze": "01:30.000",
-    "silver": "00:48.000",
-    "gold": "00:44.000",
-    "author": "00:40.108"
-  }
+	"id": "a01_1766955823062",
+	"name": "a-01",
+	"x": 9.7,
+	"y": 79.2,
+	"times": {
+		"bronze": "01:30.000",
+		"silver": "00:48.000",
+		"gold": "00:44.000",
+		"author": "00:40.108"
+	},
+	"collectibles": {
+		"permanent": {
+		"redGifts": 1,
+		"blueFeathers": 0,
+		"wheels": 1,
+		"paintBlobs": 2,
+		"strange": 0,
+        "medals": { "bronze": 2 }
+		},
+    "seasonal": {
+        "pumpkins": 3,
+        "snowflakes": 1
+		}
+	},
+	"urls": {
+		"authorYT": "https://youtu.be/wuelKSBjVe8?t=7",
+		"giftsYT": "https://youtu.be/wnK4LgcF8C0?t=7",
+    "pumpkinsYT": "",
+    "snowflakesYT": ""
+	}
 },
 {
   "id": "a02_1766955850522",
-  "name": "a02",
+  "name": "a-02",
   "x": 14.7,
   "y": 79.2,
   "times": {
@@ -97,11 +393,30 @@
     "silver": "00:29.000",
     "gold": "00:26.000",
     "author": "00:24.155"
-  }
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 1
+    }
+  },
+	"urls": {
+		"authorYT": "https://youtu.be/wuelKSBjVe8?t=80",
+		"giftsYT": "https://youtu.be/wnK4LgcF8C0?t=140",
+    "pumpkinsYT": "",
+    "snowflakesYT": ""
+	}
 },
 {
   "id": "a03_1766960663527",
-  "name": "a03",
+  "name": "a-03",
   "x": 18.5,
   "y": 82.6,
   "times": {
@@ -109,11 +424,30 @@
     "silver": "01:20.400",
     "gold": "01:13.700",
     "author": "01:07.270"
-  }
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 3,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 1
+    }
+     },
+    "urls": {
+      "authorYT": "https://youtu.be/wuelKSBjVe8?t=136",
+      "giftsYT": "https://youtu.be/wnK4LgcF8C0?t=252",
+      "pumpkinsYT": "",
+      "snowflakesYT": ""
+    }
 },
 {
   "id": "a04_1766960976150",
-  "name": "a04",
+  "name": "a-04",
   "x": 22.2,
   "y": 85.8,
   "times": {
@@ -121,11 +455,30 @@
     "silver": "01:09.600",
     "gold": "01:03.800",
     "author": "00:57.825"
-  }
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 1
+    }
+     },
+    "urls": {
+      "authorYT": "https://youtu.be/wuelKSBjVe8?t=232",
+      "giftsYT": "https://youtu.be/wnK4LgcF8C0?t=511",
+      "pumpkinsYT": "",
+      "snowflakesYT": ""
+    }
 },
 {
   "id": "a05_1766961004495",
-  "name": "a05",
+  "name": "a-05",
   "x": 27,
   "y": 85.8,
   "times": {
@@ -133,11 +486,30 @@
     "silver": "00:22.800",
     "gold": "00:20.900",
     "author": "00:18.934"
-  }
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 1
+    }
+     },
+    "urls": {
+      "authorYT": "https://youtu.be/wuelKSBjVe8?t=283",
+      "giftsYT": "https://youtu.be/wnK4LgcF8C0?t=574",
+      "pumpkinsYT": "",
+      "snowflakesYT": ""
+    }
 },
 {
   "id": "a06_1766961285976",
-  "name": "a06",
+  "name": "a-06",
   "x": 30.8,
   "y": 82.6,
   "times": {
@@ -145,11 +517,30 @@
     "silver": "00:55.200",
     "gold": "00:50.600",
     "author": "00:46.049"
-  }
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 1
+    }
+     },
+    "urls": {
+      "authorYT": "https://youtu.be/wuelKSBjVe8?t=333",
+      "giftsYT": "https://youtu.be/wnK4LgcF8C0?t=619",
+      "pumpkinsYT": "",
+      "snowflakesYT": ""
+    }
 },
 {
   "id": "a07_1766961610663",
-  "name": "a07",
+  "name": "a-07",
   "x": 34.8,
   "y": 79.1,
   "times": {
@@ -157,11 +548,30 @@
     "silver": "01:15.600",
     "gold": "01:09.300",
     "author": "01:03.097"
-  }
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 1
+    }
+     },
+    "urls": {
+      "authorYT": "https://youtu.be/wuelKSBjVe8?t=408",
+      "giftsYT": "https://youtu.be/wnK4LgcF8C0?t=718",
+      "pumpkinsYT": "",
+      "snowflakesYT": ""
+    }
 },
 {
   "id": "a08_1766962132957",
-  "name": "a08",
+  "name": "a-08",
   "x": 39.6,
   "y": 79.1,
   "times": {
@@ -169,11 +579,30 @@
     "silver": "00:34.200",
     "gold": "00:31.350",
     "author": "00:28.598"
-  }
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 0
+    }
+     },
+    "urls": {
+      "authorYT": "https://youtu.be/wuelKSBjVe8?t=499",
+      "giftsYT": "https://youtu.be/wnK4LgcF8C0?t=814",
+      "pumpkinsYT": "",
+      "snowflakesYT": ""
+    }
 },
 {
   "id": "a09_1766962176409",
-  "name": "a09",
+  "name": "a-09",
   "x": 43.5,
   "y": 82.4,
   "times": {
@@ -181,11 +610,30 @@
     "silver": "01:01.200",
     "gold": "00:56.100",
     "author": "00:51.383"
-  }
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+     },
+    "urls": {
+      "authorYT": "https://youtu.be/wuelKSBjVe8?t=559",
+      "giftsYT": "https://youtu.be/wnK4LgcF8C0?t=855",
+      "pumpkinsYT": "",
+      "snowflakesYT": ""
+    }
 },
 {
   "id": "a10_1766962196505",
-  "name": "a10",
+  "name": "a-10",
   "x": 48.5,
   "y": 82.4,
   "times": {
@@ -193,11 +641,30 @@
     "silver": "01:25.800",
     "gold": "01:18.650",
     "author": "01:11.438"
-  }
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 2,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 1
+    }
+     },
+    "urls": {
+      "authorYT": "https://youtu.be/wuelKSBjVe8?t=638",
+      "giftsYT": "https://youtu.be/wnK4LgcF8C0?t=919",
+      "pumpkinsYT": "",
+      "snowflakesYT": ""
+    }
 },
 {
   "id": "a11_1766962220126",
-  "name": "a11",
+  "name": "a-11",
   "x": 52.2,
   "y": 79.1,
   "times": {
@@ -205,11 +672,30 @@
     "silver": "00:27.000",
     "gold": "00:24.750",
     "author": "00:22.441"
-  }
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 1
+    }
+     },
+    "urls": {
+      "authorYT": "https://youtu.be/wuelKSBjVe8?t=738",
+      "giftsYT": "https://youtu.be/wnK4LgcF8C0?t=1154",
+      "pumpkinsYT": "",
+      "snowflakesYT": ""
+    }
 },
 {
   "id": "a12_1766962679952",
-  "name": "a12",
+  "name": "a-12",
   "x": 55.8,
   "y": 75.8,
   "times": {
@@ -217,11 +703,30 @@
     "silver": "00:57.000",
     "gold": "00:52.250",
     "author": "00:47.402"
-  }
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 2,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 1
+    }
+     },
+    "urls": {
+      "authorYT": "https://youtu.be/wuelKSBjVe8?t=791",
+      "giftsYT": "https://youtu.be/wnK4LgcF8C0?t=1230",
+      "pumpkinsYT": "",
+      "snowflakesYT": ""
+    }
 },
 {
   "id": "a13_1766962704943",
-  "name": "a13",
+  "name": "a-13",
   "x": 59.7,
   "y": 72.4,
   "times": {
@@ -229,11 +734,30 @@
     "silver": "01:15.000",
     "gold": "01:08.750",
     "author": "01:02.471"
-  }
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+     },
+    "urls": {
+      "authorYT": "https://youtu.be/wuelKSBjVe8?t=867",
+      "giftsYT": "https://youtu.be/wnK4LgcF8C0?t=1356",
+      "pumpkinsYT": "",
+      "snowflakesYT": ""
+    }
 },
 {
   "id": "a14_1766962726306",
-  "name": "a14",
+  "name": "a-14",
   "x": 63.5,
   "y": 69,
   "times": {
@@ -241,11 +765,30 @@
     "silver": "00:51.600",
     "gold": "00:47.300",
     "author": "00:42.898"
-  }
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 2,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 1
+    }
+     },
+    "urls": {
+      "authorYT": "https://youtu.be/wuelKSBjVe8?t=930",
+      "giftsYT": "https://youtu.be/wnK4LgcF8C0?t=1456",
+      "pumpkinsYT": "",
+      "snowflakesYT": ""
+    }
 },
 {
   "id": "a15_1766962745865",
-  "name": "a15",
+  "name": "a-15",
   "x": 68.6,
   "y": 68.8,
   "times": {
@@ -253,11 +796,30 @@
     "silver": "00:28.800",
     "gold": "00:26.400",
     "author": "00:23.993"
-  }
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+     },
+    "urls": {
+      "authorYT": "https://youtu.be/wuelKSBjVe8?t=1007",
+      "giftsYT": "https://youtu.be/wnK4LgcF8C0?t=1689",
+      "pumpkinsYT": "",
+      "snowflakesYT": ""
+    }
 },
 {
   "id": "a16_1766962765130",
-  "name": "a16",
+  "name": "a-16",
   "x": 73.3,
   "y": 68.8,
   "times": {
@@ -265,11 +827,30 @@
     "silver": "00:44.400",
     "gold": "00:40.700",
     "author": "00:36.981"
-  }
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 2,
+      "wheels": 1,
+      "paintBlobs": 4,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+     },
+    "urls": {
+      "authorYT": "https://youtu.be/wuelKSBjVe8?t=1061",
+      "giftsYT": "https://youtu.be/wnK4LgcF8C0?t=1754",
+      "pumpkinsYT": "",
+      "snowflakesYT": ""
+    }
 },
 {
   "id": "a17_1766962801139",
-  "name": "a17",
+  "name": "a-17",
   "x": 77,
   "y": 72.2,
   "times": {
@@ -277,11 +858,30 @@
     "silver": "00:46.800",
     "gold": "00:42.900",
     "author": "00:38.901"
-  }
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+     },
+    "urls": {
+      "authorYT": "https://youtu.be/wuelKSBjVe8?t=1129",
+      "giftsYT": "https://youtu.be/wnK4LgcF8C0?t=2046",
+      "pumpkinsYT": "",
+      "snowflakesYT": ""
+    }
 },
 {
   "id": "a18_1766962838577",
-  "name": "a18",
+  "name": "a-18",
   "x": 80.8,
   "y": 75.8,
   "times": {
@@ -289,11 +889,30 @@
     "silver": "00:52.800",
     "gold": "00:48.400",
     "author": "00:43.878"
-  }
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 3,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 2,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+     },
+    "urls": {
+      "authorYT": "https://youtu.be/wuelKSBjVe8?t=1199",
+      "giftsYT": "https://youtu.be/wnK4LgcF8C0?t=2141",
+      "pumpkinsYT": "",
+      "snowflakesYT": ""
+    }
 },
 {
   "id": "a19_1766962862072",
-  "name": "a19",
+  "name": "a-19",
   "x": 80.8,
   "y": 80.4,
   "times": {
@@ -301,11 +920,30 @@
     "silver": "01:07.200",
     "gold": "01:01.600",
     "author": "00:56.213"
-  }
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 4,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+     },
+    "urls": {
+      "authorYT": "https://youtu.be/wuelKSBjVe8?t=1271",
+      "giftsYT": "https://youtu.be/wnK4LgcF8C0?t=2367",
+      "pumpkinsYT": "",
+      "snowflakesYT": ""
+    }
 },
 {
   "id": "a20_1766962953023",
-  "name": "a20",
+  "name": "a-20",
   "x": 80.8,
   "y": 84.7,
   "times": {
@@ -313,11 +951,30 @@
     "silver": "02:36.000",
     "gold": "02:23.000",
     "author": "02:10.242"
-  }
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 0
+    }
+     },
+    "urls": {
+      "authorYT": "https://youtu.be/wuelKSBjVe8?t=1356",
+      "giftsYT": "https://youtu.be/wnK4LgcF8C0?t=2527",
+      "pumpkinsYT": "",
+      "snowflakesYT": ""
+    }
 },
 {
   "id": "a21_1766962987900",
-  "name": "a21",
+  "name": "a-21",
   "x": 80.8,
   "y": 89.2,
   "times": {
@@ -325,11 +982,30 @@
     "silver": "00:16.200",
     "gold": "00:14.850",
     "author": "00:13.558"
-  }
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+     },
+    "urls": {
+      "authorYT": "https://youtu.be/wuelKSBjVe8?t=1516",
+      "giftsYT": "https://youtu.be/wnK4LgcF8C0?t=2683",
+      "pumpkinsYT": "",
+      "snowflakesYT": ""
+    }
 },
 {
   "id": "a22_1766963008406",
-  "name": "a22",
+  "name": "a-22",
   "x": 80.8,
   "y": 93.6,
   "times": {
@@ -337,11 +1013,30 @@
     "silver": "01:20.400",
     "gold": "01:13.700",
     "author": "01:07.312"
-  }
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 2,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+     },
+    "urls": {
+      "authorYT": "https://youtu.be/wuelKSBjVe8?t=1559",
+      "giftsYT": "https://youtu.be/wnK4LgcF8C0?t=2780",
+      "pumpkinsYT": "",
+      "snowflakesYT": ""
+    }
 },
 {
   "id": "a23_1766963027707",
-  "name": "a23",
+  "name": "a-23",
   "x": 77,
   "y": 97.2,
   "times": {
@@ -349,11 +1044,30 @@
     "silver": "01:30.000",
     "gold": "01:22.500",
     "author": "01:15.265"
-  }
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 0
+    }
+     },
+    "urls": {
+      "authorYT": "https://youtu.be/wuelKSBjVe8?t=1657",
+      "giftsYT": "https://youtu.be/wnK4LgcF8C0?t=2903",
+      "pumpkinsYT": "",
+      "snowflakesYT": ""
+    }
 },
 {
   "id": "a24_1766963062215",
-  "name": "a24",
+  "name": "a-24",
   "x": 72.1,
   "y": 97.2,
   "times": {
@@ -361,7 +1075,27 @@
     "silver": "01:12.000",
     "gold": "01:05.300",
     "author": "01:05.042"
-  }
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 0,
+      "strange": 0,
+      "medals": { "bronze": 2 }
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 0
+    }
+     },
+    "urls": {
+      "authorYT": "https://youtu.be/wuelKSBjVe8?t=1757",
+      "giftsYT": "https://youtu.be/wnK4LgcF8C0?t=2962",
+      "pumpkinsYT": "",
+      "snowflakesYT": ""
+    }
 },
 
 
@@ -369,7 +1103,7 @@
 
 {
   "id": "b01_1767029575443",
-  "name": "b01",
+  "name": "b-01",
   "x": 67,
   "y": 65.5,
   "times": {
@@ -377,11 +1111,30 @@
     "silver": "00:57.600",
     "gold": "00:52.800",
     "author": "00:47.735"
-  }
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 1
+    }
+     },
+    "urls": {
+      "authorYT": "https://youtu.be/wfBZp6UDc7M?t=7",
+      "giftsYT": "https://youtu.be/Bpm4tqnAqPs?t=7",
+      "pumpkinsYT": "",
+      "snowflakesYT": ""
+    }
 },
 {
   "id": "b02_1767029610731",
-  "name": "b02",
+  "name": "b-02",
   "x": 70.8,
   "y": 62.2,
   "times": {
@@ -389,11 +1142,30 @@
     "silver": "01:08.400",
     "gold": "01:02.700",
     "author": "00:57.358"
-  }
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/wfBZp6UDc7M?t=82",
+        "giftsYT": "https://youtu.be/Bpm4tqnAqPs?t=167",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
+    }
 },
 {
   "id": "b03_1767029634950",
-  "name": "b03",
+  "name": "b-03",
   "x": 74.5,
   "y": 58.8,
   "times": {
@@ -401,11 +1173,30 @@
     "silver": "01:19.200",
     "gold": "01:12.600",
     "author": "01:06.763"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 2,
+      "snowflakes": 3
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/wfBZp6UDc7M?t=170",
+        "giftsYT": "https://youtu.be/Bpm4tqnAqPs?t=388",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "b04_1767029673969",
-  "name": "b04",
+  "name": "b-04",
   "x": 79.6,
   "y": 58.8,
   "times": {
@@ -413,11 +1204,30 @@
     "silver": "01:09.300",
     "gold": "01:03.800",
     "author": "00:58.238"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 1,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 1
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/wfBZp6UDc7M?t=268",
+        "giftsYT": "https://youtu.be/Bpm4tqnAqPs?t=462",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "b05_1767029699822",
-  "name": "b05",
+  "name": "b-05",
   "x": 84.5,
   "y": 58.8,
   "times": {
@@ -425,11 +1235,30 @@
     "silver": "01:10.800",
     "gold": "01:04.900",
     "author": "00:59.296"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 2,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 1
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/wfBZp6UDc7M?t=356",
+        "giftsYT": "https://youtu.be/Bpm4tqnAqPs?t=574",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "b06_1766951718197",
-  "name": "b06",
+  "name": "b-06",
   "x": 88.6,
   "y": 55.6,
   "times": {
@@ -437,6 +1266,25 @@
     "silver": "01:19.200",
     "gold": "01:12.000",
     "author": "01:11.851"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 2,
+      "snowflakes": 3
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/wfBZp6UDc7M?t=449",
+        "giftsYT": "https://youtu.be/Bpm4tqnAqPs?t=696",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 
@@ -445,7 +1293,7 @@
 
 {
   "id": "c01_1767029758342",
-  "name": "c01",
+  "name": "c-01",
   "x": 59.7,
   "y": 67.4,
   "times": {
@@ -453,11 +1301,30 @@
     "silver": "00:27.000",
     "gold": "00:24.000",
     "author": "00:21.862"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/POj1zEYZ7d4?t=7",
+        "giftsYT": "https://youtu.be/rvfYn7WVi50?t=7",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "c02_1767029796945",
-  "name": "c02",
+  "name": "c-02",
   "x": 59.7,
   "y": 63.3,
   "times": {
@@ -465,11 +1332,30 @@
     "silver": "00:46.500",
     "gold": "00:43.500",
     "author": "00:42.741"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 3,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 1
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/POj1zEYZ7d4?t=60",
+        "giftsYT": "https://youtu.be/rvfYn7WVi50?t=86",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "c03_1767029823205",
-  "name": "c03",
+  "name": "c-03",
   "x": 59.7,
   "y": 58.8,
   "times": {
@@ -477,11 +1363,30 @@
     "silver": "00:58.000",
     "gold": "00:52.500",
     "author": "00:50.772"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 0,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/POj1zEYZ7d4?t=135",
+        "giftsYT": "https://youtu.be/rvfYn7WVi50?t=232",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
   {
   "id": "c04_1766955729807",
-  "name": "c04",
+  "name": "c-04",
   "x": 59.7,
   "y": 54.5,
   "times": {
@@ -489,11 +1394,30 @@
     "silver": "01:12.000",
     "gold": "01:08.000",
     "author": "01:05.514"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 4
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/POj1zEYZ7d4?t=217",
+        "giftsYT": "https://youtu.be/rvfYn7WVi50?t=260",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "c05_1767029902755",
-  "name": "c05",
+  "name": "c-05",
   "x": 59.7,
   "y": 50,
   "times": {
@@ -501,11 +1425,30 @@
     "silver": "00:58.000",
     "gold": "00:55.000",
     "author": "00:52.829"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 0
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/POj1zEYZ7d4?t=312",
+        "giftsYT": "https://youtu.be/rvfYn7WVi50?t=408",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
     "id": "c06_1767030671883",
-    "name": "c06",
+    "name": "c-06",
     "x": 59.7,
     "y": 45.2,
     "times": {
@@ -513,7 +1456,26 @@
       "silver": "00:59.000",
       "gold": "00:58.000",
       "author": "00:56.823"
+    },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 3,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 1
     }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/POj1zEYZ7d4?t=392",
+        "giftsYT": "https://youtu.be/rvfYn7WVi50?t=473",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
+  }
  },
 
 
@@ -521,7 +1483,7 @@
 
  {
   "id": "d01_1767029969758",
-  "name": "d01",
+  "name": "d-01",
   "x": 39.6,
   "y": 74.6,
   "times": {
@@ -529,11 +1491,30 @@
     "silver": "01:00.000",
     "gold": "00:47.000",
     "author": "00:45.839"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 1,
+      "wheels": 0,
+      "paintBlobs": 3,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/KUNmBnlC4u0?t=7",
+        "giftsYT": "https://youtu.be/bSSmkWZq1zA?t=7",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "d02_1767030021529",
-  "name": "d02",
+  "name": "d-02",
   "x": 39.6,
   "y": 70.2,
   "times": {
@@ -541,11 +1522,30 @@
     "silver": "00:56.000",
     "gold": "00:45.000",
     "author": "00:43.276"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 4,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 1
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/KUNmBnlC4u0?t=84",
+        "giftsYT": "https://youtu.be/bSSmkWZq1zA?t=211",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "d03_1767030042026",
-  "name": "d03",
+  "name": "d-03",
   "x": 39.6,
   "y": 65.5,
   "times": {
@@ -553,11 +1553,30 @@
     "silver": "00:51.000",
     "gold": "00:42.000",
     "author": "00:39.479"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 1,
+      "wheels": 0,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 2
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/KUNmBnlC4u0?t=169",
+        "giftsYT": "https://youtu.be/bSSmkWZq1zA?t=441",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "d04_1767030062711",
-  "name": "d04",
+  "name": "d-04",
   "x": 36,
   "y": 62.2,
   "times": {
@@ -565,11 +1584,30 @@
     "silver": "00:59.000",
     "gold": "00:48.000",
     "author": "00:45.777"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/KUNmBnlC4u0?t=235",
+        "giftsYT": "https://youtu.be/bSSmkWZq1zA?t=520",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "d05_1767030087865",
-  "name": "d05",
+  "name": "d-05",
   "x": 36,
   "y": 57.7,
   "times": {
@@ -577,11 +1615,30 @@
     "silver": "00:58.000",
     "gold": "00:46.000",
     "author": "00:44.602"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 5
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/KUNmBnlC4u0?t=313",
+        "giftsYT": "https://youtu.be/bSSmkWZq1zA?t=594",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "d06_1767030164628",
-  "name": "d06",
+  "name": "d-06",
   "x": 36,
   "y": 53.2,
   "times": {
@@ -589,11 +1646,30 @@
     "silver": "00:52.000",
     "gold": "00:41.000",
     "author": "00:40.288"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 1
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/KUNmBnlC4u0?t=397",
+        "giftsYT": "https://youtu.be/bSSmkWZq1zA?t=712",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "d07_1767030176198",
-  "name": "d07",
+  "name": "d-07",
   "x": 39.8,
   "y": 49.5,
   "times": {
@@ -601,11 +1677,30 @@
     "silver": "00:56.500",
     "gold": "00:49.000",
     "author": "00:47.351"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 3,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 3
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/KUNmBnlC4u0?t=468",
+        "giftsYT": "https://youtu.be/bSSmkWZq1zA?t=773",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "d08_1767030200237",
-  "name": "d08",
+  "name": "d-08",
   "x": 39.8,
   "y": 45.3,
   "times": {
@@ -613,11 +1708,30 @@
     "silver": "00:44.000",
     "gold": "00:38.000",
     "author": "00:36.911"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 3,
+      "blueFeathers": 1,
+      "wheels": 1,
+      "paintBlobs": 3,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 1
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/KUNmBnlC4u0?t=546",
+        "giftsYT": "https://youtu.be/bSSmkWZq1zA?t=1074",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "d09_1767030247116",
-  "name": "d09",
+  "name": "d-09",
   "x": 36.2,
   "y": 41.8,
   "times": {
@@ -625,11 +1739,30 @@
     "silver": "00:46.500",
     "gold": "00:40.000",
     "author": "00:38.818"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 0
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/KUNmBnlC4u0?t=619",
+        "giftsYT": "https://youtu.be/bSSmkWZq1zA?t=1813",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "d10_1767030267138",
-  "name": "d10",
+  "name": "d-10",
   "x": 32.2,
   "y": 38.2,
   "times": {
@@ -637,11 +1770,31 @@
     "silver": "00:45.000",
     "gold": "00:39.000",
     "author": "00:38.048"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 1,
+      "strange": 0,
+      "medals": { "author": 3 }
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 0
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/KUNmBnlC4u0?t=686",
+        "giftsYT": "https://youtu.be/bSSmkWZq1zA?t=1848",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "d11_1767030276791",
-  "name": "d11",
+  "name": "d-11",
   "x": 32.2,
   "y": 33.8,
   "times": {
@@ -649,11 +1802,30 @@
     "silver": "01:01.500",
     "gold": "00:52.000",
     "author": "00:51.230"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 4,
+      "snowflakes": 1
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/KUNmBnlC4u0?t=763",
+        "giftsYT": "https://youtu.be/bSSmkWZq1zA?t=1900",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "d12_1767030295416",
-  "name": "d12",
+  "name": "d-12",
   "x": 32.2,
   "y": 29.6,
   "times": {
@@ -661,6 +1833,25 @@
     "silver": "00:53.000",
     "gold": "00:45.000",
     "author": "00:44.415"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 0,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 2,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 0
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/KUNmBnlC4u0?t=849",
+        "giftsYT": "https://youtu.be/bSSmkWZq1zA?t=1978",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 
@@ -669,7 +1860,7 @@
 
 {
   "id": "e01_1767030317940",
-  "name": "e01",
+  "name": "e-01",
   "x": 31.1,
   "y": 57.7,
   "times": {
@@ -677,11 +1868,30 @@
     "silver": "00:41.000",
     "gold": "00:35.000",
     "author": "00:34.249"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/2gkTEzzZ6m0?t=7",
+        "giftsYT": "https://youtu.be/F5SPf6gRDZ0?t=7",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "e02_1767030347897",
-  "name": "e02",
+  "name": "e-02",
   "x": 26.2,
   "y": 57.7,
   "times": {
@@ -689,11 +1899,30 @@
     "silver": "00:55.000",
     "gold": "00:48.000",
     "author": "00:46.206"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/2gkTEzzZ6m0?t=72",
+        "giftsYT": "https://youtu.be/F5SPf6gRDZ0?t=20",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "e03_1767030368475",
-  "name": "e03",
+  "name": "e-03",
   "x": 22.4,
   "y": 54.4,
   "times": {
@@ -701,6 +1930,25 @@
     "silver": "00:36.500",
     "gold": "00:32.000",
     "author": "00:30.603"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/2gkTEzzZ6m0?t=148",
+        "giftsYT": "https://youtu.be/F5SPf6gRDZ0?t=50",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 
@@ -709,7 +1957,7 @@
 
 {
   "id": "f01_1767030425795",
-  "name": "f01",
+  "name": "f-01",
   "x": 36,
   "y": 66.8,
   "times": {
@@ -717,11 +1965,30 @@
     "silver": "01:20.000",
     "gold": "01:13.000",
     "author": "01:06.713"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 2,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 9,
+      "snowflakes": 2
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/wfWbcqltiE8?t=7",
+        "giftsYT": "https://youtu.be/vjLsUGGnUWA?t=7",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "f02_1767030504419",
-  "name": "f02",
+  "name": "f-02",
   "x": 40,
   "y": 54.3,
   "times": {
@@ -729,11 +1996,30 @@
     "silver": "01:04.000",
     "gold": "00:58.500",
     "author": "00:53.352"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 0,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 2,
+      "snowflakes": 0
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/wfWbcqltiE8?t=104",
+        "giftsYT": "",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "f03_1767030526906",
-  "name": "f03",
+  "name": "f-03",
   "x": 44.5,
   "y": 54.3,
   "times": {
@@ -741,11 +2027,30 @@
     "silver": "01:00.000",
     "gold": "00:52.000",
     "author": "00:47.457"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 2,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 6,
+      "snowflakes": 1
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/wfWbcqltiE8?t=189",
+        "giftsYT": "https://youtu.be/vjLsUGGnUWA?t=187",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "f04_1767030547269",
-  "name": "f04",
+  "name": "f-04",
   "x": 28.6,
   "y": 30.9,
   "times": {
@@ -753,11 +2058,30 @@
     "silver": "01:08.500",
     "gold": "01:03.000",
     "author": "00:57.527"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 0,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 4,
+      "snowflakes": 1
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/wfWbcqltiE8?t=264",
+        "giftsYT": "",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "f05_1767030556535",
-  "name": "f05",
+  "name": "f-05",
   "x": 28.6,
   "y": 26.3,
   "times": {
@@ -765,11 +2089,30 @@
     "silver": "01:18.000",
     "gold": "01:11.500",
     "author": "01:05.140"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 0,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 5,
+      "snowflakes": 1
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/wfWbcqltiE8?t=349",
+        "giftsYT": "",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "f06_1767030570271",
-  "name": "f06",
+  "name": "f-06",
   "x": 24.9,
   "y": 22.8,
   "times": {
@@ -777,6 +2120,25 @@
     "silver": "01:43.000",
     "gold": "01:34.000",
     "author": "01:25.728"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 0,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 2,
+      "snowflakes": 0
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/wfWbcqltiE8?t=448",
+        "giftsYT": "",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 
@@ -785,7 +2147,7 @@
 
 {
   "id": "g01_1767030474725",
-  "name": "g01",
+  "name": "g-01",
   "x": 30.8,
   "y": 66.6,
   "times": {
@@ -793,11 +2155,30 @@
     "silver": "00:55.000",
     "gold": "00:50.500",
     "author": "00:45.935"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 3,
+      "snowflakes": 0
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/TLT2gpx8PqQ?t=7",
+        "giftsYT": "https://youtu.be/R14NHzML1I8?t=7",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "g02_1767031898474",
-  "name": "g02",
+  "name": "g-02",
   "x": 25.7,
   "y": 66.6,
   "times": {
@@ -805,11 +2186,30 @@
     "silver": "01:03.000",
     "gold": "00:58.000",
     "author": "00:47.921"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/TLT2gpx8PqQ?t=84",
+        "giftsYT": "https://youtu.be/R14NHzML1I8?t=128",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "g03_1767032096128",
-  "name": "g03",
+  "name": "g-03",
   "x": 20.6,
   "y": 66.6,
   "times": {
@@ -817,11 +2217,30 @@
     "silver": "01:14.000",
     "gold": "01:08.000",
     "author": "01:01.971"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 3,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 1
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/TLT2gpx8PqQ?t=164",
+        "giftsYT": "https://youtu.be/R14NHzML1I8?t=215",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "g04_1767032116111",
-  "name": "g04",
+  "name": "g-04",
   "x": 15.5,
   "y": 66.6,
   "times": {
@@ -829,11 +2248,30 @@
     "silver": "01:01.000",
     "gold": "00:55.000",
     "author": "00:49.429"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 4
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/TLT2gpx8PqQ?t=257",
+        "giftsYT": "https://youtu.be/R14NHzML1I8?t=429",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "g05_1767032141991",
-  "name": "g05",
+  "name": "g-05",
   "x": 12,
   "y": 63.5,
   "times": {
@@ -841,11 +2279,30 @@
     "silver": "00:55.000",
     "gold": "00:49.500",
     "author": "00:40.767"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 1
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/TLT2gpx8PqQ?t=337",
+        "giftsYT": "https://youtu.be/R14NHzML1I8?t=492",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "g06_1767032185205",
-  "name": "g06",
+  "name": "g-06",
   "x": 12,
   "y": 58.7,
   "times": {
@@ -853,11 +2310,30 @@
     "silver": "00:59.500",
     "gold": "00:54.500",
     "author": "00:49.482"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 1
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/TLT2gpx8PqQ?t=409",
+        "giftsYT": "https://youtu.be/R14NHzML1I8?t=563",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "g07_1767032198602",
-  "name": "g07",
+  "name": "g-07",
   "x": 12,
   "y": 54,
   "times": {
@@ -865,11 +2341,30 @@
     "silver": "01:05.000",
     "gold": "00:59.500",
     "author": "00:54.054"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 2
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/TLT2gpx8PqQ?t=489",
+        "giftsYT": "https://youtu.be/R14NHzML1I8?t=664",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "g08_1767032220882",
-  "name": "g08",
+  "name": "g-08",
   "x": 12,
   "y": 49.4,
   "times": {
@@ -877,11 +2372,30 @@
     "silver": "00:49.000",
     "gold": "00:45.000",
     "author": "00:42.356"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 3
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/TLT2gpx8PqQ?t=576",
+        "giftsYT": "https://youtu.be/R14NHzML1I8?t=777",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "g09_1767032238498",
-  "name": "g09",
+  "name": "g-09",
   "x": 12,
   "y": 44.7,
   "times": {
@@ -889,6 +2403,25 @@
     "silver": "01:25.000",
     "gold": "01:20.000",
     "author": "01:16.443"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 1,
+      "wheels": 1,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 3,
+      "snowflakes": 2
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/TLT2gpx8PqQ?t=652",
+        "giftsYT": "https://youtu.be/R14NHzML1I8?t=892",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 
@@ -896,7 +2429,7 @@
 
 {
   "id": "h01_1767032262493",
-  "name": "h01",
+  "name": "h-01",
   "x": 77.7,
   "y": 55.8,
   "times": {
@@ -904,11 +2437,30 @@
     "silver": "01:16.000",
     "gold": "01:09.500",
     "author": "01:03.243"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 1
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/v1aCkli1oMc?t=7",
+        "giftsYT": "https://youtu.be/JIQYwUACCEA?t=7",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "h02_1767032301673",
-  "name": "h02",
+  "name": "h-02",
   "x": 77.7,
   "y": 52.1,
   "times": {
@@ -916,11 +2468,30 @@
     "silver": "02:04.000",
     "gold": "01:53.500",
     "author": "01:43.036"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 1,
+      "wheels": 1,
+      "paintBlobs": 5,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 1
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/v1aCkli1oMc?t=102",
+        "giftsYT": "https://youtu.be/JIQYwUACCEA?t=108",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "h03_1767032342848",
-  "name": "h03",
+  "name": "h-03",
   "x": 77.7,
   "y": 48.2,
   "times": {
@@ -928,11 +2499,30 @@
     "silver": "01:08.000",
     "gold": "01:02.000",
     "author": "00:56.476"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 2,
+      "wheels": 1,
+      "paintBlobs": 3,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 1
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/v1aCkli1oMc?t=236",
+        "giftsYT": "https://youtu.be/JIQYwUACCEA?t=950",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "h04_1767032367427",
-  "name": "h04",
+  "name": "h-04",
   "x": 81.4,
   "y": 44.7,
   "times": {
@@ -940,11 +2530,30 @@
     "silver": "00:43.500",
     "gold": "00:40.000",
     "author": "00:36.299"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 1
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/v1aCkli1oMc?t=324",
+        "giftsYT": "https://youtu.be/JIQYwUACCEA?t=1326",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "h05_1767032380926",
-  "name": "h05",
+  "name": "h-05",
   "x": 85.8,
   "y": 44.7,
   "times": {
@@ -952,11 +2561,30 @@
     "silver": "00:54.500",
     "gold": "00:50.000",
     "author": "00:45.500"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 0
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/v1aCkli1oMc?t=393",
+        "giftsYT": "https://youtu.be/JIQYwUACCEA?t=1369",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "h06_1766948921664",
-  "name": "h06",
+  "name": "h-06",
   "x": 90.5,
   "y": 44.7,
   "times": {
@@ -964,6 +2592,25 @@
     "silver": "01:11.500",
     "gold": "01:05.500",
     "author": "00:59.797"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/v1aCkli1oMc?t=470",
+        "giftsYT": "https://youtu.be/JIQYwUACCEA?t=1397",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 
@@ -972,7 +2619,7 @@
 
 {
   "id": "i01_1767032433492",
-  "name": "i01",
+  "name": "i-01",
   "x": 63.2,
   "y": 42.5,
   "times": {
@@ -980,11 +2627,30 @@
     "silver": "00:54.610",
     "gold": "00:50.059",
     "author": "00:45.508"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 0
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/Dm7zOobbibw?t=7",
+        "giftsYT": "https://youtu.be/n7P7SSj9dvA?t=7",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "i02_1767032458166",
-  "name": "i02",
+  "name": "i-02",
   "x": 66,
   "y": 40.1,
   "times": {
@@ -992,11 +2658,30 @@
     "silver": "00:59.791",
     "gold": "00:54.809",
     "author": "00:49.826"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 3,
+      "blueFeathers": 2,
+      "wheels": 1,
+      "paintBlobs": 4,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 2,
+      "snowflakes": 2
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/Dm7zOobbibw?t=82",
+        "giftsYT": "https://youtu.be/n7P7SSj9dvA?t=87",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "i03_1767032469742",
-  "name": "i03",
+  "name": "i-03",
   "x": 68.6,
   "y": 37.7,
   "times": {
@@ -1004,11 +2689,31 @@
     "silver": "01:02.224",
     "gold": "00:57.038",
     "author": "00:51.853"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 1,
+      "strange": 0,
+      "medals": { "gold": 5 }
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 2
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/Dm7zOobbibw?t=165",
+        "giftsYT": "https://youtu.be/n7P7SSj9dvA?t=558",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "i04_1767032511424",
-  "name": "i04",
+  "name": "i-04",
   "x": 71.4,
   "y": 35.2,
   "times": {
@@ -1016,11 +2721,30 @@
     "silver": "01:09.698",
     "gold": "01:03.890",
     "author": "00:58.082"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 2,
+      "wheels": 1,
+      "paintBlobs": 4,
+      "strange": 9
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 1
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/Dm7zOobbibw?t=270",
+        "giftsYT": "https://youtu.be/n7P7SSj9dvA?t=682",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "i05_1767032540004",
-  "name": "i05",
+  "name": "i-05",
   "x": 74,
   "y": 32.6,
   "times": {
@@ -1028,11 +2752,30 @@
     "silver": "00:46.022",
     "gold": "00:42.187",
     "author": "00:38.352"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/Dm7zOobbibw?t=359",
+        "giftsYT": "https://youtu.be/n7P7SSj9dvA?t=2701",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "i06_1767032576525",
-  "name": "i06",
+  "name": "i-06",
   "x": 74,
   "y": 29.5,
   "times": {
@@ -1040,11 +2783,30 @@
     "silver": "00:39.980",
     "gold": "00:36.649",
     "author": "00:33.317"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 0
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/Dm7zOobbibw?t=428",
+        "giftsYT": "https://youtu.be/n7P7SSj9dvA?t=2721",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "i07_1767032605726",
-  "name": "i07",
+  "name": "i-07",
   "x": 74,
   "y": 26.6,
   "times": {
@@ -1052,11 +2814,30 @@
     "silver": "01:05.884",
     "gold": "01:00.393",
     "author": "00:54.903"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 1
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/Dm7zOobbibw?t=491",
+        "giftsYT": "https://youtu.be/n7P7SSj9dvA?t=2740",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "i08_1767032625053",
-  "name": "i08",
+  "name": "i-08",
   "x": 74,
   "y": 23.8,
   "times": {
@@ -1064,6 +2845,25 @@
     "silver": "00:56.785",
     "gold": "00:52.053",
     "author": "00:47.321"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/Dm7zOobbibw?t=578",
+        "giftsYT": "https://youtu.be/n7P7SSj9dvA?t=2922",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 
@@ -1072,7 +2872,7 @@
 
 {
   "id": "y01_1767032709704",
-  "name": "y01",
+  "name": "y-01",
   "x": 12,
   "y": 40.2,
   "times": {
@@ -1080,11 +2880,30 @@
     "silver": "00:59.500",
     "gold": "00:54.500",
     "author": "00:49.674"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 3,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 2,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 2,
+      "snowflakes": 2
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/HkQMmLwXGiQ?t=7",
+        "giftsYT": "https://youtu.be/ii5S9VAg3vc?t=7",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "y02_1767032729018",
-  "name": "y02",
+  "name": "y-02",
   "x": 12,
   "y": 35.5,
   "times": {
@@ -1092,11 +2911,31 @@
     "silver": "00:30.000",
     "gold": "00:27.500",
     "author": "00:25.050"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0,
+      "medals": { "bronze": 2 }
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 1
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/HkQMmLwXGiQ?t=87",
+        "giftsYT": "https://youtu.be/ii5S9VAg3vc?t=373",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "y03_1766938249814",
-  "name": "y03",
+  "name": "y-03",
   "x": 12,
   "y": 30.7,
   "times": {
@@ -1104,11 +2943,30 @@
     "silver": "00:34.000",
     "gold": "00:31.000",
     "author": "00:29.422"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/HkQMmLwXGiQ?t=147",
+        "giftsYT": "https://youtu.be/ii5S9VAg3vc?t=387",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "y04_1766938179367",
-  "name": "y04",
+  "name": "y-04",
   "x": 7,
   "y": 28.2,
   "times": {
@@ -1116,6 +2974,25 @@
     "silver": "00:57.000",
     "gold": "00:52.000",
     "author": "00:47.595"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 11,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/HkQMmLwXGiQ?t=212",
+        "giftsYT": "https://youtu.be/ii5S9VAg3vc?t=423",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 
@@ -1124,7 +3001,7 @@
 
   {
   "id": "cl01_1766934045613",
-  "name": "cl01",
+  "name": "cl-01",
   "x": 12,
   "y": 26,
   "times": {
@@ -1132,11 +3009,30 @@
     "silver": "00:41.570",
     "gold": "00:38.106",
     "author": "00:34.642"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 3,
+      "wheels": 1,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/ZSE61Kvg_mI?t=7",
+        "giftsYT": "https://youtu.be/o7rmWKeseoo?t=7",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "cl02_1766934068495",
-  "name": "cl02",
+  "name": "cl-02",
   "x": 12,
   "y": 21.7,
   "times": {
@@ -1144,11 +3040,30 @@
     "silver": "01:02.354",
     "gold": "00:57.158",
     "author": "00:51.962"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 2,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/ZSE61Kvg_mI?t=69",
+        "giftsYT": "https://youtu.be/o7rmWKeseoo?t=340",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "cl03_1766934082475",
-  "name": "cl03",
+  "name": "cl-03",
   "x": 15.5,
   "y": 18.5,
   "times": {
@@ -1156,11 +3071,30 @@
     "silver": "00:16.362",
     "gold": "00:14.998",
     "author": "00:13.635"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 2,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/ZSE61Kvg_mI?t=152",
+        "giftsYT": "https://youtu.be/o7rmWKeseoo?t=443",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "cl04_1766934093572",
-  "name": "cl04",
+  "name": "cl-04",
   "x": 15.5,
   "y": 14.7,
   "times": {
@@ -1168,11 +3102,30 @@
     "silver": "00:51.700",
     "gold": "00:47.391",
     "author": "00:43.083"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 2
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/ZSE61Kvg_mI?t=197",
+        "giftsYT": "https://youtu.be/o7rmWKeseoo?t=545",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "cl05_1766934107194",
-  "name": "cl05",
+  "name": "cl-05",
   "x": 15.5,
   "y": 11.2,
   "times": {
@@ -1180,11 +3133,30 @@
     "silver": "00:24.445",
     "gold": "00:22.408",
     "author": "00:20.371"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 1,
+      "wheels": 1,
+      "paintBlobs": 2,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/ZSE61Kvg_mI?t=272",
+        "giftsYT": "https://youtu.be/o7rmWKeseoo?t=722",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "cl06_1766934120092",
-  "name": "cl06",
+  "name": "cl-06",
   "x": 19.2,
   "y": 7.9,
   "times": {
@@ -1192,6 +3164,25 @@
     "silver": "01:05.797",
     "gold": "01:00.314",
     "author": "00:54.831"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 1,
+      "wheels": 0,
+      "paintBlobs": 2,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 0
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/ZSE61Kvg_mI?t=324",
+        "giftsYT": "https://youtu.be/o7rmWKeseoo?t=866",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 
@@ -1200,7 +3191,7 @@
 
 {
   "id": "fl01_1767032790278",
-  "name": "fl01",
+  "name": "fl-01",
   "x": 65.7,
   "y": 35.1,
   "times": {
@@ -1208,11 +3199,30 @@
     "silver": "01:01.009",
     "gold": "00:55.925",
     "author": "00:50.841"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 3,
+      "wheels": 2,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 1
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/Mx1fsAneVVY?t=7",
+        "giftsYT": "https://youtu.be/wyYfkGpXOoo?t=7",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "fl02_1767032800691",
-  "name": "fl02",
+  "name": "fl-02",
   "x": 65.7,
   "y": 32,
   "times": {
@@ -1220,11 +3230,30 @@
     "silver": "01:20.344",
     "gold": "01:13.648",
     "author": "01:06.953"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 5,
+      "blueFeathers": 5,
+      "wheels": 2,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 2,
+      "snowflakes": 3
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/Mx1fsAneVVY?t=91",
+        "giftsYT": "https://youtu.be/wyYfkGpXOoo?t=208",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "fl03_1767032812465",
-  "name": "fl03",
+  "name": "fl-03",
   "x": 62.5,
   "y": 29,
   "times": {
@@ -1232,11 +3261,30 @@
     "silver": "01:03.912",
     "gold": "00:58.586",
     "author": "00:53.260"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 4,
+      "wheels": 1,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 1
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/Mx1fsAneVVY?t=190",
+        "giftsYT": "https://youtu.be/wyYfkGpXOoo?t=609",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "fl04_1767032833075",
-  "name": "fl04",
+  "name": "fl-04",
   "x": 62.5,
   "y": 25.6,
   "times": {
@@ -1244,6 +3292,25 @@
     "silver": "01:48.174",
     "gold": "01:39.160",
     "author": "01:30.145"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 0,
+      "blueFeathers": 4,
+      "wheels": 2,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 2,
+      "snowflakes": 1
+    }
+    },
+      "urls": {
+        "authorYT": "https://youtu.be/Mx1fsAneVVY?t=276",
+        "giftsYT": "https://youtu.be/wyYfkGpXOoo?t=814",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 
@@ -1252,7 +3319,7 @@
 
 {
   "id": "or01_1767032869132",
-  "name": "or01",
+  "name": "or-01",
   "x": 45.8,
   "y": 39.2,
   "times": {
@@ -1260,11 +3327,30 @@
     "silver": "00:46.487",
     "gold": "00:42.613",
     "author": "00:38.739"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 1
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/ZyNxWH2QcV8?t=7",
+        "giftsYT": "https://youtu.be/HpmL6uFuxZA?t=7",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "or02_1767032893443",
-  "name": "or02",
+  "name": "or-02",
   "x": 45.8,
   "y": 34.6,
   "times": {
@@ -1272,11 +3358,31 @@
     "silver": "01:27.433",
     "gold": "01:20.147",
     "author": "01:12.861"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 2,
+      "paintBlobs": 3,
+      "strange": 0,
+      "medals": { "silver": 2 }
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 3
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/ZyNxWH2QcV8?t=77",
+        "giftsYT": "https://youtu.be/HpmL6uFuxZA?t=119",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "or03_1767032918355",
-  "name": "or03",
+  "name": "or-03",
   "x": 48.7,
   "y": 29.8,
   "times": {
@@ -1284,11 +3390,30 @@
     "silver": "01:19.488",
     "gold": "01:12.864",
     "author": "01:06.240"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 3,
+      "wheels": 1,
+      "paintBlobs": 8,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 1
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/ZyNxWH2QcV8?t=185",
+        "giftsYT": "https://youtu.be/HpmL6uFuxZA?t=322",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "or04_1767032962010",
-  "name": "or04",
+  "name": "or-04",
   "x": 52.9,
   "y": 25.7,
   "times": {
@@ -1296,6 +3421,25 @@
     "silver": "01:24.323",
     "gold": "01:17.296",
     "author": "01:10.269"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 3,
+      "blueFeathers": 6,
+      "wheels": 1,
+      "paintBlobs": 8,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 1
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/ZyNxWH2QcV8?t=284",
+        "giftsYT": "https://youtu.be/HpmL6uFuxZA?t=1087",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 
@@ -1304,7 +3448,7 @@
 
 {
   "id": "xg01_1767033001400",
-  "name": "xg01",
+  "name": "xg-01",
   "x": 70.6,
   "y": 18,
   "times": {
@@ -1312,11 +3456,30 @@
     "silver": "00:40.000",
     "gold": "00:20.000",
     "author": "00:13.764"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 0,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 0
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/JQMLypA_LAo?t=7",
+        "giftsYT": "https://youtu.be/xOzabmhoAbs?t=7",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "xg02_1767033018433",
-  "name": "xg02",
+  "name": "xg-02",
   "x": 70.6,
   "y": 13.8,
   "times": {
@@ -1324,11 +3487,30 @@
     "silver": "00:40.000",
     "gold": "00:20.000",
     "author": "00:17.539"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 0,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 1
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/JQMLypA_LAo?t=51",
+        "giftsYT": "",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "xg03_1767033059156",
-  "name": "xg03",
+  "name": "xg-03",
   "x": 73.9,
   "y": 11,
   "times": {
@@ -1336,11 +3518,31 @@
     "silver": "01:20.000",
     "gold": "00:40.000",
     "author": "00:33.760"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 0,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 0,
+      "strange": 0,
+      "medals": { "author": 6 }
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 1
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/JQMLypA_LAo?t=99",
+        "giftsYT": "",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "xg04_1767033068704",
-  "name": "xg04",
+  "name": "xg-04",
   "x": 80,
   "y": 11,
   "times": {
@@ -1348,6 +3550,26 @@
     "silver": "01:05.000",
     "gold": "00:40.000",
     "author": "00:35.462"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 0,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 0,
+      "strange": 0,
+      "medals": { "author": 2 }
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 1
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/JQMLypA_LAo?t=180",
+        "giftsYT": "https://youtu.be/xOzabmhoAbs?t=32",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 
@@ -1356,7 +3578,7 @@
 
 {
   "id": "x01_1767004438632",
-  "name": "x01",
+  "name": "x-01",
   "x": 45.8,
   "y": 79.1,
   "times": {
@@ -1364,11 +3586,32 @@
     "silver": "01:15.000",
     "gold": "01:00.000",
     "author": "00:59.925"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 0,
+      "paintBlobs": 3,
+      "strange": 0,
+      "medals": { "bronze": 2,
+                  "author": 2 }
+    },
+    "seasonal": {
+      "pumpkins": 0,
+      "snowflakes": 0
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/ScWnhK_eEx4?t=7",
+        "giftsYT": "https://youtu.be/Cvi28TTcOkQ?t=7",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "x02_1767029427121",
-  "name": "x02",
+  "name": "x-02",
   "x": 22.4,
   "y": 49.9,
   "times": {
@@ -1376,11 +3619,30 @@
     "silver": "02:15.000",
     "gold": "02:05.000",
     "author": "01:57.827"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 0,
+      "blueFeathers": 1,
+      "wheels": 0,
+      "paintBlobs": 2,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 4,
+      "snowflakes": 1
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/ScWnhK_eEx4?t=102",
+        "giftsYT": "https://youtu.be/Cvi28TTcOkQ?t=127",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "x03_1766943012692",
-  "name": "x03",
+  "name": "x-03",
   "x": 52.9,
   "y": 18,
   "times": {
@@ -1388,11 +3650,30 @@
     "silver": "03:15.000",
     "gold": "03:05.000",
     "author": "02:54.939"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 1
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/ScWnhK_eEx4?t=246",
+        "giftsYT": "https://youtu.be/Cvi28TTcOkQ?t=253",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "x04_1766945683620",
-  "name": "x04",
+  "name": "x-04",
   "x": 58.5,
   "y": 40.9,
   "times": {
@@ -1400,11 +3681,30 @@
     "silver": "01:09.674",
     "gold": "01:03.868",
     "author": "00:58.062"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 1,
+      "blueFeathers": 1,
+      "wheels": 1,
+      "paintBlobs": 3,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 2,
+      "snowflakes": 1
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/ScWnhK_eEx4?t=448",
+        "giftsYT": "https://youtu.be/Cvi28TTcOkQ?t=515",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "x05_1767029498785",
-  "name": "x05",
+  "name": "x-05",
   "x": 67.9,
   "y": 93.6,
   "times": {
@@ -1412,11 +3712,31 @@
     "silver": "01:11.376",
     "gold": "01:05.428",
     "author": "00:59.480"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 2,
+      "blueFeathers": 3,
+      "wheels": 1,
+      "paintBlobs": 3,
+      "strange": 0,
+      "medals": { "gold": 5 }
+    },
+    "seasonal": {
+      "pumpkins": 2,
+      "snowflakes": 2
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/ScWnhK_eEx4?t=531",
+        "giftsYT": "https://youtu.be/Cvi28TTcOkQ?t=764",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 },
 {
   "id": "x06_1767029538621",
-  "name": "x06",
+  "name": "x-06",
   "x": 74,
   "y": 21,
   "times": {
@@ -1424,6 +3744,25 @@
     "silver": "01:19.103",
     "gold": "01:12.511",
     "author": "01:05.919"
+  },
+  "collectibles": {
+    "permanent": {
+      "redGifts": 6,
+      "blueFeathers": 0,
+      "wheels": 1,
+      "paintBlobs": 1,
+      "strange": 0
+    },
+    "seasonal": {
+      "pumpkins": 1,
+      "snowflakes": 3
+    }
+     },
+      "urls": {
+        "authorYT": "https://youtu.be/ScWnhK_eEx4?t=634",
+        "giftsYT": "https://youtu.be/Cvi28TTcOkQ?t=1124",
+        "pumpkinsYT": "",
+        "snowflakesYT": ""
   }
 }
 ]

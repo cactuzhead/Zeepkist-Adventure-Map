@@ -13,44 +13,93 @@
     </head>
     <body>
         <header class="topbar">
-            <div class="brand">Zeepkist Adventure Map</div>
+            <div class="brand">Zeepkist Adventure Map</div>       
 
             <div class="medals">
                 <div class="progress">
-                    <span class="medal cross">
+                    <span class="medal cross" data-tooltip="Uncompleted levels">
                     <span class="icon"></span>
-                    <span id="remainingCount">0</span>
-                    <span class="tooltip-text">Uncompleted levels</span>
+                    <span id="remainingCount">0</span>                    
                 </span>
 
-                <span class="medal bronze">
+                <span class="medal bronze" data-tooltip="Bronze levels completed">
                     <span class="icon"></span>
-                    <span id="bronzeCount">0</span>
-                    <span class="tooltip-text">Bronze levels completed</span>
+                    <span id="bronzeCount">0</span>                    
                 </span>
 
-                <span class="medal silver">
+                <span class="medal silver" data-tooltip="Silver levels completed">
                     <span class="icon"></span>
-                    <span id="silverCount">0</span>
-                    <span class="tooltip-text">Silver levels completed</span>
+                    <span id="silverCount">0</span>                   
                 </span>
 
-                <span class="medal gold">
+                <span class="medal gold" data-tooltip="Gold levels completed">
                     <span class="icon"></span>
-                    <span id="goldCount">0</span>
-                    <span class="tooltip-text">Gold levels completed</span>
+                    <span id="goldCount">0</span>                    
                 </span>
 
-                <span class="medal author">
+                <span class="medal author" data-tooltip="Author levels completed">
                     <span class="icon"></span>
-                    <span id="authorCount">0</span>
-                    <span class="tooltip-text">Author levels completed</span>
+                    <span id="authorCount">0</span>                    
                 </span>                       
                     <span class="medal total">Total:<span id="totalCount">0</span></span>
                 </div>
             </div>
 
+            <div class="collectables-totals">
+                <div class="progress">
+
+                    <span class="collectable-total redGifts" data-tooltip="Red Gifts collected">
+                        <span class="icon"></span>
+                        <span id="redGiftsCount">0</span>                        
+                    </span>
+
+                    <span class="collectable-total blueFeathers" data-tooltip="Blue Feathers collected">
+                        <span class="icon"></span>
+                        <span id="blueFeathersCount">0</span>                        
+                    </span>
+
+                    <span class="collectable-total wheels" data-tooltip="Wheels collected">
+                        <span class="icon"></span>
+                        <span id="wheelsCount">0</span>                       
+                    </span>
+
+                    <span class="collectable-total paintBlobs" data-tooltip="Paint Blobs collected">
+                        <span class="icon"></span>
+                        <span id="paintBlobsCount">0</span>                       
+                    </span>
+
+                    <span class="collectable-total strange" data-tooltip="Strange collected">
+                        <span class="icon"></span>
+                        <span id="strangeCount">0</span>                        
+                    </span>
+
+                    <span class="collectable-total medals" data-tooltip="Medals collected">
+                        <span class="icon"></span>
+                        <span id="medalsCount">0</span>                        
+                    </span>
+
+                    <span class="collectable-total pumpkins seasonal" data-tooltip="Pumpkins collected">
+                        <span class="icon"></span>
+                        <span id="pumpkinsCount">0</span>                      
+                    </span>
+
+                    <span class="collectable-total snowflakes seasonal" data-tooltip="Snowflakes collected">
+                        <span class="icon"></span>
+                        <span id="snowflakesCount">0</span>                       
+                    </span>
+
+                    </span>                       
+                        <span class="medal total"><span id="giftsTotalCount">0</span></span>
+                    </div>
+
+                </div>
+                </div>
+
+
             <div class="controls">
+                <a href="cosmetics.html"
+                    target="_self" rel="noopener" class="topbar-link">Cosmetics Index
+                </a>
                 <a href="https://github.com/cactuzhead/Zeepkist-Adventure-Map"
                     target="_blank" rel="noopener" class="topbar-link">Read Me
                 </a>
@@ -72,10 +121,25 @@
             <div id="dots"></div>
         </div>
 
-        <div id="globalTooltip"></div>
-        <div id="globalMedalTooltip"></div>
+        <div id="levelCard" class="level-card"></div>
+        <div id="hoverTooltip"></div>
+
+        <div id="videoModal" class="video-modal">
+            <div class="video-backdrop"></div>
+            <div class="video-content">
+                <button class="video-close">×</button>
+                <iframe
+                    id="videoFrame"
+                    src=""
+                    frameborder="0"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>       
 
         <!-- <script src="create.js"></script> -->
-        <script src="script.js"></script>
+        <!-- <script src="script.js"></script> -->
+        <script src="script_collectables.js"></script>
     </body>
 </html>
