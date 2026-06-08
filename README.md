@@ -1,5 +1,5 @@
 # Zeepkist Adventure Map
-<img src="docs/assets/Zeepkist Adventure Map - Hero Banner V2.png" alt="Zeepkist Adventure Map" style="width: 500px; height: auto;">
+<img src="docs/assets/Zeepkist Adventure Map - Hero Banner v2.png" alt="Zeepkist Adventure Map" style="width: 500px; height: auto;">
 
 <a href="zeepkist.cactuzhead.com">zeepkist.cactuzhead.com</a>
 
