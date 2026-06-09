@@ -325,22 +325,20 @@ if (level.collectibles) {
             let total;
             let collected;
 
-        if (type === 'medals') {
-
-    // Hide medal gifts on map collectable levels
-    if (isMapCollectableLevel(level)) {
-        total = 0;
-        collected = 0;
-    } else {
-        total = getMedalTotal(level);
-        collected = getCollectedMedals(level);
-    }
-
-} else {
-    total = level.collectibles[groupName][type];
-    const remaining = collectiblestate[type] ?? total;
-    collected = total - remaining;
-}
+            if (type === 'medals') {
+                // Hide medal gifts on map collectable levels
+                if (isMapCollectableLevel(level)) {
+                    total = 0;
+                    collected = 0;
+                } else {
+                    total = getMedalTotal(level);
+                    collected = getCollectedMedals(level);
+                }
+            } else {
+                total = level.collectibles[groupName][type];
+                const remaining = collectiblestate[type] ?? total;
+                collected = total - remaining;
+            }
 
             const meta = COLLECTABLE_META[type];
             if (!meta) continue;
