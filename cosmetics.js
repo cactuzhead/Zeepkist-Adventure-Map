@@ -375,6 +375,7 @@ function formatUnlock(str) {
     if (str.toLowerCase() === "red-gifts") return "Red Gifts";
     if (str.toLowerCase() === "blue-feathers") return "Blue Feathers";    
     if (str.toLowerCase() === "paint-blobs") return "Paint Blobs";
+    if (str.toLowerCase() === "gears") return "Gear Gifts";
     if (str.toLowerCase() === "medals-bronze") return "Bronze Medal";
     if (str.toLowerCase() === "medals-silver") return "Silver Medal";
     if (str.toLowerCase() === "medals-gold") return "Gold Medal";

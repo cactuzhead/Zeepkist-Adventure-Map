@@ -488,9 +488,10 @@ const COLLECTABLE_META = {
     wheels: { label: 'Wheels' },
     paintBlobs: { label: 'Paint Blobs' },
     strange: { label: 'Strange' },
+    gears: { label: 'Gear Gifts' },
     medals: { label: 'Medal Gifts' },
     pumpkins: { label: 'Pumpkins' },
-    snowflakes: { label: 'Snowflakes' }    
+    snowflakes: { label: 'Snowflakes' }
 };
 
 
