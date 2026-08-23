@@ -8,6 +8,16 @@ This website lets you track your progress in Zeepkist’s Adventure Map, includi
 
 Click any map pin to cycle through the different completion states, making it easy to mark your progress and quickly see which maps you’ve already completed.
 
+## Release 1.2.0
+Release 1.2.0 includes all the Zeepkist v18 features, including:
+
+ - Added L-01 to L-06 to the Adventure Map (as well as total gear count)
+ - `L Author Times` video for L-01 to L-06
+ - `L Collectables` video for all gears
+ - Updated `I Collectables` video to include 10th Strange Gift
+ - Added all 49 new collectables to the Cosmetics Index
+ - Coded in the new Gears to the website so that they can be tracked like all other collectables
+
 ## Release 1.1.0
 Release 1.1.0 introduces gift collection tracking, including:
 
@@ -16,6 +26,7 @@ Release 1.1.0 introduces gift collection tracking, including:
 - Blue Feathers
 - Wheels
 - Strange Gifts
+- Gear Gifts
 - Medal Gifts
 - Seasonal Pumpkins
 - Seasonal Snowflakes
@@ -23,7 +34,6 @@ Release 1.1.0 introduces gift collection tracking, including:
 You’ll also find direct links to YouTube guides to help you collect gifts and complete author runs.
 
 In addition, the new Cosmetics Index page lets you browse, search, and sort every cosmetic item currently in the game - over 3500 items so far. Where applicable, cosmetics also include links to YouTube videos showing how to unlock them.
-
 
 <br>
   <div>
@@ -110,13 +120,19 @@ To close the popup window, click the `X` button in the top-right corner or simpl
 The level name and the horizontal line beside it (representing the track) always match the color of the track on the main map. For example, all Y (YouTuber) levels are shown in red and all OR (Off-Road) maps are a bright green.
 
 ## Colletables
-This bottom section of the popup card shows all the collectables, starting with the five permanet ones (red gift, blue feather, wheel, paint blob & strange), then followed by the medals cosmetics for completing medal times (See `Automatic Medal Gifts` section above), and then the two seasonal collectables (pumpkins and snowflakes).
+This bottom section of the popup card shows all the collectables, starting with the five permanet ones (red gift, blue feather, wheel, paint blob, strange & gear), then followed by the medals cosmetics for completing medal times (See `Automatic Medal Gifts` section above), and then the two seasonal collectables (pumpkins and snowflakes).
 
 <img src="docs/assets/collectables.png" alt="collectables" style="width: 350px; height: auto;">
 
 If a level has any collectables, they will be highlighted here and have text values for collected/total to their right.
 
 Any collectables types not found in the level at all are dimmed, and have no text next to them.
+
+<img src="docs/assets/collectablesGears.png" alt="collectables gears" style="width: 300px; height: auto;">
+
+As of Zeepkist v18, we now have an additional collectable type - Gears.
+
+They will be displayed on all level pop-up cards, although at this point in time, all will be dimmed except for L-01 to L-06 as no other map has gear gifts.
 
 In zeepkist you have many different collectables hidden around the adventure levels as well as 3 red gifts, 1 blue feather and 1 wheel in the overworld map itself.
 
@@ -129,6 +145,7 @@ I have seperated all of these into two types: `permanent` and `seasonal`.
 - Paint Blobs
 - Strange
 - Medal Times
+- Gears
 
 #### Seasonal Collectables
 - Pumpkins
