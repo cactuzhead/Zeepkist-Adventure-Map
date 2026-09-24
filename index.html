@@ -108,11 +108,38 @@
                 <a href="https://github.com/cactuzhead/Zeepkist-Adventure-Map"
                     target="_blank" rel="noopener" class="topbar-link">Read Me
                 </a>
-                <button id="exportBtn" class="topbar-link">Export</button>
+                <button id="exportBtn" class="topbar-link">Save</button>
                 <label class="topbar-link">
-                    Import
+                    Load
                     <input type="file" id="importInput" accept="application/json" hidden>
-                </label>          
+                </label>
+
+                <span class="zeepsave-help">
+                    <label class="topbar-link">
+                        Import Zeepsave
+                        <input type="file" id="zeepsaveInput" accept=".zeepsave" hidden>
+                    </label>
+
+                    <div class="zeepsave-popup">
+                        <strong>Select your Zeepkist <span class="zeepsave-name">Progression.zeepsave</span> file</strong>
+
+                        <div class="zeepsave-path">
+                            <strong>Windows</strong>
+                            <div class="path-row">
+                                <code>Users\YOUR USER NAME\AppData\LocalLow\Steelpan Interactive\Zeepkist\Technical</code>
+                                <button class="copy-path-btn" data-path="Users\YOUR USER NAME\AppData\LocalLow\Steelpan Interactive\Zeepkist\Technical" title="Copy path">📋</button>
+                            </div>
+                        </div>
+
+                        <div class="zeepsave-path">
+                            <strong>Linux</strong>
+                            <div class="path-row">
+                               <code>~/.local/share/Steam/steamapps/compatdata/1440670/pfx/drive_c/users/steamuser/AppData/LocalLow/Steelpan Interactive/Zeepkist/Technical</code>
+                                <button class="copy-path-btn" data-path="~/.local/share/Steam/steamapps/compatdata/1440670/pfx/drive_c/users/steamuser/AppData/LocalLow/Steelpan Interactive/Zeepkist/Technical" title="Copy path">📋</button>
+                            </div>
+                        </div>
+                    </div>
+                </span>
 
                 <label class="switch">
                     <input id="themeToggle" type="checkbox">
@@ -127,6 +154,7 @@
         </div>
 
         <div id="levelCard" class="level-card"></div>
+        <pre id="output" style="color: white; white-space: pre-wrap;"></pre>
         <div id="hoverTooltip"></div>
 
         <div id="videoModal" class="video-modal">
