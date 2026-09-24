@@ -255,6 +255,11 @@ And as the personal best is between silver and gold times - only the bronze and 
 
  Please note that your old save backup will still have the old times - so it would be a good time to save a new backup file.
 
+**`NOTE:`** If you manually change a pin to a higher medal than you have actually earned, that change will persist even after re-importing your `.zeepsave` file. You will need to manually change the pin back to the correct medal.
+
+Alternatively, set the pin to a lower medal than you have earned - or, preferably, remove the medal entirely - and then re-import your `.zeepfile` to restore the correct medal.
+
+**In short: manually edited pin values override imported values.**
 
 ## Light/Dark Theme
 Toggling this will switch your page between the dark and light themes. You can set your preference separately for the `Adventure Map` and `Cosmetics Index` pages if you like.
