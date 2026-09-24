@@ -229,7 +229,7 @@ As of version 1.3.0, you will now have an additional button called `Import Zeeps
 This button will allow you to open your `Progression.zeepsave` file which can normally be found in one of these folders:
 
 ### Windows Folder
-`Users\YOUR USER NAME\AppData\LocalLow\Steelpan Interactive\Zeepkist\Technical`
+`c:\Users\YOUR USER NAME\AppData\LocalLow\Steelpan Interactive\Zeepkist\Technical`
 
 ### Linux Folder
 `~/.local/share/Steam/steamapps/compatdata/1440670/pfx/drive_c/users/steamuser/AppData/LocalLow/Steelpan Interactive/Zeepkist/Technical`
