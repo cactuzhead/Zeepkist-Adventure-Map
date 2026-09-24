@@ -451,35 +451,3 @@ I will post in the Zeepkist discord when they have been added.
 
 
 
-I have updated my interactive Zeepkist Adventure Map & Cosmetics Index website found at
-
-**[zeepkist.cactuzhead.com](https://zeepkist.cactuzhead.com)**
-
-The website helps you monitor your Adventure Map progress with features including:
-
-- Medal progression tracking
-- Collectible gift progression tracking
-- Detailed level statistics
-    - Level thumbnails
-    - Medal times
-- YouTube guide links
-    - Author runs
-    - Collectable locations
-- Load and save your adventure map data
-
-## Release 1.2.0
-Release 1.2.0 includes all the Zeepkist v18 features, including:
-
- - Added L-01 to L-06 to the Adventure Map (as well as total gear count)
- - `L Author Times` video for L-01 to L-06
- - `L Collectables` video for all gears
- - Updated `I Collectables` video to include 10th Strange Gift
- - Added all 49 new collectables to the Cosmetics Index
- - Coded in the new Gears to the website so that they can be tracked like all other collectables
-
-**[zeepkist.cactuzhead.com](https://zeepkist.cactuzhead.com)**
-**[my github](https://github.com/cactuzhead)**
-and for full documentation visit my github page here
-https://github.com/cactuzhead/Zeepkist-Adventure-Map
-
-Also I have included the updated adventure map with this post in case anyone finds it helpful
