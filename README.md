@@ -8,6 +8,14 @@ This website lets you track your progress in Zeepkist’s Adventure Map, includi
 
 Click any map pin to cycle through the different completion states, making it easy to mark your progress and quickly see which maps you’ve already completed.
 
+## Release 1.3.0
+Release 1.3.0 introduces automatically loading your `Progression.zeepsave` file which will do the following:
+ - All your personal best times will be added to the level popup card (underneath the medal times)
+ - Your medal times will automatically reflect your best time - i.e. you improve your best time and you now have a gold medal beating time
+ - The Adventure Map pins will also change to reflect which is the best medal you have for that level
+ - The original Import and Export buttons still work the same, but are now renamed to `Load` and `Save`
+ - There is now an additional `Import Zeepsave` button which will read your current best times for the adventure map.
+
 ## Release 1.2.0
 Release 1.2.0 includes all the Zeepkist v18 features, including:
 
@@ -187,9 +195,9 @@ You can toggle betweeen including seasonal gifts or not, by clicking the text.
 
 
 ## Controls
-<img src="docs/assets/controls.png" alt="menu controls" style="width: 400px; height: auto;">
+<img src="docs/assets/controls.png" alt="menu controls" style="width: 600px; height: auto;">
 
-There is a button to go to the new `Cosmetics Index` page (see below for more info), a button to reach this read me file, export & import buttons, and a toggle to change between light and dark mode.
+There is a button to go to the new `Cosmetics Index` page (see below for more info), a button to reach this read me file, save & laod buttons, an import Zeepsave button and a toggle to change between light and dark mode.
 
 ## Cosmetics Index & Adventure Map
 Depending on which page you are on you will either see a `Cosmetics Index` or `Adventure Map` button.
@@ -206,14 +214,47 @@ Your data is stored locally in your browser using localStorage, which means it d
 As a result, if you clear your browser data or switch to another device or browser, your saved progress may be unavailable or permanently lost.
 
 
-### Export / Import
-I recommend exporting a backup of your data to a locally saved JSON file using the `Export` button in the top menu bar.
+## Save / Load (pre v1.3.0 called Export / Import)
+I recommend exporting a backup of your data to a locally saved JSON file using the `Save` button in the top menu bar.
 
-This allows you to `Import` the data back into the same browser - or into a different browser or device if needed.
+This allows you to `Load` the data back into the same browser - or into a different browser or device if needed.
 
-Please note that any changes made after exporting will not automatically sync between browsers or devices.
+Please note that any changes made after saving will not automatically sync between browsers or devices.
 
-You are also free to create and keep multiple export files if you wish  - how you manage them is entirely up to you.
+You are also free to create and keep multiple save files if you wish - how you manage them is entirely up to you.
+
+## Import Zeepsave
+As of version 1.3.0, you will now have an additional button called `Import Zeepsave`.
+
+This button will allow you to open your `Progression.zeepsave` file which can normally be found in one of these folders:
+
+### Windows Folder
+`Users\YOUR USER NAME\AppData\LocalLow\Steelpan Interactive\Zeepkist\Technical`
+
+### Linux Folder
+`~/.local/share/Steam/steamapps/compatdata/1440670/pfx/drive_c/users/steamuser/AppData/LocalLow/Steelpan Interactive/Zeepkist/Technical`
+
+<img src="docs/assets/zeepsavePopup.png" alt="menu controls" style="width: 500px; height: auto;">
+
+For ease of use, you can copy the file path by using the clipboard button to the right of the Windows or Linux sections on the popup that appears when hovering over the `Import zeepsave` button. 
+Remember to change `YOUR USER NAME` to be correct for your Windows system. 
+
+It is recommended that before you use this import feature, you always save your current data by pressing the `Save` button - just in case there is a problem.
+
+Once you import the zeepsave file, all your personal best times will be added to the level popup card. As you can see in the image bellow, the personal best time is in purple directly underneath the medal times.
+And as the personal best is between silver and gold times - only the bronze and silver times have been completed.
+
+<img src="docs/assets/personalBestTime.png" alt="menu controls" style="width: 250px; height: auto;">
+
+ Your medal times will automatically reflect your best time - i.e. you improve your best silver medal time and you now have a gold medal beating time.
+
+ The Adventure Map pins will also automatically change to reflect which is the best medal you have for that level.
+
+ ### Update Times
+ If you want to update all the times and pins, you just have to re-import the `Progression.zeepsave` file and this will overwrite the old times.
+
+ Please note that your old save backup will still have the old times - so it would be a good time to save a new backup file.
+
 
 ## Light/Dark Theme
 Toggling this will switch your page between the dark and light themes. You can set your preference separately for the `Adventure Map` and `Cosmetics Index` pages if you like.
@@ -396,3 +437,44 @@ They should automatically be seen when hovering over the thumbnail when they are
 I only started this project in January and missed the chance to record these collectables with my 2nd Steam account (I had already completed them all in my main account), but I will endeavor to collect them all and update this website in October and December 2026 as soon as I can record, edit and publish the videos.
 
 I will post in the Zeepkist discord when they have been added.
+
+
+
+
+
+
+
+
+
+I have updated my interactive Zeepkist Adventure Map & Cosmetics Index website found at
+
+**[zeepkist.cactuzhead.com](https://zeepkist.cactuzhead.com)**
+
+The website helps you monitor your Adventure Map progress with features including:
+
+- Medal progression tracking
+- Collectible gift progression tracking
+- Detailed level statistics
+    - Level thumbnails
+    - Medal times
+- YouTube guide links
+    - Author runs
+    - Collectable locations
+- Load and save your adventure map data
+
+## Release 1.2.0
+Release 1.2.0 includes all the Zeepkist v18 features, including:
+
+ - Added L-01 to L-06 to the Adventure Map (as well as total gear count)
+ - `L Author Times` video for L-01 to L-06
+ - `L Collectables` video for all gears
+ - Updated `I Collectables` video to include 10th Strange Gift
+ - Added all 49 new collectables to the Cosmetics Index
+ - Coded in the new Gears to the website so that they can be tracked like all other collectables
+
+**[zeepkist.cactuzhead.com](https://zeepkist.cactuzhead.com)**
+**[my github](https://github.com/cactuzhead)**
+and for full documentation visit my github page here
+https://github.com/cactuzhead/Zeepkist-Adventure-Map
+
+Also I have included the updated adventure map with this post in case anyone finds it helpful
