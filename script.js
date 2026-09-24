@@ -1,4 +1,5 @@
 let activeTooltipWrapper = null;
+const globalTooltip = document.getElementById('hoverTooltip');
 
 fetch('levels.json')
 .then(res => res.json())
@@ -185,6 +186,148 @@ document.getElementById('importInput').addEventListener('change', e => {
     };
     reader.readAsText(file);
 });
+
+
+document.getElementById('zeepsaveInput').addEventListener('change', e => {
+    const file = e.target.files[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+        try {
+            const data = JSON.parse(reader.result);
+
+            const lines = Object.values(data.AdventureTimes)
+                .map(entry => `${transformLevelUID(entry.LevelUID)}, ${entry.Time.toFixed(3)}`);
+
+            // Now fetch levels.json and run the comparison
+            fetch('levels.json')
+                .then(res => res.json())
+                .then(levelsData => {
+                    const results = compareToMedals(lines, levelsData);
+                    console.table(results);
+                })
+                .catch(err => console.error('Failed to load levels.json:', err));
+
+        } catch (err) {
+            console.error('Failed to parse/process file:', err);
+        }
+    };
+    reader.readAsText(file);
+});
+
+const zeepSaveHelp = document.querySelector('.zeepsave-help');
+const zeepSavePopup = document.querySelector('.zeepsave-popup');
+
+zeepSaveHelp.addEventListener('mouseenter', () => {
+    const rect = zeepSaveHelp.getBoundingClientRect();
+
+    zeepSavePopup.style.display = 'block';
+
+    const popupWidth = zeepSavePopup.offsetWidth;
+    zeepSavePopup.style.left = `${rect.right - popupWidth}px`;
+    zeepSavePopup.style.top = `${rect.bottom + 10}px`;
+});
+
+zeepSaveHelp.addEventListener('mouseleave', () => {
+    zeepSavePopup.style.display = 'none';
+});
+
+function transformLevelUID(uid) {
+    let result;
+
+    // secretN -> XN
+    if (/^secret/i.test(uid)) {
+        result = uid.replace(/^secret/i, 'X');
+    }
+    // ea followed directly by a digit (ea1, ea23...) -> remove only the "e"
+    else if (/^ea\d/.test(uid)) {
+        result = uid.replace(/^ea/, 'a');
+    }
+    // ea followed by a letter (ead1, eab2, eac3...) -> remove the whole "ea"
+    else if (/^ea/.test(uid)) {
+        result = uid.replace(/^ea/, '');
+    }
+    // anything else untouched
+    else {
+        result = uid;
+    }
+
+    return result.toUpperCase();
+}
+
+// Convert "MM:SS.mmm" -> total seconds (float)
+function medalTimeToSeconds(timeStr) {
+    const [minutes, secondsPart] = timeStr.split(':');
+    return parseInt(minutes, 10) * 60 + parseFloat(secondsPart);
+}
+
+// Normalize a name for matching: uppercase, strip anything that isn't A-Z0-9
+// so "x-06" -> "X06", "L01" -> "L01", "A1" -> "A1"
+function normalizeName(name) {
+    let clean = name.toUpperCase().replace(/[^A-Z0-9]/g, '');
+
+    // Split into letter prefix + trailing digit suffix, pad digits to 2 places
+    const match = clean.match(/^([A-Z]+)(\d+)$/);
+    if (match) {
+        const letters = match[1];
+        const digits = match[2].padStart(2, '0');
+        return letters + digits;
+    }
+
+    return clean;
+}
+
+function compareToMedals(zeeLines, levelsData) {
+    const zeeTimes = {};
+    zeeLines.forEach(line => {
+        const [name, timeStr] = line.split(', ');
+        zeeTimes[normalizeName(name)] = parseFloat(timeStr);
+    });
+
+    // Filter out placeholder "map" entries before doing anything else
+    const realLevels = levelsData.filter(level => normalizeName(level.name) !== 'MAP');
+
+    console.log('Total entries in levels.json:', levelsData.length);
+    console.log('Real levels (excluding "map" placeholders):', realLevels.length);
+    console.log('zeeTimes keys (' + Object.keys(zeeTimes).length + '):', Object.keys(zeeTimes).sort());
+
+    const unmatched = [];
+    const results = [];
+
+    realLevels.forEach(level => {
+        const normalizedLevelName = normalizeName(level.name);
+        const zeeTime = zeeTimes[normalizedLevelName];
+
+        if (zeeTime === undefined) {
+            unmatched.push({ levelName: level.name, normalized: normalizedLevelName });
+            return;
+        }
+
+        const medalOrder = ['author', 'gold', 'silver', 'bronze'];
+        let matchedMedal = null;
+
+        for (const medal of medalOrder) {
+            const medalSeconds = medalTimeToSeconds(level.times[medal]);
+            if (zeeTime < medalSeconds) {
+                matchedMedal = { medal, medalTime: medalSeconds.toFixed(3) };
+                break;
+            }
+        }
+
+        results.push({
+            name: level.name,
+            medal: matchedMedal ? matchedMedal.medal : 'no medal',
+            medalTime: matchedMedal ? matchedMedal.medalTime : medalTimeToSeconds(level.times.bronze).toFixed(3),
+            zeepsaveTime: zeeTime.toFixed(3)
+        });
+    });
+
+    console.log('Matched results:', results.length);
+    console.log('Unmatched levels (' + unmatched.length + '):', unmatched);
+
+    return results;
+}
 
 
 // global hide - only when mouse is far from all dots
