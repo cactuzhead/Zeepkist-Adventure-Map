@@ -229,6 +229,18 @@ body {
 #levelCard.gold    { border-color: #ffd700; }
 #levelCard.author  { border-color: #69B53C; }
 
+
+.collectedCosmetic {
+    /* color: #4caf50; */
+    /* 7c95b5 */
+    border: 3px solid #394a74; 
+}
+
+.uncollectedCosmetic {
+    color: #af4c4c;
+    border: 3px solid #af4c4c;
+}
+
 /* Arrow */
 .tooltip::after {
     content: "";
@@ -628,9 +640,14 @@ body {
 }
 
 .collectable.collected,
-.dot.map-collectable-dot.collected {
-    opacity: 0.35;
-    filter: grayscale(1);
+.dot.map-collectable-dot.collected,
+.collectable.no-items {
+    opacity: 0.65 !important;
+    filter: grayscale(1) !important;
+}
+
+.collectable.collected .count {
+    opacity: 0.65 !important;
 }
 
 .collectable .icon {
@@ -677,6 +694,11 @@ body {
 }
 
 .collectable-total.collected {
+    opacity: 0.35;
+}
+
+.collectable-total.pumpkins.collected,
+.collectable-total.snowflakes.collected {
     opacity: 0.35;
 }
 

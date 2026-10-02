@@ -8,6 +8,16 @@ This website lets you track your progress in Zeepkist’s Adventure Map, includi
 
 Click any map pin to cycle through the different completion states, making it easy to mark your progress and quickly see which maps you’ve already completed.
 
+## Release 1.4.0
+Release 1.4.0 expands what importing your `Progression.zeepsave` file will do:
+- Now all your collectables will also be automatically found and your Adventure Map will update every time you import.
+- If you use the import, you do not need to manually set each collectable (or medal).
+- Cosmetics Index now differenciates between locked and unlocked collectables (locked are red)
+- You can now filter using `All Cosmetics`, `Unlocked` or `Locked`.
+- Note at the moment DLC and Steam Achievements cosmetics are always set to red/locked (I will work on fixing this next).
+- Created my YouTube video of the Pumpkin Collectables.
+- Added all the Pumpkin collectable YouTube links to levels and cosmetics index (hover over thumbnail for YouTube links).
+
 ## Release 1.3.0
 Release 1.3.0 introduces automatically loading your `Progression.zeepsave` file which will do the following:
  - All your personal best times will be added to the level popup card (underneath the medal times)
@@ -246,14 +256,32 @@ And as the personal best is between silver and gold times - only the bronze and 
 
 <img src="docs/assets/personalBestTime.png" alt="menu controls" style="width: 250px; height: auto;">
 
- Your medal times will automatically reflect your best time - i.e. you improve your best silver medal time and you now have a gold medal beating time.
+Your medal times will automatically reflect your best time - i.e. you improve your best silver medal time and you now have a gold medal beating time.
 
- The Adventure Map pins will also automatically change to reflect which is the best medal you have for that level.
+The Adventure Map pins will also automatically change to reflect which is the best medal you have for that level.
 
- ### Update Times
- If you want to update all the times and pins, you just have to re-import the `Progression.zeepsave` file and this will overwrite the old times.
+### Version 1.4.0 Update
+Now the `Import Zeepsave` option will also grab all your unlocked cosmetics and update them in your adventure map automatically.
 
- Please note that your old save backup will still have the old times - so it would be a good time to save a new backup file.
+All Locked cosmetics will be highlighted in red in the Cosmetics Index page.
+
+<img src="docs/assets/redLocked.png" alt="menu controls" style="width: 500px; height: auto;">
+
+Note at the moment DLC and Steam Achievements are always set to red locked (I will work on fixing this next).
+
+
+You can also now filter your results using the `All Cosmetics`, `Unlocked` or `Locked` dropdown.
+And remember that you can use multiple filters to narrow down your search.
+
+<img src="docs/assets/filterLocked.png" alt="menu controls" style="width: 400px; height: auto;">
+
+
+
+
+### Update Times
+If you want to update all the times, pins and unlocked cosmetics, you just have to re-import the `Progression.zeepsave` file and this will overwrite the old times and cosmetics counts.
+
+Please note that your old save backup will still have the old times and counts - so it would be a good time to save a new backup file.
 
 **`NOTE:`** If you manually change a pin to a higher medal than you have actually earned, that change will persist even after re-importing your `.zeepsave` file. You will need to manually change the pin back to the correct medal.
 
@@ -451,3 +479,32 @@ I will post in the Zeepkist discord when they have been added.
 
 
 
+I have updated my interactive Zeepkist Adventure Map & Cosmetics Index website found at
+
+**[zeepkist.cactuzhead.com](https://zeepkist.cactuzhead.com)**
+
+The website helps you monitor your Adventure Map progress with features including:
+
+- Medal progression tracking (now with import from zeepsave file)
+- Collectible gift progression tracking
+- Detailed level statistics
+    - Level thumbnails
+    - Medal times
+    - Personal best times
+- YouTube guide links
+    - Author runs
+    - Collectable locations
+- Load and save your adventure map data
+
+## Release 1.3.0
+Release 1.3.0 introduces loading your `Progression.zeepsave` personal best times which will do the following:
+ - All your personal best times will be added to the level popup card (underneath the medal times)
+ - Your medal times will automatically reflect your best time - i.e. you improve your best time and you now have a gold medal beating time
+ - The Adventure Map pins will also change to reflect which is the best medal you have for that level
+ - The original Import and Export buttons still work the same, but are now renamed to `Load` and `Save`
+ - There is now an additional `Import Zeepsave` button which will read your current best times for the adventure map.  If you then beat those times, you can re-import to update the adventure map.
+
+**[zeepkist.cactuzhead.com](https://zeepkist.cactuzhead.com)**
+**[my github](https://github.com/cactuzhead)**
+and for full documentation visit my github page here
+https://github.com/cactuzhead/Zeepkist-Adventure-Map

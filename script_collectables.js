@@ -529,7 +529,8 @@ function getProgressData() {
     const data = {
         medals: {},
         collectibles: {},
-        zeepsaveTimes: {}
+        zeepsaveTimes: {},
+        unlockedCosmetics: []
     };
 
     for (let i = 0; i < localStorage.length; i++) {
@@ -539,6 +540,13 @@ function getProgressData() {
         if (key === 'zeepsaveTimes') {
             try {
                 data.zeepsaveTimes = JSON.parse(value);
+            } catch {}
+            continue;
+        }
+
+        if (key === 'unlockedCosmetics') {
+            try {
+                data.unlockedCosmetics = JSON.parse(value);
             } catch {}
             continue;
         }
@@ -608,7 +616,7 @@ document.getElementById('importInput').addEventListener('change', e => {
             return;
         }
 
-        // Clear existing progress (optional but recommended)
+        // Clear existing progress
         Object.keys(localStorage).forEach(key => {
             if (key.startsWith('collectibles:') || !isNaN(parseInt(localStorage.getItem(key)))) {
                 localStorage.removeItem(key);
@@ -633,6 +641,11 @@ document.getElementById('importInput').addEventListener('change', e => {
         if (data.zeepsaveTimes) {
             localStorage.setItem('zeepsaveTimes', JSON.stringify(data.zeepsaveTimes));
             ZEEPSAVE_TIMES = data.zeepsaveTimes;
+        }
+
+        // Restore unlocked cosmetics
+        if (data.unlockedCosmetics) {
+            localStorage.setItem('unlockedCosmetics', JSON.stringify(data.unlockedCosmetics));
         }
 
         location.reload();
@@ -751,12 +764,15 @@ function updateCollectableTotals(levels) {
 
     for (const type of Object.keys(collectedTotals)) {
         const el = document.getElementById(`${type}Count`);
-        const parent = el.closest('.collectable-total');
         if (!el) continue;
+
+        const parent = el.closest('.collectable-total');
+        if (!parent) continue;
 
         el.textContent = `${collectedTotals[type]}/${maxTotals[type]}`;
 
-        if (collectedTotals[type] === maxTotals[type]) {
+        // Only mark as collected if total is > 0 AND collected equals total
+        if (maxTotals[type] > 0 && collectedTotals[type] === maxTotals[type]) {
             parent.classList.add('collected');
         } else {
             parent.classList.remove('collected');
@@ -897,20 +913,41 @@ document.getElementById('zeepsaveInput').addEventListener('change', e => {
     if (!file) return;
 
     const reader = new FileReader();
-    reader.onload = () => {
+    reader.onload = async () => {
         try {
             const data = JSON.parse(reader.result);
 
-            const lines = Object.values(data.AdventureTimes)
+            // --- CLEAR MEDAL/LEVEL PROGRESS KEYS ---
+            Object.keys(localStorage).forEach(key => {
+                // Ignore collectibles, theme, cosmetics, or best times keys
+                if (key.startsWith('collectibles:') || 
+                    key === 'theme' || 
+                    key === 'unlockedCosmetics' || 
+                    key === 'zeepsaveTimes') {
+                    return;
+                }
+
+                // Remove level medal completion states (stored as numbers 0–4)
+                const val = parseInt(localStorage.getItem(key));
+                if (!isNaN(val)) {
+                    localStorage.removeItem(key);
+                }
+            });
+
+            // --- FIXED: Use `data` AFTER parsing JSON ---
+            const unlockedItems = extractUnlockedCollectables(data);
+            localStorage.setItem('unlockedCosmetics', JSON.stringify(unlockedItems));
+
+            const lines = Object.values(data.AdventureTimes || {})
                 .map(entry => `${transformLevelUID(entry.LevelUID)}, ${entry.Time.toFixed(3)}`);
 
             fetch('levels.json')
             .then(res => res.json())
-            .then(levelsData => {
+            .then(async levelsData => {
 
                 let testLines = lines;
 
-                if (DEBUG_RANDOMIZE_TIMES) {
+                if (typeof DEBUG_RANDOMIZE_TIMES !== 'undefined' && DEBUG_RANDOMIZE_TIMES) {
                     const addOptions = [10, 20, 30, 45];
                     testLines = lines.map(line => {
                         const [name, timeStr] = line.split(', ');
@@ -920,8 +957,9 @@ document.getElementById('zeepsaveInput').addEventListener('change', e => {
                     });
                 }
 
+                // --- 1. PROCESS TIMES & PINS FIRST ---
                 const results = compareToMedals(testLines, levelsData);
-                console.table(results);
+                // console.table(results);
 
                 ZEEPSAVE_TIMES = {};
                 results.forEach(r => {
@@ -932,12 +970,25 @@ document.getElementById('zeepsaveInput').addEventListener('change', e => {
                 });
                 localStorage.setItem('zeepsaveTimes', JSON.stringify(ZEEPSAVE_TIMES));
 
-                updateLevelProgress(results, levelsData);
+                // Update UI for medals / pins
+                if (typeof updateLevelProgress === 'function') {
+                    updateLevelProgress(results, levelsData);
+                }
 
+                // --- 2. PROCESS COSMETICS ---
+                try {
+                    await syncZeepsaveCollectibles(data, levelsData);
+                } catch (cosmeticErr) {
+                    console.error('Error during syncZeepsaveCollectibles:', cosmeticErr);
+                }
+
+                // --- 3. BUNDLE & SAVE EVERYTHING BEFORE RELOAD ---
+                saveAllProgress();
+
+                // Reload to display updated state across the site
                 location.reload();
             })
             .catch(err => console.error('Failed to load levels.json:', err));
-                
 
         } catch (err) {
             console.error('Failed to parse/process file:', err);
@@ -1028,7 +1079,7 @@ function compareToMedals(zeeLines, levelsData) {
         });
     });
 
-    console.log('Unmatched levels (' + unmatched.length + '):', unmatched);
+    // console.log('Unmatched levels (' + unmatched.length + '):', unmatched);
     return results;
 }
 
@@ -1089,8 +1140,8 @@ function updateCollectibleMedals(results) {
         }
     }
 
-    console.log('Updated (' + updated.length + '):', updated);
-    console.log('Skipped (' + skipped.length + '):', skipped);
+    // console.log('Updated (' + updated.length + '):', updated);
+    // console.log('Skipped (' + skipped.length + '):', skipped);
 
     return updated;
 }
@@ -1138,8 +1189,8 @@ function updateLevelProgress(results, levelsData) {
         updated.push({ id: level.id, name: level.name, medal: medalValue });
     });
 
-    console.log('Updated (' + updated.length + '):', updated);
-    console.log('Skipped (' + skipped.length + '):', skipped);
+    // console.log('Updated (' + updated.length + '):', updated);
+    // console.log('Skipped (' + skipped.length + '):', skipped);
 
     return updated;
 }
@@ -1169,3 +1220,412 @@ document.querySelectorAll('.copy-path-btn').forEach(btn => {
         }
     });
 });
+
+
+
+
+// Map Progression.zeepsave unlocked categories to internal type names
+const ZEEPSAVE_CATEGORY_MAP = {
+    UnlockedZeepkists: 'zeepkists',
+    UnlockedHats: 'hats',
+    UnlockedColors: 'characters',
+    UnlockedGlasses: 'glasses',
+    UnlockedWheels: 'wheels',
+    UnlockedParagliders: 'paragliders',
+    UnlockedHorns: 'horns',
+    UnlockedCosmetics: 'cosmetics'
+};
+
+function extractUnlockedCollectables(saveData) {
+    const unlockedItems = [];
+
+    for (const [saveKey, typeName] of Object.entries(ZEEPSAVE_CATEGORY_MAP)) {
+        const itemIds = saveData[saveKey];
+
+        if (Array.isArray(itemIds)) {
+            itemIds.forEach(id => {
+                unlockedItems.push({
+                    type: typeName,
+                    id: Number(id)
+                });
+            });
+        }
+    }
+
+    return unlockedItems;
+}
+
+/**
+ * Converts kebab-case strings to camelCase
+ * e.g., 'red-gifts' -> 'redGifts', 'paint-blobs' -> 'paintBlobs'
+ */
+function kebabToCamelCase(str) {
+  if (!str) return '';
+  return str.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase());
+}
+
+/**
+ * Normalizes cosmetic level names like "EZ01" to match levels.json "ez-01" format
+ * e.g., "EZ01" -> "ez-01", "A12" -> "a-12"
+ */
+function formatLevelNameForLookup(levelStr) {
+  if (!levelStr) return '';
+  const clean = levelStr.trim().toLowerCase();
+  return clean.replace(/^([a-z]+)(\d+)$/, '$1-$2');
+}
+
+/**
+ * Main function to sync progression.zeepsave collectibles through cosmetics.json & levels.json
+ */
+async function syncZeepsaveCollectibles(zeepSaveData, levelsData) {
+    // console.group('=== ZEEPSAVE COSMETICS SYNC LOGS ===');
+
+    // 1. Extract unlocked (type, id) pairs from Progression.zeepsave
+    const unlockedItems = extractUnlockedCollectables(zeepSaveData);
+
+    // Extract just the string/numeric IDs from Zeepsave
+    // const unlockedCosmeticIDs = unlockedItems.map(item => String(item.id));
+    // Save the array to localStorage
+    localStorage.setItem('unlockedCosmetics', JSON.stringify(unlockedItems));
+
+    // console.log(`[1/4] Extracted ${unlockedItems.length} unlocked items from Zeepsave.`);
+
+    if (unlockedItems.length === 0) {
+        console.warn('No cosmetic items found in Zeepsave data.');
+        console.groupEnd();
+        return;
+    }
+
+    // Fetch cosmetics.json
+    let cosmeticsData = [];
+    try {
+        const res = await fetch('cosmetics.json');
+        cosmeticsData = await res.json();
+        // console.log(`[2/4] Loaded cosmetics.json (${cosmeticsData.length} records).`);
+    } catch (err) {
+        console.error('Failed to load cosmetics.json:', err);
+        console.groupEnd();
+        return;
+    }
+
+    // Build lookup map: "ez-01" -> "ez01_1766960215118"
+    const levelIdMap = {};
+    levelsData.forEach(level => {
+        if (level.name) {
+        levelIdMap[level.name.toLowerCase()] = level.id;
+        }
+    });
+
+    function getFullLevelId(match) {
+    // Special Adventure Map cosmetics: MAP01, MAP02, etc.
+    if (match.level?.toUpperCase() === 'MAP') {
+        const mapMatch = String(match.id || '').match(/^MAP(\d+)/i);
+
+        if (mapMatch) {
+            const mapNumber = mapMatch[1].padStart(2, '0');
+
+            const mapLevel = levelsData.find(level =>
+                String(level.id).toLowerCase().startsWith(`map${mapNumber}_`)
+            );
+
+            return mapLevel?.id;
+        }
+    }
+
+    // Normal levels — preserve the original lookup behaviour
+    const normalizedLevel = match.level
+        .toLowerCase()
+        .replace(/[^a-z0-9]/g, '');
+
+    // First try the direct lookup
+    if (levelIdMap[normalizedLevel]) {
+        return levelIdMap[normalizedLevel];
+    }
+
+    // Then use the original special level-name conversion
+    const formattedLevel = formatLevelNameForLookup(match.level);
+
+    return levelIdMap[formattedLevel];
+}
+
+    const matchedCosmetics = [];
+    const unmatchedCosmetics = [];
+    const levelNotFoundMatches = [];
+    const updatesPerLevel = {};
+const matchedCosmeticIds = new Set();
+
+
+
+
+// Helper to normalize category strings ('wheels' -> 'wheels', 'characters' -> 'color')
+    const normalizeType = (str) => {
+        if (!str) return '';
+        const s = str.toLowerCase().trim().replace(/s$/, '');
+        if (s === 'character') return 'color';
+        return s;
+    };
+
+    // 2. Cross-reference zeepsave items against cosmetics.json
+    unlockedItems.forEach(({ type, id }) => {
+        const targetId = String(id).trim();
+        const normZeepType = normalizeType(type);
+
+        // 1. Find exact match by cosmeticID/baseID AND type
+        const match = cosmeticsData.find(c => {
+            const cosmeticID = String(c.cosmeticID || '').trim();
+            const baseID = String(c.baseID || '').trim();
+            const isIdMatch = (cosmeticID !== '' && cosmeticID === targetId) || 
+                              (baseID !== '' && baseID === targetId);
+
+            if (!isIdMatch) return false;
+
+            // Match type (e.g. 'wheels' === 'wheels', or fallback if c.type is missing)
+            if (!c.type) return true;
+            const normCosmeticType = normalizeType(c.type);
+
+            return normCosmeticType === normZeepType ||
+                   (normCosmeticType === 'color' && normZeepType === 'character') ||
+                   (normCosmeticType === 'character' && normZeepType === 'color');
+        });
+
+        if (!match) {
+            unmatchedCosmetics.push({ type, id });
+            return;
+        }
+
+        if (!match.level || !match.unlock) {
+            console.warn(`[Skip] Cosmetic matched but lacks "level" or "unlock":`, match);
+            return;
+        }
+
+        // Map "L01" to its full ID like "l01_1787248080432"
+        const normTargetLevel = match.level.toLowerCase().replace(/[^a-z0-9]/g, '');
+        const fullLevelId = getFullLevelId(match);
+
+        if (!fullLevelId) {
+            levelNotFoundMatches.push({ rawLevel: match.level, normalized: normTargetLevel, match });
+            return;
+        }
+
+        // 2. Read the "unlock" field directly from cosmetics.json ("gears", "red-gifts", etc.)
+        let camelUnlockKey = kebabToCamelCase(match.unlock.trim());
+        if (camelUnlockKey === 'gear') camelUnlockKey = 'gears';
+
+        matchedCosmetics.push({
+            zeepType: type,
+            zeepId: id,
+            cosmeticMatch: match,
+            targetLevelName: match.level,
+            fullLevelId,
+            unlockKey: camelUnlockKey
+        });
+
+        // if (!updatesPerLevel[fullLevelId]) {
+        //     updatesPerLevel[fullLevelId] = [];
+        // }
+
+        // 3. Store the unlock type to deduct/update for this level
+        
+        const matchKey = `${type}:${id}`;
+
+if (!matchedCosmeticIds.has(matchKey)) {
+    matchedCosmeticIds.add(matchKey);
+
+    if (!updatesPerLevel[fullLevelId]) {
+        updatesPerLevel[fullLevelId] = [];
+    }
+
+    updatesPerLevel[fullLevelId].push(camelUnlockKey);
+}
+    });
+
+
+
+
+    // 2. Cross-reference zeepsave items against cosmetics.json
+    unlockedItems.forEach(({ type, id }) => {
+        const targetId = String(id).trim();
+        // --- UPDATE THIS TYPE MATCHING BLOCK IN syncZeepsaveCollectibles ---
+        const normZeepType = type.toLowerCase().replace(/s$/, '');
+
+        const match = cosmeticsData.find(c => {
+            if (!c.type) return false;
+
+            const normCosmeticType = c.type.toLowerCase().replace(/s$/, '');
+
+            // Allow exact match OR character/color alias OR gears/UnlockedCosmetics fallback
+            const isTypeMatch = 
+                normCosmeticType === normZeepType ||
+                (normCosmeticType === 'color' && normZeepType === 'character') ||
+                (normCosmeticType === 'character' && normZeepType === 'color') ||
+                (normCosmeticType === 'gear' && (normZeepType === 'gear' || normZeepType === 'cosmetic'));
+
+            const cosmeticID = String(c.cosmeticID || '').trim();
+            const baseID = String(c.baseID || '').trim();
+            const isIdMatch = (cosmeticID === targetId) || (baseID !== '' && baseID === targetId);
+
+            return isTypeMatch && isIdMatch;
+        });
+
+        if (!match) {
+        unmatchedCosmetics.push({ type, id });
+        return;
+        }
+
+        if (!match.level || !match.unlock) {
+        console.warn(`[Skip] Cosmetic matched but lacks "level" or "unlock":`, match);
+        return;
+        }
+
+        const targetLevelName = formatLevelNameForLookup(match.level);
+        const fullLevelId = getFullLevelId(match);
+
+        if (!fullLevelId) {
+        levelNotFoundMatches.push({ rawLevel: match.level, formatted: targetLevelName, match });
+        return;
+        }
+
+        // Convert unlock key: "red-gifts" -> "redGifts", "paint-blobs" -> "paintBlobs"
+        const camelUnlockKey = kebabToCamelCase(match.unlock.trim());
+
+        matchedCosmetics.push({
+        zeepType: type,
+        zeepId: id,
+        cosmeticMatch: match,
+        targetLevelName,
+        fullLevelId,
+        unlockKey: camelUnlockKey
+        });
+
+        // if (!updatesPerLevel[fullLevelId]) {
+        // updatesPerLevel[fullLevelId] = [];
+        // }
+
+        const matchKey = `${type}:${id}`;
+
+if (!matchedCosmeticIds.has(matchKey)) {
+    matchedCosmeticIds.add(matchKey);
+
+    if (!updatesPerLevel[fullLevelId]) {
+        updatesPerLevel[fullLevelId] = [];
+    }
+
+    updatesPerLevel[fullLevelId].push(camelUnlockKey);
+}
+    });
+
+    // console.log(`[3/4] Matching Results:`);
+    // console.log(`  ✅ Successfully Matched: ${matchedCosmetics.length}`);
+    // console.log(`  ❓ Unmatched Cosmetics: ${unmatchedCosmetics.length}`);
+    // console.log(`  ⚠️ Level Not Found in levels.json: ${levelNotFoundMatches.length}`);
+
+    // Diagnostic for unmatched items
+    // if (unmatchedCosmetics.length > 0) {
+    //     console.groupCollapsed('Sample Unmatched Diagnostic (First 5)');
+    //     unmatchedCosmetics.slice(0, 5).forEach(item => {
+    //     const idOnlyMatches = cosmeticsData.filter(c => 
+    //         String(c.cosmeticID) === String(item.id) || String(c.baseID) === String(item.id)
+    //     );
+    //     // console.log(`Zeepsave Item:`, item, `--> Matches by ID only in cosmetics.json:`, idOnlyMatches);
+    //     });
+    //     console.groupEnd();
+    // }
+
+    // 3. Update localStorage for ALL levels in levels.json
+    // console.log(`[4/4] Syncing localStorage across all levels...`);
+    const storageUpdateSummary = [];
+
+    levelsData.forEach(levelObj => {
+        const levelId = levelObj.id;
+        if (!levelId) return;
+
+        // Get current remaining state from storage
+        const state = getcollectiblestate(levelObj);
+        const oldStateCopy = { ...state };
+
+        // Get matched unlock keys for this specific level (if any exist)
+        const unlockKeys = updatesPerLevel[levelId] || [];
+
+        // Count how many of each unlock key were matched in this save file
+        const matchedCounts = {};
+        unlockKeys.forEach(key => {
+        matchedCounts[key] = (matchedCounts[key] || 0) + 1;
+        });
+
+        let modified = false;
+
+        // Combine all collectible categories (permanent + seasonal) defined in levels.json
+        const allCollectibleDefs = {
+        ...(levelObj.collectibles?.permanent || {}),
+        ...(levelObj.collectibles?.seasonal || {})
+        };
+
+        Object.entries(allCollectibleDefs).forEach(([key, totalMax]) => {
+        if (totalMax > 0) {
+            const matchedAmount = matchedCounts[key] || 0;
+            
+            // Remaining items = max minus what was found in Zeepsave.
+            // If matchedAmount is 0, newRemaining becomes totalMax (uncollected/reset).
+            const newRemaining = Math.max(0, totalMax - matchedAmount);
+
+            if (state[key] !== newRemaining) {
+            state[key] = newRemaining;
+            modified = true;
+            }
+        }
+        });
+
+        if (modified) {
+        savecollectiblestate(levelId, state);
+        storageUpdateSummary.push({
+            'Level Name': levelObj.name,
+            'Level ID': levelId,
+            'Matched Items': unlockKeys.length,
+            'Before': JSON.stringify(oldStateCopy),
+            'After': JSON.stringify(state)
+        });
+        }
+  });
+
+  if (storageUpdateSummary.length > 0) {
+    console.table(storageUpdateSummary);
+  } else {
+    console.log('No localStorage changes needed (all levels already up-to-date).');
+  }
+
+//   if (storageUpdateSummary.length > 0) {
+//     console.table(storageUpdateSummary);
+//   } else {
+//     console.log('No localStorage changes needed (all levels already up-to-date).');
+//   }
+
+  console.groupEnd();
+}
+
+/**
+ * Collects all stored progress from localStorage into a single backup object.
+ */
+function getFullSaveData() {
+    return {
+        timestamp: new Date().toISOString(),
+        // Level progression (medals, collected counts, pins)
+        levelProgress: JSON.parse(localStorage.getItem('levelProgress') || '{}'),
+        // Level best times from .zeepsave
+        zeepsaveTimes: JSON.parse(localStorage.getItem('zeepsaveTimes') || '{}'),
+        // Unlocked cosmetics array
+        unlockedCosmetics: JSON.parse(localStorage.getItem('unlockedCosmetics') || '[]')
+    };
+}
+
+/**
+ * Saves or exports the complete progress data
+ */
+function saveAllProgress() {
+    const backupData = getFullSaveData();
+    
+    // Save to a unified localStorage backup key
+    localStorage.setItem('zeepkist_full_backup', JSON.stringify(backupData));
+
+    console.log('✅ Progress backed up successfully:', backupData);
+    return backupData;
+}
