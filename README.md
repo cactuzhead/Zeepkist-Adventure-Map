@@ -476,35 +476,3 @@ I will post in the Zeepkist discord when they have been added.
 
 
 
-
-
-
-I have updated my interactive Zeepkist Adventure Map & Cosmetics Index website found at
-
-**[zeepkist.cactuzhead.com](https://zeepkist.cactuzhead.com)**
-
-The website helps you monitor your Adventure Map progress with features including:
-
-- Medal progression tracking (now with import from zeepsave file)
-- Collectible gift progression tracking
-- Detailed level statistics
-    - Level thumbnails
-    - Medal times
-    - Personal best times
-- YouTube guide links
-    - Author runs
-    - Collectable locations
-- Load and save your adventure map data
-
-## Release 1.3.0
-Release 1.3.0 introduces loading your `Progression.zeepsave` personal best times which will do the following:
- - All your personal best times will be added to the level popup card (underneath the medal times)
- - Your medal times will automatically reflect your best time - i.e. you improve your best time and you now have a gold medal beating time
- - The Adventure Map pins will also change to reflect which is the best medal you have for that level
- - The original Import and Export buttons still work the same, but are now renamed to `Load` and `Save`
- - There is now an additional `Import Zeepsave` button which will read your current best times for the adventure map.  If you then beat those times, you can re-import to update the adventure map.
-
-**[zeepkist.cactuzhead.com](https://zeepkist.cactuzhead.com)**
-**[my github](https://github.com/cactuzhead)**
-and for full documentation visit my github page here
-https://github.com/cactuzhead/Zeepkist-Adventure-Map
