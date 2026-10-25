@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 <div class="hamburger-menu-divider"></div>
 
-                <a href="readme.html" target="_blank" rel="noopener" class="hamburger-menu-item">
+                <a href="readme.html" target="_self" rel="noopener" class="hamburger-menu-item">
                     <span>Read Me</span>
                 </a>
             </div>
