@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#10151c">
+    <title>Zeepkist — Player Statistics</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">    
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-mark">Z</div>
+            <div class="brand-text">
+                <span class="brand-eyebrow">zeepkist.cactuzhead.com</span>
+                <span class="brand-title">steam stats</span>
+            </div>
+      
+            <span class="updated" id="userSteamID"></span>
+        </div>
+        
+         <nav class="controls">
+            <a href="index.html" class="topbar-link">Adventure Map</a>
+            <a href="cosmetics.html" class="topbar-link">Cosmetics Index</a>
+            <a href="achievements.html" class="topbar-link">Achievements List</a>
+
+            <!-- Hamburger Menu -->
+            <div id="nav-placeholder"></div>
+        </nav>
+    </header>     
+
+<main class="page">
+    <!-- Data Warning Banner (hidden by default) -->
+    <div id="dataNotice" class="data-notice-banner" style="display: none;">
+        <div class="notice-content">
+            <span class="notice-tag">STEAM DATA NOTICE</span>
+            <ul id="noticeList" class="notice-list"></ul>
+        </div>
+    </div>
+    <section class="hero">        
+        <div class="panel hero-main">
+        <div class="game-title"><span class="steam-dot"></span> STEAM GAME STATISTICS <span id="gameID" class="tag">APP ID 1440670</span></div>
+        <h1>Zeepkist<br><span style="color:var(--eyebrow)">Playtime overview</span></h1>
+        <div class="total-number"><span id="totalHours" style="color:var(--eyebrow)"></span><span style="font-size:.47em;color:var(--text)">h</span> <span id="totalMinutes" style="font-size:.47em;color:var(--text)">m</span></div>
+        <div class="total-sub">Total recorded playtime across platforms</div>
+        <div class="hero-bottom">
+            <div class="mini-stat"><strong id="totalDays"></strong><span>Equivalent continuous time</span></div>
+            <div class="mini-stat"><strong id="platformCount"></strong><span>Platforms with playtime</span></div>
+            <div class="mini-stat"><strong id="recentCompact"></strong><span>Played in the last 2 weeks</span></div>
+        </div>
+        </div>
+
+        <div class="panel recent-panel">
+        <div>
+            <div class="panel-heading"><div><h2>Recent activity</h2><div class="panel-kicker">Playtime over the last 14 days</div></div><span class="tag">LAST 2 WEEKS</span></div>
+            <span class="updated">TARGET: 1h per day</span>
+            <div class="recent-value" id="recentHours">0 <small>hours</small> 0 <small>mins</small></div>
+            <div class="progress-track"><div class="progress-fill" id="recentBar"></div></div>
+            <div class="split-note"><span id="recentMinutesNote">0 minutes recorded</span><span id="recentShare">0% of total</span></div>
+        </div>
+        <div class="footnote">This is a recent-playtime window, not extra time to add to your lifetime total.</div>
+        </div>
+    </section>
+
+    <section class="grid-2">
+        <article class="panel">
+        <div class="panel-heading"><div><h2>Platform split</h2><div class="panel-kicker">Lifetime minutes by operating system</div></div><span class="tag">LIFETIME</span></div>
+        <div class="platform-layout">
+            <div class="donut-wrap">
+            <svg viewBox="0 0 200 200" role="img" aria-label="Donut chart showing playtime by platform">
+                <circle class="donut-bg" cx="100" cy="100" r="77"></circle>
+                <circle id="segWindows" class="donut-segment windows" cx="100" cy="100" r="77"></circle>
+                <circle id="segLinux" class="donut-segment linux" cx="100" cy="100" r="77"></circle>
+                <circle id="segMac" class="donut-segment mac" cx="100" cy="100" r="77"></circle>
+                <circle id="segDeck" class="donut-segment deck" cx="100" cy="100" r="77"></circle>
+            </svg>
+            <div class="donut-center"><strong id="donutHours">0h</strong><span>TOTAL PLAYTIME</span></div>
+            </div>
+            <div class="legend">
+            <div class="legend-row"><span class="swatch windows"></span><span class="legend-label">Windows</span><strong id="windowsLegend">0h 0m</strong></div>
+            <div class="legend-row"><span class="swatch linux"></span><span class="legend-label">Linux</span><strong id="linuxLegend">0h 0m</strong></div>
+            <div class="legend-row"><span class="swatch mac"></span><span class="legend-label">macOS</span><strong id="macLegend">0m</strong></div>
+            <div class="legend-row"><span class="swatch deck"></span><span class="legend-label">Steam Deck</span><strong id="deckLegend">0m</strong></div>
+            </div>
+        </div>
+        <div class="platform-foot">Platform totals can differ from the overall total by a minute because of Steam's reporting.</div>
+        </article>
+
+        <article class="panel">
+        <div class="panel-heading"><div><h2>Time by platform</h2><div class="panel-kicker">Compare your recorded hours</div></div><span class="tag">HOURS</span></div>
+        <div class="chart" id="platformBars">
+            <div><div class="bar-top"><span>Windows</span><span id="windowsBarText">0h 0m</span></div><div class="bar-track"><div class="bar windows" id="windowsBar"></div></div></div>
+            <div><div class="bar-top"><span>Linux</span><span id="linuxBarText">0h 0m</span></div><div class="bar-track"><div class="bar linux" id="linuxBar"></div></div></div>
+            <div><div class="bar-top"><span>macOS</span><span id="macBarText">0m</span></div><div class="bar-track"><div class="bar mac" id="macBar"></div></div></div>
+            <div><div class="bar-top"><span>Steam Deck</span><span id="deckBarText">0m</span></div><div class="bar-track"><div class="bar deck" id="deckBar"></div></div></div>
+        </div>
+        <div class="platform-foot">Bars are scaled against the platform with the most recorded playtime.</div>
+        </article>
+    </section>
+
+    <section class="grid-2">
+        <article class="panel">
+        <div class="panel-heading"><div><h2>Last played</h2><div class="panel-kicker">Most recent activity reported by Steam</div></div><span class="tag">ACTIVITY</span></div>
+        <div class="last-played">
+            <div class="calendar-icon">◷</div>
+            <div><strong id="lastPlayedDate"></strong><span id="lastPlayedTime"></span></div>
+        </div>
+        <div class="detail-list">
+            <div class="detail"><span>Raw Unix timestamp</span><strong class="id" id="timestamp"></strong></div>
+            <div class="detail"><span>Community stats available</span><strong id="communityStats"></strong></div>
+            <div class="detail"><span>Steam App ID</span><strong class="id" id="steamGameID"></strong></div>
+        </div>
+        </article>
+
+        <article class="panel">
+        <div class="panel-heading"><div><h2>Additional playtime data</h2><div class="panel-kicker">Other values included in the API response</div></div><span class="tag">DETAILS</span></div>
+        <div class="detail-list">
+            <div class="detail"><span>Disconnected playtime</span><strong id="disconnected">4h 48m</strong></div>
+            <div class="detail"><span>Disconnected minutes</span><strong>288 min</strong></div>
+            <div class="detail">
+                <span>Game Icon</span>
+                <strong><img id="gameIcon" src="" alt="Zeepkist Icon" style="width:24px;height:24px;vertical-align:middle;border-radius:4px;"></strong>
+            </div>
+        </div>
+        <p class="footnote">Disconnected playtime is shown separately and is <strong>not added</strong> to the total, as it may overlap with other reported playtime.</p>
+        </article>
+    </section>
+
+    </main>
+
+    <script src="nav.js"></script>
+    <script src="stats.js"></script>
+    <script src="script_collectables.js"></script>
+</body>
+</html>

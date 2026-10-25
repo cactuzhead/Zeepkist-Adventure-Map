@@ -1,9 +1,68 @@
+(function initDLCCounter() {
+    function syncDLCCounter() {
+        const rawData = localStorage.getItem('unlockedDLC');
+        let unlockedList = [];
+
+        if (rawData) {
+            try {
+                const parsed = JSON.parse(rawData);
+                if (Array.isArray(parsed)) {
+                    unlockedList = parsed;
+                } else if (typeof parsed === 'object' && parsed !== null) {
+                    // Handles object format { "1699070": true } or Set JSON
+                    unlockedList = Object.keys(parsed).filter(k => parsed[k]);
+                } else if (typeof parsed === 'number' || typeof parsed === 'string') {
+                    unlockedList = String(rawData).split(',').filter(Boolean);
+                }
+            } catch (e) {
+                unlockedList = String(rawData).split(',').filter(Boolean);
+            }
+        }
+
+        // 1. Update counter badge
+        const badge = document.getElementById('dlcBadge');
+        if (badge) {
+            badge.innerText = unlockedList.length;
+        }
+
+        // 2. Sync all DLC checkboxes in the dropdown
+        const dlcMenu = document.getElementById('dlcMenu');
+        if (dlcMenu) {
+            const checkboxes = dlcMenu.querySelectorAll('input[type="checkbox"]');
+            
+            checkboxes.forEach(checkbox => {
+                // Extracts numeric ID (e.g., "1699070" from "dlc-1699070")
+                const rawId = checkbox.id.replace('dlc-', '');
+                
+                // Checks if item exists in unlockedList as number or string
+                const isUnlocked = unlockedList.some(
+                    item => String(item) === String(rawId) || String(item) === checkbox.id
+                );
+                
+                checkbox.checked = isUnlocked;
+            });
+        }
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', syncDLCCounter);
+    } else {
+        syncDLCCounter();
+    }
+})();
+
 let activeTooltipWrapper = null;
 let activeLevelId = null;
 let showSeasonalInTotal = false;
+let hideCardTimeout = null;
 const levelCard = document.getElementById('levelCard');
 let ALL_LEVELS = [];
 const MAP_COLLECTABLE_IDS = ['map01_1767531589174', 'map02_1767531710306', 'map03_1767531799236', 'map04_1767531884270', 'map05_1768074827328'];
+const ZEEPKIST_DLC_ACHIEVEMENTS = {
+    1699070: "ACH_EARLY_ACCESS",
+    1962260: "ACH_KINGS_DAY",
+    3316260: "ACH_BOBO_TIRES"
+};
 let ZEEPSAVE_TIMES = {};
 try {
     ZEEPSAVE_TIMES = JSON.parse(localStorage.getItem('zeepsaveTimes')) || {};
@@ -92,31 +151,13 @@ fetch('levels.json')
 
 
         wrapper.appendChild(dot);
-        container.appendChild(wrapper);
-
-        // MAP COLLECTABLE PIN TOOLTIP
-        // if (isMapLevel) {
-        //     const type = getSingleCollectableType(level);
-        //     const meta = COLLECTABLE_META[type];
-
-        //     if (meta) {
-        //         wrapper.addEventListener('mouseenter', () => {
-        //             medalTooltip.textContent = meta.label;
-
-        //             const rect = wrapper.getBoundingClientRect();
-        //             medalTooltip.style.left = rect.left + rect.width / 2 + "px";
-        //             medalTooltip.style.top  = rect.top - 28 + "px";
-
-        //             medalTooltip.classList.add("visible");
-        //         });
-
-        //         wrapper.addEventListener('mouseleave', () => {
-        //             medalTooltip.classList.remove("visible");
-        //         });
-        //     }
-        // }
+        // Only append if the map container exists on this page
+        if (container) {
+            container.appendChild(wrapper);
+        }
        
         wrapper.addEventListener('click', () => {
+            if (localStorage.getItem('lockMapClicks') === 'true') return;
             if (isMapCollectableLevel(level)) return;
 
             dot.classList.remove(`state-${state}`);
@@ -133,15 +174,31 @@ fetch('levels.json')
             updateCollectableTotals(ALL_LEVELS);
         });
 
+        // let hideCardTimeout = null;
+
         // Hover shows tooltip
         wrapper.addEventListener('mouseenter', () => {
             if (shiftHeld) return;
+            
+            // Clear any pending hide timer so it stays open if re-entered quickly
+            if (hideCardTimeout) clearTimeout(hideCardTimeout);
 
             activeTooltipWrapper = wrapper;
             activeLevelId = level.id;
 
             showTooltip(level, state, wrapper.getBoundingClientRect());
             levelCard.classList.add('visible');
+        });
+
+        // Mouseleave with a tiny grace period to bridge the gap to the card
+        wrapper.addEventListener('mouseleave', () => {
+            hideCardTimeout = setTimeout(() => {
+                if (activeTooltipWrapper === wrapper) {
+                    levelCard.classList.remove('visible');
+                    activeTooltipWrapper = null;
+                    activeLevelId = null;
+                }
+            }, 150); // 150ms window to move the mouse onto the popup card
         });
 
     });
@@ -336,10 +393,7 @@ if (level.collectibles) {
         const grid = document.createElement('div');
         grid.className = `collectibles-grid ${groupName}`;
 
-        for (const type of Object.keys(group)) {
-            // const total = level.collectibles[groupName][type];
-            // const remaining = collectiblestate[type] ?? total;
-            // const collected = total - remaining;
+        for (const type of Object.keys(group)) {            
             let total;
             let collected;
 
@@ -384,12 +438,16 @@ if (level.collectibles) {
                     <span class="icon"></span>
                     <span class="count">&nbsp;&nbsp;&nbsp;</span>
                 `;
-                item.classList.add('no-items'); // optional class for styling
+                item.classList.add('no-items');
             }        
 
             // HOVER TOOLTIP FOR COLLECTABLE
             if (total > 0) {
                 item.addEventListener('mouseenter', () => {
+
+                    // Do not show hover tooltips or styles if map lock is enabled
+                    if (localStorage.getItem('lockMapClicks') === 'true') return;
+                    
                     const text = item.dataset.tooltip;
                     if (!text) return;
 
@@ -408,6 +466,9 @@ if (level.collectibles) {
             if (total > 0 && type !== 'medals') {
                 item.addEventListener('click', e => {
                     e.stopPropagation(); // prevent closing the card
+
+                    // Prevent manual clicking if map lock is enabled
+                    if (localStorage.getItem('lockMapClicks') === 'true') return;
 
                     const total = level.collectibles[groupName][type];
                     let remaining = collectiblestate[type];        // e.g. 2, 1, 0
@@ -513,51 +574,59 @@ const COLLECTABLE_META = {
 };
 
 
-
-// function getProgressData() {
-//     const data = {};
-//     for (let i = 0; i < localStorage.length; i++) {
-//         const key = localStorage.key(i);
-//         const value = parseInt(localStorage.getItem(key));
-//         if (!isNaN(value)) data[key] = value;
-//     }
-//     return data;
-// }
-
-
 function getProgressData() {
-    const data = {
-        medals: {},
-        collectibles: {},
-        zeepsaveTimes: {},
-        unlockedCosmetics: []
+    // Helper function to safely parse JSON from LocalStorage
+    const getParsedJSON = (key, fallback) => {
+        try {
+            const item = localStorage.getItem(key);
+            return item ? JSON.parse(item) : fallback;
+        } catch {
+            return fallback;
+        }
     };
 
+    // 1. Gather all individual structured keys directly
+    const data = {
+        user_steam_id: localStorage.getItem('user_steam_id') || null,
+        medals: {},
+        collectibles: {},
+        zeepsaveTimes: getParsedJSON('zeepsaveTimes', {}),
+        unlockedCosmetics: getParsedJSON('unlockedCosmetics', []),
+        unlockedDLC: getParsedJSON('unlockedDLC', []),
+        unlockedAchievements: getParsedJSON('unlockedAchievements', []),
+        lockMapClicks: localStorage.getItem('lockMapClicks') ?? 'true'
+    };
+
+    // 2. Loop through localStorage ONLY for medals and collectibles
     for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
         const value = localStorage.getItem(key);
 
-        if (key === 'zeepsaveTimes') {
-            try {
-                data.zeepsaveTimes = JSON.parse(value);
-            } catch {}
+        // Skip known object/array/system keys
+        if ([
+            'user_steam_id', 
+            'zeepsaveTimes', 
+            'unlockedCosmetics', 
+            'unlockedDLC', 
+            'unlockedAchievements',
+            'lockMapClicks',
+            'zeepkist_progress' // skip backup keys if present
+        ].includes(key)) {
             continue;
         }
 
-        if (key === 'unlockedCosmetics') {
-            try {
-                data.unlockedCosmetics = JSON.parse(value);
-            } catch {}
-            continue;
-        }
-
-        const parsed = parseInt(value);
-        if (!isNaN(parsed) && !key.startsWith('collectibles:')) {
-            data.medals[key] = parsed;
-        }
-
+        // Handle collectibles
         if (key.startsWith('collectibles:')) {
-            data.collectibles[key] = JSON.parse(value);
+            try { 
+                data.collectibles[key] = JSON.parse(value); 
+            } catch {}
+            continue;
+        }
+
+        // Handle numerical medal values
+        const parsed = parseInt(value, 10);
+        if (!isNaN(parsed)) {
+            data.medals[key] = parsed;
         }
     }
 
@@ -578,80 +647,21 @@ function updateTotals(levels) {
 
     const total = levels.length - MAP_COLLECTABLE_IDS.length;
 
-    document.getElementById('bronzeCount').textContent = bronze;
-    document.getElementById('silverCount').textContent = silver;
-    document.getElementById('goldCount').textContent = gold;
-    document.getElementById('authorCount').textContent = author;
-    document.getElementById('remainingCount').textContent = total - bronze - silver - gold - author;
-    document.getElementById('totalCount').textContent =  total;       
+    // Safely update elements only if they exist on the current page
+    const setElemText = (id, text) => {
+        const el = document.getElementById(id);
+        if (el) el.textContent = text;
+    };
+
+    setElemText('bronzeCount', bronze);
+    setElemText('silverCount', silver);
+    setElemText('goldCount', gold);
+    setElemText('authorCount', author);
+    setElemText('remainingCount', total - bronze - silver - gold - author);
+    setElemText('totalCount', total);      
 }
 
 
-document.getElementById('exportBtn').addEventListener('click', () => {
-    const data = getProgressData();
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
-
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    a.download = 'zeepkist-progress.json';
-    a.click();
-});
-
-
-document.getElementById('importInput').addEventListener('change', e => {
-    const file = e.target.files[0];
-    if (!file) return;
-
-    const reader = new FileReader();
-    reader.onload = () => {
-        const data = JSON.parse(reader.result);
-
-        // Handle OLD format first
-        if (!data.medals && !data.collectibles) {
-            Object.entries(data).forEach(([key, value]) => {
-                localStorage.setItem(key, value);
-            });
-
-            location.reload();
-            return;
-        }
-
-        // Clear existing progress
-        Object.keys(localStorage).forEach(key => {
-            if (key.startsWith('collectibles:') || !isNaN(parseInt(localStorage.getItem(key)))) {
-                localStorage.removeItem(key);
-            }
-        });
-
-        // Restore medals
-        if (data.medals) {
-            Object.entries(data.medals).forEach(([key, value]) => {
-                localStorage.setItem(key, value);
-            });
-        }
-
-        // Restore collectibles
-        if (data.collectibles) {
-            Object.entries(data.collectibles).forEach(([key, value]) => {
-                localStorage.setItem(key, JSON.stringify(value));
-            });
-        }
-
-        // Restore zeepsave best times
-        if (data.zeepsaveTimes) {
-            localStorage.setItem('zeepsaveTimes', JSON.stringify(data.zeepsaveTimes));
-            ZEEPSAVE_TIMES = data.zeepsaveTimes;
-        }
-
-        // Restore unlocked cosmetics
-        if (data.unlockedCosmetics) {
-            localStorage.setItem('unlockedCosmetics', JSON.stringify(data.unlockedCosmetics));
-        }
-
-        location.reload();
-    };
-    reader.readAsText(file);
-});
 
 
 function openLevelCard() {
@@ -663,18 +673,12 @@ function closeLevelCard() {
 }
 
 
+// INSTANT THEME APPLYING:
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+}
 
-const themeToggle = document.getElementById('themeToggle');
-const savedTheme = localStorage.getItem('theme') || 'dark';
-
-document.documentElement.setAttribute('data-theme', savedTheme);
-themeToggle.checked = savedTheme === 'dark';
-
-themeToggle.addEventListener('change', () => {
-    const theme = themeToggle.checked ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-});
 
 const medalTooltip = document.getElementById("hoverTooltip");
 
@@ -696,9 +700,20 @@ document.querySelectorAll(".medal, .collectable-total").forEach(el => {
         medalTooltip.classList.remove("visible");
     });
 });
-levelCard.addEventListener('mouseleave', () => {
-    medalTooltip.classList.remove('visible');
-});
+if (levelCard) {
+    // Keep card open if mouse enters the card itself
+    levelCard.addEventListener('mouseenter', () => {
+        if (hideCardTimeout) clearTimeout(hideCardTimeout);
+    });
+
+    // Hide card when mouse leaves the card entirely
+    levelCard.addEventListener('mouseleave', () => {
+        levelCard.classList.remove('visible');
+        activeTooltipWrapper = null;
+        activeLevelId = null;
+        medalTooltip?.classList.remove('visible');
+    });
+}
 
 function updateCollectableTotals(levels) {
     const collectedTotals = {};
@@ -717,7 +732,7 @@ function updateCollectableTotals(levels) {
 
         for (const [groupName, originalGroup] of Object.entries(level.collectibles)) {
 
-    // clone group so we can safely inject defaults
+    // clone group to safely inject defaults
     const group = { ...originalGroup };
 
     // every permanent level has medal rewards by default
@@ -734,8 +749,6 @@ function updateCollectableTotals(levels) {
                     maxTotals[type] = 0;
                 }
 
-                // const remaining = state[type] ?? total;
-                // const collected = total - remaining;
                 let collected;
                 let adjustedTotal = total;
 
@@ -810,14 +823,14 @@ function getcollectiblestate(level) {
     let state = stored ? JSON.parse(stored) : {};
 
     if (level.collectibles) {
-            for (const group of Object.values(level.collectibles)) {
-                for (const [type, total] of Object.entries(group)) {
-                        // If new type added later (like medals)
-                        if (typeof state[type] !== 'number') {
-                            state[type] = total; // default remaining = total
-                        }
-                }
+        for (const group of Object.values(level.collectibles)) {
+            for (const [type, total] of Object.entries(group)) {
+                    // If new type added later (like medals)
+                    if (typeof state[type] !== 'number') {
+                        state[type] = total; // default remaining = total
+                    }
             }
+        }
     }
 
     localStorage.setItem(key, JSON.stringify(state));
@@ -904,113 +917,115 @@ function getCollectedMedals(level) {
     return collected;
 }
 
-videoModal.querySelector('.video-close').addEventListener('click', closeVideo);
-videoModal.querySelector('.video-backdrop').addEventListener('click', closeVideo);
+const closeBtn = videoModal?.querySelector('.video-close');
+if (closeBtn) {
+    closeBtn.addEventListener('click', closeVideo);
+}
+
+const backdrop = videoModal?.querySelector('.video-backdrop');
+if (backdrop) {
+    backdrop.addEventListener('click', closeVideo);
+}
 
 
-document.getElementById('zeepsaveInput').addEventListener('change', e => {
-    const file = e.target.files[0];
-    if (!file) return;
+const zeepsaveInput = document.getElementById('zeepsaveInput');
+if (zeepsaveInput) {
+    zeepsaveInput.addEventListener('change', e => {
+        const file = e.target.files[0];
+        if (!file) return;
 
-    const reader = new FileReader();
-    reader.onload = async () => {
-        try {
-            const data = JSON.parse(reader.result);
+        const reader = new FileReader();
+        reader.onload = async () => {
+            try {
+                const data = JSON.parse(reader.result);
 
-            // --- CLEAR MEDAL/LEVEL PROGRESS KEYS ---
-            Object.keys(localStorage).forEach(key => {
-                // Ignore collectibles, theme, cosmetics, or best times keys
-                if (key.startsWith('collectibles:') || 
-                    key === 'theme' || 
-                    key === 'unlockedCosmetics' || 
-                    key === 'zeepsaveTimes') {
-                    return;
-                }
+                // --- CLEAR MEDAL/LEVEL PROGRESS KEYS ---
+                Object.keys(localStorage).forEach(key => {
+                    if (key.startsWith('collectibles:') || 
+                        key === 'theme' || 
+                        key === 'unlockedCosmetics' || 
+                        key === 'zeepsaveTimes') {
+                        return;
+                    }
 
-                // Remove level medal completion states (stored as numbers 0–4)
-                const val = parseInt(localStorage.getItem(key));
-                if (!isNaN(val)) {
-                    localStorage.removeItem(key);
-                }
-            });
-
-            // --- FIXED: Use `data` AFTER parsing JSON ---
-            const unlockedItems = extractUnlockedCollectables(data);
-            localStorage.setItem('unlockedCosmetics', JSON.stringify(unlockedItems));
-
-            const lines = Object.values(data.AdventureTimes || {})
-                .map(entry => `${transformLevelUID(entry.LevelUID)}, ${entry.Time.toFixed(3)}`);
-
-            fetch('levels.json')
-            .then(res => res.json())
-            .then(async levelsData => {
-
-                let testLines = lines;
-
-                if (typeof DEBUG_RANDOMIZE_TIMES !== 'undefined' && DEBUG_RANDOMIZE_TIMES) {
-                    const addOptions = [10, 20, 30, 45];
-                    testLines = lines.map(line => {
-                        const [name, timeStr] = line.split(', ');
-                        const randomAdd = addOptions[Math.floor(Math.random() * addOptions.length)];
-                        const newTime = parseFloat(timeStr) + randomAdd;
-                        return `${name}, ${newTime.toFixed(3)}`;
-                    });
-                }
-
-                // --- 1. PROCESS TIMES & PINS FIRST ---
-                const results = compareToMedals(testLines, levelsData);
-                // console.table(results);
-
-                ZEEPSAVE_TIMES = {};
-                results.forEach(r => {
-                    const level = levelsData.find(l => normalizeName(l.name) === normalizeName(r.name));
-                    if (level) {
-                        ZEEPSAVE_TIMES[level.id] = parseFloat(r.zeepsaveTime);
+                    const val = parseInt(localStorage.getItem(key));
+                    if (!isNaN(val)) {
+                        localStorage.removeItem(key);
                     }
                 });
-                localStorage.setItem('zeepsaveTimes', JSON.stringify(ZEEPSAVE_TIMES));
 
-                // Update UI for medals / pins
-                if (typeof updateLevelProgress === 'function') {
-                    updateLevelProgress(results, levelsData);
-                }
+                const unlockedItems = extractUnlockedCollectables(data);
+                localStorage.setItem('unlockedCosmetics', JSON.stringify(unlockedItems));
 
-                // --- 2. PROCESS COSMETICS ---
-                try {
-                    await syncZeepsaveCollectibles(data, levelsData);
-                } catch (cosmeticErr) {
-                    console.error('Error during syncZeepsaveCollectibles:', cosmeticErr);
-                }
+                const lines = Object.values(data.AdventureTimes || {})
+                    .map(entry => `${transformLevelUID(entry.LevelUID)}, ${entry.Time.toFixed(3)}`);
 
-                // --- 3. BUNDLE & SAVE EVERYTHING BEFORE RELOAD ---
-                saveAllProgress();
+                fetch('levels.json')
+                .then(res => res.json())
+                .then(async levelsData => {
 
-                // Reload to display updated state across the site
-                location.reload();
-            })
-            .catch(err => console.error('Failed to load levels.json:', err));
+                    let testLines = lines;
 
-        } catch (err) {
-            console.error('Failed to parse/process file:', err);
-        }
-    };
-    reader.readAsText(file);
-});
+                    if (typeof DEBUG_RANDOMIZE_TIMES !== 'undefined' && DEBUG_RANDOMIZE_TIMES) {
+                        const addOptions = [10, 20, 30, 45];
+                        testLines = lines.map(line => {
+                            const [name, timeStr] = line.split(', ');
+                            const randomAdd = addOptions[Math.floor(Math.random() * addOptions.length)];
+                            const newTime = parseFloat(timeStr) + randomAdd;
+                            return `${name}, ${newTime.toFixed(3)}`;
+                        });
+                    }
 
-const zeepSaveHelp = document.querySelector('.zeepsave-help');
+                    const results = compareToMedals(testLines, levelsData);
+
+                    ZEEPSAVE_TIMES = {};
+                    results.forEach(r => {
+                        const level = levelsData.find(l => normalizeName(l.name) === normalizeName(r.name));
+                        if (level) {
+                            ZEEPSAVE_TIMES[level.id] = parseFloat(r.zeepsaveTime);
+                        }
+                    });
+                    localStorage.setItem('zeepsaveTimes', JSON.stringify(ZEEPSAVE_TIMES));
+
+                    if (typeof updateLevelProgress === 'function') {
+                        updateLevelProgress(results, levelsData);
+                    }
+
+                    try {
+                        await syncZeepsaveCollectibles(data, levelsData);
+                    } catch (cosmeticErr) {
+                        console.error('Error during syncZeepsaveCollectibles:', cosmeticErr);
+                    }
+
+                    saveAllProgress();
+                    location.reload();
+                })
+                .catch(err => console.error('Failed to load levels.json:', err));
+
+            } catch (err) {
+                console.error('Failed to parse/process file:', err);
+            }
+        };
+        reader.readAsText(file);
+    });
+}
+
+const zeepSaveHelp = document.querySelector('.info-help-wrapper') || document.querySelector('.zeepsave-help');
 const zeepSavePopup = document.querySelector('.zeepsave-popup');
 
-zeepSaveHelp.addEventListener('mouseenter', () => {
-    const rect = zeepSaveHelp.getBoundingClientRect();
-    zeepSavePopup.style.display = 'block';
-    const popupWidth = zeepSavePopup.offsetWidth;
-    zeepSavePopup.style.left = `${rect.right - popupWidth}px`;
-    zeepSavePopup.style.top = `${rect.bottom + 10}px`;
-});
+if (zeepSaveHelp && zeepSavePopup) {
+    zeepSaveHelp.addEventListener('mouseenter', () => {
+        const rect = zeepSaveHelp.getBoundingClientRect();
+        zeepSavePopup.style.display = 'block';
+        const popupWidth = zeepSavePopup.offsetWidth;
+        zeepSavePopup.style.left = `${rect.right - popupWidth}px`;
+        zeepSavePopup.style.top = `${rect.bottom + 10}px`;
+    });
 
-zeepSaveHelp.addEventListener('mouseleave', () => {
-    zeepSavePopup.style.display = 'none';
-});
+    zeepSaveHelp.addEventListener('mouseleave', () => {
+        zeepSavePopup.style.display = 'none';
+    });
+}
 
 function transformLevelUID(uid) {
     let result;
@@ -1089,7 +1104,7 @@ function medalToNumber(medal) {
         case 'gold':   return 3;
         case 'silver': return 2;
         case 'bronze': return 1;
-        default:       return 0; // 'no medal'
+        default:       return 0; // no medal
     }
 }
 
@@ -1283,8 +1298,6 @@ async function syncZeepsaveCollectibles(zeepSaveData, levelsData) {
     // 1. Extract unlocked (type, id) pairs from Progression.zeepsave
     const unlockedItems = extractUnlockedCollectables(zeepSaveData);
 
-    // Extract just the string/numeric IDs from Zeepsave
-    // const unlockedCosmeticIDs = unlockedItems.map(item => String(item.id));
     // Save the array to localStorage
     localStorage.setItem('unlockedCosmetics', JSON.stringify(unlockedItems));
 
@@ -1420,12 +1433,7 @@ const matchedCosmeticIds = new Set();
             unlockKey: camelUnlockKey
         });
 
-        // if (!updatesPerLevel[fullLevelId]) {
-        //     updatesPerLevel[fullLevelId] = [];
-        // }
-
-        // 3. Store the unlock type to deduct/update for this level
-        
+        // 3. Store the unlock type to deduct/update for this level        
         const matchKey = `${type}:${id}`;
 
 if (!matchedCosmeticIds.has(matchKey)) {
@@ -1497,10 +1505,6 @@ if (!matchedCosmeticIds.has(matchKey)) {
         unlockKey: camelUnlockKey
         });
 
-        // if (!updatesPerLevel[fullLevelId]) {
-        // updatesPerLevel[fullLevelId] = [];
-        // }
-
         const matchKey = `${type}:${id}`;
 
 if (!matchedCosmeticIds.has(matchKey)) {
@@ -1514,25 +1518,7 @@ if (!matchedCosmeticIds.has(matchKey)) {
 }
     });
 
-    // console.log(`[3/4] Matching Results:`);
-    // console.log(`  ✅ Successfully Matched: ${matchedCosmetics.length}`);
-    // console.log(`  ❓ Unmatched Cosmetics: ${unmatchedCosmetics.length}`);
-    // console.log(`  ⚠️ Level Not Found in levels.json: ${levelNotFoundMatches.length}`);
-
-    // Diagnostic for unmatched items
-    // if (unmatchedCosmetics.length > 0) {
-    //     console.groupCollapsed('Sample Unmatched Diagnostic (First 5)');
-    //     unmatchedCosmetics.slice(0, 5).forEach(item => {
-    //     const idOnlyMatches = cosmeticsData.filter(c => 
-    //         String(c.cosmeticID) === String(item.id) || String(c.baseID) === String(item.id)
-    //     );
-    //     // console.log(`Zeepsave Item:`, item, `--> Matches by ID only in cosmetics.json:`, idOnlyMatches);
-    //     });
-    //     console.groupEnd();
-    // }
-
     // 3. Update localStorage for ALL levels in levels.json
-    // console.log(`[4/4] Syncing localStorage across all levels...`);
     const storageUpdateSummary = [];
 
     levelsData.forEach(levelObj => {
@@ -1593,11 +1579,6 @@ if (!matchedCosmeticIds.has(matchKey)) {
     console.log('No localStorage changes needed (all levels already up-to-date).');
   }
 
-//   if (storageUpdateSummary.length > 0) {
-//     console.table(storageUpdateSummary);
-//   } else {
-//     console.log('No localStorage changes needed (all levels already up-to-date).');
-//   }
 
   console.groupEnd();
 }
@@ -1608,12 +1589,13 @@ if (!matchedCosmeticIds.has(matchKey)) {
 function getFullSaveData() {
     return {
         timestamp: new Date().toISOString(),
-        // Level progression (medals, collected counts, pins)
-        levelProgress: JSON.parse(localStorage.getItem('levelProgress') || '{}'),
-        // Level best times from .zeepsave
+        user_steam_id: localStorage.getItem('user_steam_id') || '',
+        medals: getProgressData().medals,
+        collectibles: getProgressData().collectibles,
         zeepsaveTimes: JSON.parse(localStorage.getItem('zeepsaveTimes') || '{}'),
-        // Unlocked cosmetics array
-        unlockedCosmetics: JSON.parse(localStorage.getItem('unlockedCosmetics') || '[]')
+        unlockedCosmetics: JSON.parse(localStorage.getItem('unlockedCosmetics') || '[]'),
+        unlockedDLC: JSON.parse(localStorage.getItem('unlockedDLC') || '[]'),
+        unlockedAchievements: JSON.parse(localStorage.getItem('unlockedAchievements') || '[]')
     };
 }
 
@@ -1628,4 +1610,219 @@ function saveAllProgress() {
 
     console.log('✅ Progress backed up successfully:', backupData);
     return backupData;
+}
+
+
+// 1. DOMContentLoaded: Reads steamid from URL/LocalStorage and initializes achievements
+window.addEventListener("DOMContentLoaded", () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const steamIdFromUrl = urlParams.get("steamid");
+
+    if (steamIdFromUrl) {
+        localStorage.setItem("user_steam_id", steamIdFromUrl);
+        // console.log("Steam ID saved to LocalStorage:", steamIdFromUrl);
+
+        // Remove query params without altering the base URL path
+        const url = new URL(window.location.href);
+        url.searchParams.delete('steamid');
+        window.history.replaceState({}, document.title, url.pathname + url.search);
+    }
+
+    // B. Dynamically generate login button URL without double slashes
+    const steamBtn = document.getElementById("steam-login-btn");
+    if (steamBtn) {
+        // Uses standard URL construction to prevent extra trailing slashes
+        const redirectUrl = new URL(window.location.pathname, window.location.origin).href;
+        steamBtn.href = `https://zeepkist-steam-proxy.cactuzhead.workers.dev/?action=login&redirect_uri=${encodeURIComponent(redirectUrl)}`;
+    }
+
+    // C. Load saved DLC checkboxes & recalculate totals
+    if (typeof loadDLCCheckboxes === "function") {
+        loadDLCCheckboxes();
+    }
+
+    // D. Fetch/Apply Steam Achievements
+    const currentSteamId = localStorage.getItem("user_steam_id");
+    // console.log("Current Steam ID from LocalStorage:", currentSteamId);
+
+    if (currentSteamId) {
+        // Render instantly from LocalStorage
+        const cachedAchievements = getStoredUnlockedAchievements();
+        if (cachedAchievements.length > 0) {
+            applyUnlockedToUI(cachedAchievements);
+        }
+
+        // Fetch fresh state from Steam
+        syncAchievementsFromSteam(currentSteamId);
+    } else {
+        // If no Steam ID, still update counters for local offline checkboxes
+        refreshPageCounters();
+    }
+});
+
+// 2. Fetch from Steam Proxy and store in LocalStorage
+function syncAchievementsFromSteam(steamId) {
+    const proxyUrl = `https://zeepkist-steam-proxy.cactuzhead.workers.dev/?action=achievements&steamid=${steamId}`;
+
+    fetch(proxyUrl)
+        .then(res => {
+            if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+            return res.json();
+        })
+        .then(data => {
+            if (data?.playerstats?.achievements && Array.isArray(data.playerstats.achievements)) {
+                // Extract only unlocked achievements
+                const unlockedList = data.playerstats.achievements
+                    .filter(ach => ach.achieved === 1)
+                    .map(ach => ach.apiname);
+
+                // Save to LocalStorage
+                localStorage.setItem("unlockedAchievements", JSON.stringify(unlockedList));
+
+                // Apply to UI and update counters
+                applyUnlockedToUI(unlockedList);
+                refreshPageCounters();
+            }
+        })
+        .catch(err => console.error("Error syncing Steam achievements:", err));
+}
+
+function updateDLCCounter() {
+    const owned = getStoredUnlockedDLC();
+    const badge = document.getElementById("dlcBadge");
+    if (badge) {
+        badge.textContent = owned.length;
+    }
+}
+
+// Helper function to force counter recalculations
+function refreshPageCounters() {
+    if (typeof updateProgress === "function") updateProgress();
+    if (typeof updateDLCCounter === "function") updateDLCCounter();
+    if (typeof calculateTotals === "function") calculateTotals();
+}
+
+
+// 3. Retrieve unlocked achievement array from LocalStorage
+function getStoredUnlockedAchievements() {
+    try {
+        const stored = localStorage.getItem("unlockedAchievements");
+        return stored ? JSON.parse(stored) : [];
+    } catch (e) {
+        console.error("Failed to parse unlockedAchievements from LocalStorage:", e);
+        return [];
+    }
+}
+
+// Helper: Function to update UI using the array of unlocked names
+function applyUnlockedToUI(unlockedList) {
+    const unlockedSet = new Set(unlockedList);
+}
+
+// Save checkbox changes directly into LocalStorage and refresh UI + Badge
+function toggleDLC(dlcId, isOwned) {
+    let owned = getStoredUnlockedDLC();
+
+    if (isOwned) {
+        if (!owned.includes(dlcId)) owned.push(dlcId);
+    } else {
+        owned = owned.filter(id => id !== dlcId);
+    }
+
+    localStorage.setItem("unlockedDLC", JSON.stringify(owned));
+
+    // Refresh badge & UI
+    updateDLCBadge();
+    if (typeof applyDLCToUI === "function") {
+        applyDLCToUI(owned);
+    }
+}
+
+// Read from LocalStorage and set checkbox states + badge on page load
+function loadDLCCheckboxes() {
+    const owned = getStoredUnlockedDLC();
+
+    [1699070, 1962260, 3316260].forEach(dlcId => {
+        const checkbox = document.getElementById(`dlc-${dlcId}`);
+        if (checkbox) {
+            checkbox.checked = owned.includes(dlcId);
+        }
+    });
+
+    updateDLCBadge();
+    if (typeof applyDLCToUI === "function") {
+        applyDLCToUI(owned);
+    }
+}
+
+// Safely retrieve array from LocalStorage
+function getStoredUnlockedDLC() {
+    try {
+        const stored = localStorage.getItem("unlockedDLC");
+        return stored ? JSON.parse(stored) : [];
+    } catch (e) {
+        return [];
+    }
+}
+
+function applyDLCToUI(ownedDlcList) {
+    // Custom logic to show/hide DLC items in your UI
+}
+
+// Toggle menu visibility
+function toggleDLCDropdown() {
+    const menu = document.getElementById("dlcMenu");
+    menu.classList.toggle("show");
+}
+
+// ==========================================================================
+//   Global Click-Outside Handler
+// ==========================================================================
+window.addEventListener("click", (event) => {
+    // DLC Dropdown Close Handler
+    const dlcContainer = document.querySelector(".dlc-dropdown-container");
+    if (dlcContainer && !dlcContainer.contains(event.target)) {
+        document.getElementById("dlcMenu")?.classList.remove("show");
+    }
+
+    // Hamburger Dropdown Close Handler
+    const hamburgerContainer = document.querySelector(".hamburger-menu-container");
+    const isToggleClick = event.target.closest(".hamburger-menu-toggle");
+
+    if (hamburgerContainer && !hamburgerContainer.contains(event.target) && !isToggleClick) {
+        document.getElementById("menuDropdown")?.classList.remove("show");
+    }
+});
+
+
+// Update the badge number on the button
+function updateDLCBadge() {
+    const owned = getStoredUnlockedDLC();
+    const badge = document.getElementById("dlcBadge");
+    if (badge) {
+        badge.textContent = owned.length;
+    }
+}
+
+function toggleMenuDropdown() {
+    const menu = document.getElementById('menuDropdown');
+    menu.classList.toggle('show');
+}
+
+// Close the hamburger dropdown when clicking outside
+window.addEventListener('click', (e) => {
+    const container = document.querySelector('.menu-dropdown-container');
+    if (container && !container.contains(e.target)) {
+        const menu = document.getElementById('menuDropdown');
+        if (menu && menu.classList.contains('show')) {
+            menu.classList.remove('show');
+        }
+    }
+});
+
+function updateSummaryStats() {
+    if (typeof ALL_LEVELS !== 'undefined' && ALL_LEVELS.length > 0) {
+        updateTotals(ALL_LEVELS);
+        updateCollectableTotals(ALL_LEVELS);
+    }
 }

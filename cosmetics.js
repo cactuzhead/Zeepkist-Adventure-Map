@@ -24,13 +24,43 @@ fetch('cosmetics.json')
     .then(data => init(data));
 
 /* ------------------------------------
-   Helper: Check if Cosmetic is Collected
+   Helper: Check if Cosmetic is Unlocked
 ------------------------------------ */
 function isCosmeticUnlocked(c) {
+    // 1. Included by default with the base game
     if (String(c.level).toLowerCase() === 'included with zeepkist') {
         return true;
     }
 
+    // Helper to safely parse JSON arrays from localStorage
+    function getStoredSet(key) {
+        try {
+            const raw = localStorage.getItem(key);
+            const parsed = raw ? JSON.parse(raw) : [];
+            return new Set(Array.isArray(parsed) ? parsed : []);
+        } catch (e) {
+            console.error(`Failed to parse ${key} from localStorage:`, e);
+            return new Set();
+        }
+    }
+
+    // 2. Check Steam Achievements (unlockedAchievements)
+    if (c.achievement) {
+        const unlockedAchievements = getStoredSet('unlockedAchievements');
+        if (unlockedAchievements.has(c.achievement)) {
+            return true;
+        }
+    }
+
+    // 3. Check DLC Ownership (unlockedDLC)
+    if (c.dlcId) {
+        const unlockedDLC = getStoredSet('unlockedDLC');
+        if (unlockedDLC.has(Number(c.dlcId))) {
+            return true;
+        }
+    }
+
+    // 4. Check In-Game Collectables (unlockedCosmetics)
     let unlockedCosmetics = [];
     try {
         unlockedCosmetics = JSON.parse(localStorage.getItem('unlockedCosmetics') || '[]');
@@ -178,6 +208,7 @@ function renderCosmetics(cosmetics) {
     cosmeticsTotalEl.textContent = `${cosmetics.length} / ${allCosmetics.length} cosmetics`;
 }
 
+
 /* ------------------------------------
    Dark/light theme toggle
 ------------------------------------ */
@@ -185,17 +216,21 @@ function setTheme(isDark) {
     if (isDark) document.documentElement.setAttribute('data-theme', 'dark');
     else document.documentElement.removeAttribute('data-theme');
     try {
-        localStorage.setItem('dm_theme', isDark ? 'dark' : 'light');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        localStorage.removeItem('dm_theme'); // Cleans up leftover key
     } catch (e) {}
 }
 
-themeToggle.addEventListener('change', () => setTheme(themeToggle.checked));
+themeToggle?.addEventListener('change', () => setTheme(themeToggle.checked));
 
 (function initTheme() {
-    const saved = localStorage.getItem('dm_theme');
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const isDark = saved ? saved === 'dark' : prefersDark;
-    themeToggle.checked = isDark;
+    // Check 'theme' first, fallback to legacy 'dm_theme' if present
+    const saved = localStorage.getItem('theme') || localStorage.getItem('dm_theme');
+    
+    // Default to dark mode (true) if nothing is saved in localStorage
+    const isDark = saved ? saved === 'dark' : true;
+    
+    if (themeToggle) themeToggle.checked = isDark;
     setTheme(isDark);
 })();
 
@@ -373,3 +408,17 @@ function init(cosmeticsData) {
     if (cosmeticFilter) cosmeticFilter.value = 'all'; // Ensure default is 'all'
     applyControls();
 }
+
+// call applyControls() inside toggleDLC function
+function applyDLCToUI() {
+    if (typeof applyControls === 'function') {
+        applyControls();
+    }
+}
+
+// Handles theme toggle if it gets injected dynamically by nav.js
+document.addEventListener('change', (e) => {
+    if (e.target && (e.target.id === 'themeToggle' || e.target.classList.contains('theme-toggle'))) {
+        setTheme(e.target.checked);
+    }
+});

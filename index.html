@@ -10,141 +10,193 @@
             );
         </script>
         <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
     </head>
     <body>
-        <header class="topbar">
-            <div class="brand">Zeepkist Adventure Map</div>       
+<header class="topbar">  
+        <div class="brand">
+            <div class="brand-mark">Z</div>
+            <div class="brand-text">
+                <span class="brand-eyebrow">zeepkist.cactuzhead.com</span>
+                <span class="brand-title">Adventure Map</span>
+            </div>
+        </div>
 
-            <div class="medals">
-                <div class="progress">
-                    <span class="medal cross" data-tooltip="Uncompleted levels">
-                    <span class="icon"></span>
-                    <span id="remainingCount">0</span>                    
-                </span>
+        <!-- CONTROLS SECTION (TOP) -->
+        <div class="controls">
+            <a href="cosmetics.html" target="_self" rel="noopener" class="topbar-link">
+                Cosmetics Index
+            </a>
 
-                <span class="medal bronze" data-tooltip="Bronze levels completed">
-                    <span class="icon"></span>
-                    <span id="bronzeCount">0</span>                    
-                </span>
+            <a href="achievements.html" class="topbar-link">Achievements List</a>
+            <a href="stats.html" class="topbar-link">Steam Stats</a>
 
-                <span class="medal silver" data-tooltip="Silver levels completed">
-                    <span class="icon"></span>
-                    <span id="silverCount">0</span>                   
-                </span>
+            <!-- Steam Login Button + Popup -->
+            <div class="topbar-item info-help-wrapper">
+                <a id="steam-login-btn" class="steam-btn" href="https://zeepkist-steam-proxy.cactuzhead.workers.dev/?action=login">
+                    <svg class="steam-icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
+                        <path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.03 4.524 4.524s-2.03 4.524-4.524 4.524h-.105l-4.076 2.911c0 .052.005.105.005.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.437 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 12-5.373 12-12s-5.373-12-12-12zm-3.613 14.802c0 .241-.043.473-.117.691l-1.956-.808c.08-.245.127-.506.127-.779 0-.317-.063-.618-.173-.896l1.966.812c.101.304.153.632.153.98zm8.575-5.892c0-1.428-1.159-2.586-2.586-2.586s-2.586 1.158-2.586 2.586 1.158 2.586 2.586 2.586 2.586-1.158 2.586-2.586zm-4.202 0c0-.892.724-1.616 1.616-1.616s1.616.724 1.616 1.616-.724 1.616-1.616 1.616-1.616-.724-1.616-1.616z"/>
+                    </svg>
+                    <span>Sign in with Steam</span>
+                </a>
 
-                <span class="medal gold" data-tooltip="Gold levels completed">
-                    <span class="icon"></span>
-                    <span id="goldCount">0</span>                    
-                </span>
-
-                <span class="medal author" data-tooltip="Author levels completed">
-                    <span class="icon"></span>
-                    <span id="authorCount">0</span>                    
-                </span>                       
-                    <span class="medal total">Total:<span id="totalCount">0</span></span>
+                <div class="info-popup steam-popup">
+                    <strong><span class="zeepsave-name">Sync Steam Achievements</span></strong>
+                    <br>
+                    Connect your Steam account to automatically load unlocked achievement cosmetics.
+                    <br><br>
+                    <div class="popup-row">
+                        🔒 Only public Steam IDs and achievements are read. No personal data is stored.
+                    </div>
+                    <div class="popup-row">
+                        🌐 In Steam go to <strong>My Profile</strong> > <strong>Privacy Settings</strong> and make sure these are set accordingly.
+                        <ul class="steam-requirements-list">
+                            <li><strong>My Profile</strong> must be set to <strong>Public</strong>.</li>
+                            <li><strong>Game Details</strong> must be set to <strong>Public</strong>.</li>
+                            <li>In the <strong>Game Details</strong> section <strong>Always keep my total playtime private...</strong> should be unchecked.</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
-            <div class="collectables-totals">
-                <div class="progress">
-
-                    <span class="collectable-total redGifts" data-tooltip="Red Gifts collected">
-                        <span class="icon"></span>
-                        <span id="redGiftsCount">0</span>                        
-                    </span>
-
-                    <span class="collectable-total blueFeathers" data-tooltip="Blue Feathers collected">
-                        <span class="icon"></span>
-                        <span id="blueFeathersCount">0</span>                        
-                    </span>
-
-                    <span class="collectable-total wheels" data-tooltip="Wheels collected">
-                        <span class="icon"></span>
-                        <span id="wheelsCount">0</span>                       
-                    </span>
-
-                    <span class="collectable-total paintBlobs" data-tooltip="Paint Blobs collected">
-                        <span class="icon"></span>
-                        <span id="paintBlobsCount">0</span>                       
-                    </span>
-
-                    <span class="collectable-total strange" data-tooltip="Strange collected">
-                        <span class="icon"></span>
-                        <span id="strangeCount">0</span>                        
-                    </span>
-
-                    <span class="collectable-total gears" data-tooltip="Gears collected">
-                        <span class="icon"></span>
-                        <span id="gearsCount">0</span>                        
-                    </span>
-
-                    <span class="collectable-total medals" data-tooltip="Medals collected">
-                        <span class="icon"></span>
-                        <span id="medalsCount">0</span>                        
-                    </span>
-
-                    <span class="collectable-total pumpkins seasonal" data-tooltip="Pumpkins collected">
-                        <span class="icon"></span>
-                        <span id="pumpkinsCount">0</span>                      
-                    </span>
-
-                    <span class="collectable-total snowflakes seasonal" data-tooltip="Snowflakes collected">
-                        <span class="icon"></span>
-                        <span id="snowflakesCount">0</span>                       
-                    </span>
-
-                    </span>                       
-                        <span class="medal total"><span id="giftsTotalCount">0</span></span>
-                    </div>
-
-                </div>
-                </div>
-
-
-            <div class="controls">
-                <a href="cosmetics.html"
-                    target="_self" rel="noopener" class="topbar-link">Cosmetics Index
-                </a>
-                <a href="https://github.com/cactuzhead/Zeepkist-Adventure-Map"
-                    target="_blank" rel="noopener" class="topbar-link">Read Me
-                </a>
-                <button id="exportBtn" class="topbar-link">Save</button>
-                <label class="topbar-link">
-                    Load
-                    <input type="file" id="importInput" accept="application/json" hidden>
-                </label>
-
-                <span class="zeepsave-help">
-                    <label class="topbar-link">
-                        Import Zeepsave
-                        <input type="file" id="zeepsaveInput" accept=".zeepsave" hidden>
+            <!-- DLC Dropdown -->
+            <div class="dlc-dropdown-container">
+                <button type="button" class="dlc-dropdown-btn" id="dlcBtn" onclick="toggleDLCDropdown()">
+                    DLCs <span id="dlcBadge" class="dlc-badge">0</span>
+                </button>
+                
+                <div class="dlc-dropdown-menu" id="dlcMenu">
+                    <div class="dlc-dropdown-header">Owned DLC</div>
+                    <label class="dlc-item">
+                        <input type="checkbox" id="dlc-1699070" onchange="toggleDLC(1699070, this.checked)">
+                        <span>Early Access Testing</span>
                     </label>
+                    <label class="dlc-item">
+                        <input type="checkbox" id="dlc-1962260" onchange="toggleDLC(1962260, this.checked)">
+                        <span>King's Day</span>
+                    </label>
+                    <label class="dlc-item">
+                        <input type="checkbox" id="dlc-3316260" onchange="toggleDLC(3316260, this.checked)">
+                        <span>Bobo Tires</span>
+                    </label>
+                </div>
+            </div>
 
-                    <div class="zeepsave-popup">
-                        <strong>Select your Zeepkist <span class="zeepsave-name">Progression.zeepsave</span> file</strong>
+            <!-- Zeepsave Import Button + Popup -->
+            <div class="topbar-item info-help-wrapper">
+                <label class="topbar-link">
+                    Import Zeepsave
+                    <input type="file" id="zeepsaveInput" accept=".zeepsave" hidden>
+                </label>
 
-                        <div class="zeepsave-path">
-                            <strong>Windows</strong>
-                            <div class="path-row">
-                                <code>c:\Users\YOUR USER NAME\AppData\LocalLow\Steelpan Interactive\Zeepkist\Technical</code>
-                                <button class="copy-path-btn" data-path="c:\Users\YOUR USER NAME\AppData\LocalLow\Steelpan Interactive\Zeepkist\Technical" title="Copy path">📋</button>
-                            </div>
-                        </div>
-
-                        <div class="zeepsave-path">
-                            <strong>Linux</strong>
-                            <div class="path-row">
-                               <code>~/.local/share/Steam/steamapps/compatdata/1440670/pfx/drive_c/users/steamuser/AppData/LocalLow/Steelpan Interactive/Zeepkist/Technical</code>
-                                <button class="copy-path-btn" data-path="~/.local/share/Steam/steamapps/compatdata/1440670/pfx/drive_c/users/steamuser/AppData/LocalLow/Steelpan Interactive/Zeepkist/Technical" title="Copy path">📋</button>
-                            </div>
+                <div class="info-popup zeepsave-popup">
+                    <strong>Select your Zeepkist <span class="zeepsave-name">Progression.zeepsave</span> file</strong>
+                    <div class="popup-path-section">
+                        <strong>Windows</strong>
+                        <div class="path-row">
+                            <code>c:\Users\YOUR USER NAME\AppData\LocalLow\Steelpan Interactive\Zeepkist\Technical</code>
+                            <button class="copy-path-btn" data-path="c:\Users\YOUR USER NAME\AppData\LocalLow\Steelpan Interactive\Zeepkist\Technical" title="Copy path">📋</button>
                         </div>
                     </div>
-                </span>
+                    <div class="popup-path-section">
+                        <strong>Linux</strong>
+                        <div class="path-row">
+                            <code>~/.local/share/Steam/steamapps/compatdata/1440670/pfx/drive_c/users/steamuser/AppData/LocalLow/Steelpan Interactive/Zeepkist/Technical</code>
+                            <button class="copy-path-btn" data-path="~/.local/share/Steam/steamapps/compatdata/1440670/pfx/drive_c/users/steamuser/AppData/LocalLow/Steelpan Interactive/Zeepkist/Technical" title="Copy path">📋</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-                <label class="switch">
-                    <input id="themeToggle" type="checkbox">
-                    <span class="slider"></span>
-                </label>
+            <!-- Hamburger Menu-->
+            <div id="nav-placeholder"></div>
+            
+        </div>
+
+            <!-- TOTALS SECTION (UNDERNEATH) -->
+            <div class="totals">
+                <div class="totals-left">
+                    <div class="medals">
+                        <div class="progress">
+                            <span class="medal cross" data-tooltip="Uncompleted levels">
+                                <span class="icon"></span>
+                                <span id="remainingCount">0</span>                    
+                            </span>
+
+                            <span class="medal bronze" data-tooltip="Bronze levels completed">
+                                <span class="icon"></span>
+                                <span id="bronzeCount">0</span>                    
+                            </span>
+
+                            <span class="medal silver" data-tooltip="Silver levels completed">
+                                <span class="icon"></span>
+                                <span id="silverCount">0</span>                   
+                            </span>
+
+                            <span class="medal gold" data-tooltip="Gold levels completed">
+                                <span class="icon"></span>
+                                <span id="goldCount">0</span>                    
+                            </span>
+
+                            <span class="medal author" data-tooltip="Author levels completed">
+                                <span class="icon"></span>
+                                <span id="authorCount">0</span>                    
+                            </span>                       
+                            <span class="medal total">Total:<span id="totalCount">0</span></span>
+                        </div>
+                    </div>
+
+                    <div class="collectables-totals">
+                        <div class="progress">
+                            <span class="collectable-total redGifts" data-tooltip="Red Gifts collected">
+                                <span class="icon"></span>
+                                <span id="redGiftsCount">0</span>                        
+                            </span>
+
+                            <span class="collectable-total blueFeathers" data-tooltip="Blue Feathers collected">
+                                <span class="icon"></span>
+                                <span id="blueFeathersCount">0</span>                        
+                            </span>
+
+                            <span class="collectable-total wheels" data-tooltip="Wheels collected">
+                                <span class="icon"></span>
+                                <span id="wheelsCount">0</span>                       
+                            </span>
+
+                            <span class="collectable-total paintBlobs" data-tooltip="Paint Blobs collected">
+                                <span class="icon"></span>
+                                <span id="paintBlobsCount">0</span>                       
+                            </span>
+
+                            <span class="collectable-total strange" data-tooltip="Strange collected">
+                                <span class="icon"></span>
+                                <span id="strangeCount">0</span>                        
+                            </span>
+
+                            <span class="collectable-total gears" data-tooltip="Gears collected">
+                                <span class="icon"></span>
+                                <span id="gearsCount">0</span>                        
+                            </span>
+
+                            <span class="collectable-total medals" data-tooltip="Medals collected">
+                                <span class="icon"></span>
+                                <span id="medalsCount">0</span>                        
+                            </span>
+
+                            <span class="collectable-total pumpkins seasonal" data-tooltip="Pumpkins collected">
+                                <span class="icon"></span>
+                                <span id="pumpkinsCount">0</span>                      
+                            </span>
+
+                            <span class="collectable-total snowflakes seasonal" data-tooltip="Snowflakes collected">
+                                <span class="icon"></span>
+                                <span id="snowflakesCount">0</span>                       
+                            </span>
+
+                            <span class="medal total"><span id="giftsTotalCount">0</span></span>
+                        </div>
+                    </div>               
+                </div>
             </div>
         </header>
 
@@ -173,6 +225,7 @@
 
         <!-- <script src="create.js"></script> -->
         <!-- <script src="script.js"></script> -->
-        <script src="script_collectables.js"></script>
+        <script src="nav.js"></script>
+        <script src="script_collectables.js" defer></script>
     </body>
 </html>

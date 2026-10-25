@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zeepkist Achievements</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+</head>
+<body class="achievements-page">
+    <!-- Top Navigation Bar -->
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-mark">Z</div>
+            <div class="brand-text">
+                <span class="brand-eyebrow">zeepkist.cactuzhead.com</span>
+                <span class="brand-title">achievements list</span>
+            </div>
+            
+            <span class="updated" id="userSteamID"></span>
+        </div>
+        
+        <nav class="controls">
+            <a href="index.html" class="topbar-link">Adventure Map</a>
+            <a href="cosmetics.html" class="topbar-link">Cosmetics Index</a>
+            <a href="stats.html" class="topbar-link">Steam Stats</a>
+
+            <!-- Hamburger Menu -->
+            <div id="nav-placeholder"></div>
+        </nav>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="achievements-container">
+        <div id="unlocked-section">
+            <div class="achievement-section-title">Unlocked Achievements <span id="unlockedSubtotal" class="subtotal-count">(0)</span></div>
+            <div id="unlocked-list"></div>
+        </div>
+
+        <div id="locked-section">
+            <div class="achievement-section-title">Locked Achievements <span id="lockedSubtotal" class="subtotal-count">(0)</span></div>
+            <div id="locked-list"></div>
+        </div>
+    </main>
+
+    <!-- Dynamic Steam Modal -->
+    <div id="privacyModal" class="modal">
+        <div class="modal-backdrop" onclick="closePrivacyModal()"></div>
+        <div class="modal-content privacy-modal-content">
+            <button class="levelcard-close" onclick="closePrivacyModal()">&times;</button>
+            
+            <!-- JavaScript injected content goes HERE -->
+            <div id="modalContainer"></div>
+            
+            <div class="privacy-modal-footer">
+                <button onclick="closePrivacyModal()" class="topbar-link privacy-modal-btn">Got It</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="nav.js"></script>
+    <script src="achievements.js"></script>
+    <script src="script_collectables.js"></script>
+</body>
+</html>
