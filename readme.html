@@ -1,0 +1,771 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#10151c">
+    <title>Zeepkist — Readme & Documentation</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">    
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-mark">Z</div>
+            <div class="brand-text">
+                <span class="brand-eyebrow">zeepkist.cactuzhead.com</span>
+                <span class="brand-title">readme & guide</span>
+            </div>
+        </div>
+        
+         <nav class="controls">
+            <a href="index.html" class="topbar-link">Adventure Map</a>
+            <a href="cosmetics.html" class="topbar-link">Cosmetics Index</a>
+            <a href="achievements.html" class="topbar-link">Achievements List</a>
+            <a href="stats.html" class="topbar-link">Steam Stats</a>
+
+            <!-- Hamburger Menu -->
+            <div id="nav-placeholder"></div>
+        </nav>
+    </header>     
+
+    <div class="readme-layout-wrapper">
+         <!-- Sticky Side Menu -->
+        <aside class="readme-sidebar">
+            <div class="sidebar-title">On This Page</div>
+            <nav class="sidebar-nav">
+                <!-- Moving indicator line -->
+                <div class="readme-sidebar-indicator" id="sidebar-indicator"></div>
+
+                <a href="#overview" class="sidebar-link">Overview</a>
+                <a href="#release-notes" class="sidebar-link">Release Notes</a>
+                <a href="#exceptions" class="sidebar-link">Exceptions & Accuracy</a>
+                <a href="#adventure-map" class="sidebar-link">Adventure Map Guide</a>
+                <a href="#top-bar" class="sidebar-link">Top Menu Bar & Controls</a>
+                <div class="sidebar-subnav">
+                    <a href="#controls" class="sidebar-sublink">Controls</a>
+                    <a href="#zeepsave" class="sidebar-sublink">Import Zeepsave</a>
+                    <a href="#hamburger" class="sidebar-sublink">Hamburger Menu</a>
+                </div>
+                <a href="#cosmetics-guide" class="sidebar-link">Cosmetics Index</a>
+                <div class="sidebar-subnav">
+                    <a href="#cards" class="sidebar-sublink">Cosmetic Cards</a>
+                    <a href="#youtube" class="sidebar-sublink">YouTube Videos</a>
+                    <a href="#card-info" class="sidebar-sublink">Card Information Section</a>
+                </div>
+                <a href="#achievements-list" class="sidebar-link">Achievements List</a>
+                <a href="#steam-stats" class="sidebar-link">Steam Stats</a>                
+            </nav>
+        </aside>
+
+        <main class="page readme-page">
+        <!-- Main Documentation Content -->
+            <div class="readme-content">
+
+
+        <!-- Hero Section & Ko-Fi Combined in One Full-Width Panel -->
+        <section id="overview" class="panel hero-main readme-hero">
+            <h1>Zeepkist Adventure Map</h1>
+            <!-- Ko-Fi Support integrated inside the bottom of the hero panel -->
+                <img src="docs/assets/ko-fi.png" alt="Ko-Fi" width="100" height="auto" class="readme-kofi-img">
+                <p class="readme-kofi-text">If you find value in this website and would like to support us, please consider using our <a href="https://ko-fi.com/cactuzhead" class="readme-kofi-link">ko-fi</a></p>
+        </section>
+
+        <!-- Release Notes Section -->
+        <section id="release-notes" class="panel readme-section-spacing">
+            <div class="panel-heading">
+                <div>
+                    Release Notes
+                    <div class="panel-kicker">Version History & Updates</div>
+                </div>
+                <span class="tag">HISTORY</span>
+            </div>
+
+            <h3 class="readme-accent-heading">Release 1.5.0</h3>
+            <ul>
+                <li><strong>Sign in with Steam:</strong>
+                    <ul>
+                        <li>Steam achievements can now be read and displayed on the new <code>Achievements List</code> page.</li>                        
+                        <li>A new <code>Steam Stats</code> page to show various info.</li>
+                        <li>Only public Steam IDs and achievements are accessed. No personal data is stored.</li>
+                    </ul>
+                </li>
+                <li><strong>DLC Button (with badge counter):</strong>
+                    <ul>
+                        <li>Manually set which DLCs you own (not possible to do automatically through Steam).</li>
+                        <li>Setting a DLC as owned will change all relevant DLC cosmetics to <code>Unlocked</code> in the <code>Cosmetics Index</code>.</li>
+                    </ul>
+                </li>
+                <li><strong>New Pages:</strong>
+                    <ul>
+                        <li>Achievements List</li>
+                        <li>Steam Stats</li>
+                        <li>Read Me</li>
+                    </ul>
+                </li>
+                <li><strong>TopBar Menu Revamp:</strong>
+                    <ul>
+                        <li>A restyling of the website with an improved top bar menu system.</li>
+                        <li>Some features have been moved into a new overflow hamburger menu:
+                            <ul>
+                                <li>Load</li>
+                                <li>Save</li>
+                                <li>Theme Toggle</li>
+                                <li>Lock Map Clicks</li>
+                                <li>Read Me</li>
+                            </ul>
+                        </li>
+                        <li>Added buttons to <code>Achievements List</code> and <code>Steam Stats</code>pages.</li>                     
+                    </ul>
+                </li>
+            </ul>
+
+            <h3 class="readme-spaced-heading">Previous Releases</h3>
+            
+            <details class="readme-details">
+                <summary><strong>Release 1.4.0</strong></summary>
+                <div class="readme-details-content">
+                    <p>Release 1.4.0 expands what importing your <code>Progression.zeepsave</code> file will do:</p>
+                    <ul>
+                        <li>Now all your collectables will also be automatically found and your Adventure Map will update every time you import.</li>
+                        <li>If you use the import, you do not need to manually set each collectable (or medal).</li>
+                        <li>Cosmetics Index now differentiates between locked and unlocked collectables (locked are red).</li>
+                        <li>You can now filter using <code>All Cosmetics</code>, <code>Unlocked</code> or <code>Locked</code>.</li>
+                        <li>Note at the moment DLC and Steam Achievements cosmetics are always set to red/locked (I will work on fixing this next).</li>
+                        <li>Created my YouTube video of the Pumpkin Collectables.</li>
+                        <li>Added all the Pumpkin collectable YouTube links to levels and cosmetics index (hover over thumbnail for YouTube links).</li>
+                    </ul>
+                </div>
+            </details>
+
+            <details class="readme-details">
+                <summary><strong>Release 1.3.0</strong></summary>
+                <div class="readme-details-content">
+                    <p>Release 1.3.0 introduces automatically loading your <code>Progression.zeepsave</code> file which will do the following:</p>
+                    <ul>
+                        <li>All your personal best times will be added to the level popup card (underneath the medal times)</li>
+                        <li>Your medal times will automatically reflect your best time - i.e. you improve your best time and you now have a gold medal beating time</li>
+                        <li>The Adventure Map pins will also change to reflect which is the best medal you have for that level</li>
+                        <li>The original Import and Export buttons still work the same, but are now renamed to <code>Load</code> and <code>Save</code></li>
+                        <li>There is now an additional <code>Import Zeepsave</code> button which will read your current best times for the adventure map.</li>
+                    </ul>
+                </div>
+            </details>
+
+            <details class="readme-details">
+                <summary><strong>Release 1.2.0</strong></summary>
+                <div class="readme-details-content">
+                    <p>Release 1.2.0 includes all the Zeepkist v18 features, including:</p>
+                    <ul>
+                        <li>Added L-01 to L-06 to the Adventure Map (as well as total gear count)</li>
+                        <li><code>L Author Times</code> video for L-01 to L-06</li>
+                        <li><code>L Collectables</code> video for all gears</li>
+                        <li>Updated <code>I Collectables</code> video to include 10th Strange Gift</li>
+                        <li>Added all 49 new collectables to the Cosmetics Index</li>
+                        <li>Coded in the new Gears to the website so that they can be tracked like all other collectables</li>
+                    </ul>
+                </div>
+            </details>
+
+            <details class="readme-details">
+                <summary><strong>Release 1.1.0</strong></summary>
+                <div class="readme-details-content">
+                    <p>Release 1.1.0 introduces gift collection tracking, including:</p>
+                    <ul>
+                        <li>Red Gifts</li>
+                        <li>Paint Blobs</li>
+                        <li>Blue Feathers</li>
+                        <li>Wheels</li>
+                        <li>Strange Gifts</li>
+                        <li>Gear Gifts</li>
+                        <li>Medal Gifts</li>
+                        <li>Seasonal Pumpkins</li>
+                        <li>Seasonal Snowflakes</li>
+                    </ul>
+                    <p>You'll also find direct links to YouTube guides to help you collect gifts and complete author runs. In addition, the new Cosmetics Index page lets you browse, search, and sort every cosmetic item currently in the game - over 3500 items so far.</p>
+                </div>
+            </details>
+        </section>
+
+        <!-- Excluded & Accuracy Section -->
+        <section id="exceptions" class="grid-2">
+            <article class="panel readme-section-spacing">
+                <div class="panel-heading">
+                    <div>
+                        Excluded Cosmetics
+                        <div class="panel-kicker">Cosmetics Index Exceptions</div>
+                    </div>
+                </div>
+                <p>Competition and custom cosmetics are not included in the index, as these items are generally not available to all players.</p>
+                <div class="readme-img-center">
+                    <img src="docs/assets/excludedCosmetics.png" alt="cosmetics not in index" class="readme-img-fluid" style="border-radius: 8px;">
+                </div>
+            </article>
+            <article class="panel readme-section-spacing">
+                <div class="panel-heading">
+                    <div>
+                        Cosmetic Accuracy
+                        <div class="panel-kicker">3D Model Rendering</div>
+                    </div>
+                </div>
+                <p>Due to the way Zeepkist renders cosmetics as 3D objects using the same lighting conditions as the level environment, some items can be difficult to distinguish from one another. As a result, there may occasionally be cases where a cosmetic has been incorrectly identified.</p>
+                <div class="readme-img-center">
+                    <img src="docs/assets/inGameVsInGarage.png" alt="in game vs in garage" class="readme-img-fluid" style="border-radius: 8px;">
+                </div>
+            </article>
+        </section>
+
+        <!-- Adventure Map Guide -->
+        <section id="adventure-map" class="panel readme-section-spacing">
+            <div class="panel-heading">
+                <div>
+                    Adventure Map Guide
+                    <div class="panel-kicker">Pins, States & Popups</div>
+                </div>
+            </div>
+            
+            <!-- Completion States -->
+            <h3 class="readme-spaced-heading">Completion States</h3>
+            <p>When you start, all the map pins should be set to a red cross icon, denoting an uncompleted level.</p>
+
+            <p>As of <code>v1.5.0</code>, using the website to manage your progress is the recommended approach. Manual editing remains available for players who prefer the old system.</p>
+            <p>With the <code>Lock Map Clicks</code> toggle in the hamburger menu set to <code>true</code>, you will not be able to edit these values manually. Instead, you should update them automatically using the <code>Import Zeepsave</code> button.</p>
+            <p>If this option is set to  <code>false</code>, and you click on any map pin, you can cycle through all the various completion states: <code>Uncompleted ➔ Bronze ➔ Silver ➔ Gold ➔ Author ➔ Uncompleted</code>.</p>
+            <div class="readme-img-center">
+                <img src="docs/assets/cycle.png" alt="completion states" class="readme-img-small">
+            </div>
+            
+            <p>Each time you change the level's state, the map pin icon will move to the next state, and the popup card will change to reflect the current state (see <code>Borders & Medal Times</code> section below).</p>
+
+            <!-- Popup Card Behavior & Closing -->
+            <h3 class="readme-spaced-heading">Popup Card Behavior & Closing</h3>
+            <p>When you hover over a map pin, the popup card will appear.  If you have the <code>Lock Map Clicks</code> toggle in the hamburger menu set to <code>true</code>, the popup card will hide if you move your pointer away from the pin and card.</p>
+            <p>If it is <code>false</code>, it will remain visible even after you move the mouse away. It will however change if you hover over another map pin.</p>
+            <p>To close the popup card, you can either click the <code>X</code> button on the top right of the card <strong>OR</strong> press the <code>Shift</code> key.</p>
+            <p>Holding down the <code>Shift</code> key is a simple way to prevent the popup card from appearing.</p>
+
+            <!-- Borders & Medal Times -->
+            <h3 class="readme-spaced-heading">Borders & Medal Times</h3>
+            <p>In the image below , you can see that the border of the popup card has changed to match the current status icon (Gold in this case).</p>
+            <div class="readme-img-center">
+                <img src="docs/assets/completion.png" alt="completion states" class="readme-img-bounded readme-img-500">
+            </div>
+            <p>The completed medals will have a tick mark next to their times and will also be brighter to indicate that you have completed these medals.  You can see in the image above, that because the Gold medal has been completed, bronze and silver are also checked and brighter.  Only the green Author medal is dimmer and without a check mark.</p>
+
+            <!-- Automatic Medal Gifts -->
+            <h3 class="readme-spaced-heading">Automatic Medal Gifts</h3>
+            <p>When you cycle though the state of the level from <code>Uncompleted ➔ Bronze ➔ Silver ➔ Gold ➔ Author ➔ Uncompleted</code>, the medals counter will automatically adjust itself to show how many cosmetics items you have unlocked.</p>
+            <div class="readme-img-center">
+                <img src="docs/assets/medal-gifts.png" alt="medal gifts" class="readme-img-bounded">
+            </div>
+            <p>In the example above, for level I-03, you can see that the medal counter is set to 2/8 in the first screenshot as you recieve 1 gift for both bronze and silver.</p>
+            <p>However, in the second screenshot, where the player has now completed a gold medal time - the counter is now 7/8.  This is because you unlock 5 cosmetic items if you complete the gold medal time on I-03.</p>
+            <p>And the final medal is of course for beating the Author medal time.</p>
+
+            <!-- YouTube Videos -->
+            <h3 class="readme-spaced-heading">YouTube Videos</h3>
+            <p>Hover over a level's screenshot in its popup card to reveal available YouTube links.</p>
+            <div class="readme-img-center">
+                <img src="docs/assets/videoLinks.png" alt="youtube links" class="readme-img-bounded readme-img-400">
+            </div>
+            <p>Clicking a video will open it in a popup window, where you can watch either an <code>Author Run</code> or a guide showing you how to find and collect <code>All Collectables</code> in the level.</p>
+            <p>During October and December, you may also see videos for <code>All Pumpkins</code> or <code>All Snowflakes</code>, respectively.</p>
+            <p>To close the popup window, click the <code>X</code> button in the top-right corner or simply click anywhere outside the popup.</p>
+            <div class="readme-img-center">
+                <img src="docs/assets/videoPopup.png" alt="video popup" class="readme-img-bounded">
+            </div>
+
+            <!-- Level Colors -->
+            <h3 class="readme-spaced-heading">Level Colors</h3>
+            <p>The level name and the horizontal line beside it (representing the track) always match the color of the track on the main map. For example, all Y (YouTuber) levels are shown in red and all OR (Off-Road) maps are a bright green.</p>
+            
+            <!-- Collectibles -->
+            <h3 class="readme-spaced-heading">Collectibles</h3>
+            <p>This bottom section of the popup card shows all the collectables, starting with the six permanet ones <code>red gift</code>, <code>blue feather</code>, <code>wheel</code>, <code>paint blob</code>, <code>strange</code> and <code>gear</code>, then followed by the medals cosmetics for completing medal times (See <code>Automatic Medal Gifts</code> section above), and then the two seasonal collectables (<code>pumpkins</code> and <code>snowflakes</code>).</p>
+            <div class="readme-img-center">
+                <img src="docs/assets/collectables.png" alt="collectables" class="readme-img-bounded readme-img-400">
+            </div>
+            <p>If a level has any collectables, they will be highlighted here and have text values for collected/total to their right.</p>
+            <p>Any collectables types not found in the level at all are dimmed, and have no text next to them.</p>
+
+            <!-- Gears -->
+            <h3 class="readme-spaced-heading">Gears</h3>
+            <p>As of Zeepkist v18, we now have an additional collectable type - Gears.</p>
+            <div class="readme-img-center">
+                <img src="docs/assets/collectablesGears.png" alt="collectable gears" class="readme-img-bounded readme-img-400">
+            </div>            
+            <p>They will be displayed on all level pop-up cards, although at this point in time, all will be dimmed except for L-01 to L-06 as no other map has gear gifts.</p>
+            <p>In zeepkist you have many different collectables hidden around the adventure levels as well as 3 red gifts, 1 blue feather and 1 wheel in the overworld map itself.</p>
+            <p>I have seperated all of these into two types: <code>permanent</code> and <code>seasonal</code>.</p>
+
+            <!-- Permanent Collecatables -->
+            <h3 class="readme-spaced-heading">Permanent Collecatables</h3> 
+            <ul>
+                <li>Red Gift</li>
+                <li>Blue Feathers</li>
+                <li>Wheels</li>
+                <li>Paint Blobs</li>
+                <li>Strange</li>
+                <li>Medal Times</li>
+                <li>Gears</li>
+            </ul>
+
+            <!-- Seasonal Collectibles -->
+            <h3 class="readme-spaced-heading">Seasonal Collectibles</h3>
+            <ul>
+                <li>Pumpkins</li>
+                <li>Snowflakes</li>
+            </ul>
+
+            <!-- How to Mark Collectables as Collected -->
+            <h3 class="readme-spaced-heading">How to Mark Collectables as Collected</h3>
+            <p>If you have the <code>Lock Map Clicks</code> toggle in the hamburger menu set to <code>true</code> then all collectables are automatically set for you using the <code>Import Zeepsave</code> button.</p>
+            <p>As of <code>v1.5.0</code>, using the website to manage your progress is the recommended approach. Manual editing remains available for players who prefer the old system:-</p>
+            <p>For manual editing, set the <code>Lock Map Clicks</code> toggle to <code>false</code>.</p>
+            <div class="readme-img-center">
+                <img src="docs/assets/giftCycle.png" alt="completion states" class="readme-img-bounded readme-img-500">
+            </div>
+            <p>You can click on each highlighted icon to advance their collected value by one.</p>
+            <p>If a collected value equals the total i.e. 3/3 then both the icon and its text will become dimmed.  If you click it a further time, they will both become highlighted again and the collected value will be reset to zero.</p>
+            <p>This way, you can easily tell whether you've collected all the gifts, as fully completed ones will appear dimmed.</p>
+        </section>
+
+        <!-- Top Menu Bar & Settings Guide -->
+        <section id="top-bar" class="panel readme-section-spacing">
+            <div class="panel-heading">
+                <div>
+                    Top Menu Bar & Controls
+                    <div class="panel-kicker">Stats, Counters & Options</div>
+                </div>
+            </div>
+            
+            <!-- Medal & Collectible Counters -->
+            <h3 class="readme-spaced-heading">Medal & Collectible Counters</h3>
+            <div class="readme-img-center">
+                <img src="docs/assets/counters.png" alt="medal counters" class="readme-img-bounded">
+            </div>
+            <p>Counters show uncompleted levels and breakdown totals for Bronze, Silver, Gold, Author (grand total of 120).</p>
+            <p>In this example, you can see that the player has authored 58 levels, but still has 12 levels where they have not yet achieved at least a bronze rating.</p>
+            <div class="readme-img-center">
+                <img src="docs/assets/collectableCounters.png" alt="collectable counters" class="readme-img-bounded">
+            </div>
+            <p>Here you can see each collectable icon with a collectred/total value.</p>
+            <p>Once all collectables of a particular type have been collected, their icon and text will be dimmed, making it easy to identify which collectables you still need to find.</p>
+            <p>Next is a total count for all gifts.</p>
+            <div class="readme-img-center">
+                <img src="docs/assets/totalGifts.png" alt="total gifts" class="readme-img-bounded readme-img-400">
+            </div>
+            <p>You can toggle betweeen including seasonal gifts or not, by clicking the text.</p>
+
+            <!-- Controls -->
+            <section id="controls">
+                <h3 class="readme-spaced-heading readme-sub-heading">Controls</h3>
+                <div class="readme-img-center">
+                    <img src="docs/assets/controls.png" alt="controls" class="readme-img-bounded">
+                </div>
+                <p>With the updated topbar in <code>v1.5.0</code> some of the previous controls have been moved, whilst there are also some new controls added.</p>
+                <p>Some pages have different controls, but now all have the hamburger drop-down menu.</p>
+            </section>
+
+            <!-- Page Buttons -->
+            <h3 class="readme-spaced-heading">Page Buttons</h3>                
+            <p>Depending on which page you are on you will see link buttons to the other pages (Read Me page link is always in the hamburger dropdown menu).</p>
+            
+            <ul>
+                <li>Cosmetics Index</li>
+                <li>Adventure Map</li>
+                <li>Achievments List</li>
+                <li>Steam Stats</li>
+                <li>Read Me</li>
+            </ul>
+                          
+            <p>These buttons will redirect you to the other web pages.</p>
+
+            <!-- Sign in with Steam -->
+            <h3 class="readme-spaced-heading">Sign in with Steam</h3>
+            <p>Authenticate via Steam to display your achievements on the <code>Achievements List</code> page.  By using this new feature for <code>v1.5.0</code>, you can also see various Zeepkist Steam stats on the new <code>Steam Stats</code> page.</p>
+            <p>Additionally, any associated cosmetics in the Cosmetics Index will be set to unlocked and will change them from highlighted in red (locked) to their normal unlocked style.</p>
+            <p>🔒 Only public Steam IDs and achievements are accessed. No personal data is stored.</p>
+            <p>🌐 For this to work properly, in Steam go to <code>My Profile</code> > <code>Privacy Settings</code> and make sure these are set accordingly:</p>
+
+            <ul>
+                <li><b>My Profile</b> must be set to Public.</li>
+                <li><b>Game Details</b> must be set to Public.</li>
+                <li>In the <b>Game Details</b> section <code>Always keep my total playtime private...</code> should be <b>unchecked</b>.</li>
+            </ul>
+
+            <!-- DLC Button -->
+            <h3 class="readme-spaced-heading">DLC Button</h3>
+            This new button (v1.5.0) has a badge counter to show how many DLC you have in Zeepkist.
+            <div class="readme-img-center">
+                <img src="docs/assets/dlcBadge.png" alt="DLC Badge" class="readme-img-bounded readme-img-200">
+            </div>
+
+            <p>Use the DLC button badge counter and dropdown checkboxes to mark your owned DLCs (Early Access Testing, King's Day, Bobo Tires).</p>
+            <p>You have to set these manually as it is not possible to do this automatically through Sign in with Steam.</p>
+            <div class="readme-img-center">
+                <img src="docs/assets/dlcCheckboxes.png" alt="DLC Checkboxes" class="readme-img-bounded readme-img-300">
+            </div>
+
+            <!-- Import Progression.Zeepsave -->
+            <section id="zeepsave">
+                <h3 class="readme-spaced-heading readme-sub-heading">Import Progression.Zeepsave</h3>
+                <p>As of version <code>1.3.0</code>, you now have a button called <code>Import Zeepsave</code>.</p>
+                <p>This button will allow you to open your <code>Progression.zeepsave</code> file which can normally be found in one of these folders:</p>
+            </section>
+
+            <!-- File Locations -->
+            <h3 class="readme-spaced-heading">File Locations</h3>
+            <p><b>Windows Folder</b></p>
+            <p><code>c:\Users\YOUR USER NAME\AppData\LocalLow\Steelpan Interactive\Zeepkist\Technical</code></p>
+            <p><b>Linux Folder</b></p>
+            <p><code>~/.local/share/Steam/steamapps/compatdata/1440670/pfx/drive_c/users/steamuser/AppData/LocalLow/Steelpan Interactive/Zeepkist/Technical</code></p>
+            
+            <div class="readme-img-center">
+                <img src="docs/assets/zeepsavePopup.png" alt="Zeepsave Button" class="readme-img-bounded">
+            </div>
+            <p>For convenience, use the clipboard button next to the Windows or Linux sections on the popup that appears when hovering over the <code>Import Zeepsave</code> button. Remember to change <code>YOUR USER NAME</code> to be correct for your Windows system.</p>
+            <p>It is recommended that before you use this import feature, you always save your current data by pressing the <code>Save</code> button in the drop-down Hamburger Menu - just in case there is a problem.</p>
+            <p>Once you import the zeepsave file, all your personal best times will be added to the level popup card.</p>
+            <p>Additionally, the map pins and collectable counters on the level popup card will be updated automatically.</p>
+            <p>As you can see in the image bellow, the personal best time is in purple, directly underneath the medal times. And as the personal best is between silver and gold times - only the bronze and silver times have been completed.</p>
+            <div class="readme-img-center">
+                <img src="docs/assets/personalBestTime.png" alt="Personal Best Times" class="readme-img-bounded readme-img-300">
+            </div>
+            <p>Your medal times will automatically reflect your best time - i.e. you improve your best silver medal time and you now have a gold medal beating time.</p>
+            <p>The Adventure Map pins will also automatically change to reflect which is the best medal you have for that level.</p>
+         
+            <!-- Updating Times -->
+            <h3 class="readme-spaced-heading">Updating Times</h3>
+            <p>If you want to update all the times, pins and unlocked cosmetics, you just have to re-import the <code>Progression.zeepsave</code> file and this will overwrite the old times and cosmetics counts. <strong>Note:</strong> Manually edited pin values override imported values until reset or changed.</p>
+            <p>Please be aware that your old save backup will still have the old times and counts - so it would be a good time to save a new backup file.</p>
+            
+            <!-- Manually Updated Times -->
+            <h3 class="readme-spaced-heading">Manually Updated Times</h3>
+            <p>If you are not following the recommended approach of only using the <code>Import Zeepfile</code> button to update your data, and are mixing import and manual edits, then please take note of these:-</p>
+            <ul>
+                <li>If you manually change a pin to a higher medal than you have actually earned, that change will persist even after re-importing your .zeepsave file.</li>
+                <li>You will need to manually change the pin back to the correct highest medal you have earned for that level.</li>
+                <li>Alternatively, set the map pin to a lower medal than you have earned - or, preferably, to the red X pin - and then re-import your .zeepfile to restore the correct medal.</li>
+                <li>Higher manually edited pin values override imported values.</li>
+            </ul>
+            <code>TLDR: just use the Import Zeepfile instead of manual edits :D</code>
+
+            <!-- Window Scaling -->
+            <h3 class="readme-spaced-heading">Window Scaling</h3>
+            <p>Whilst the map automatically scales to fit your window width, please note that the map pins may appear slightly misaligned by a few pixels.</p>
+            <p>For the best experience, I recommend viewing the map at the largest size possible on your PC - ideally at a width of 1300px or greater.</p>
+
+
+            <!-- Hamburger Menu -->
+            <section id="hamburger">
+                <h3 class="readme-spaced-heading readme-sub-heading">Hamburger Menu</h3> 
+                The new Hamburger Menu collates some of the less used functions in a drop-down menu.         
+                <div class="readme-img-center">
+                    <img src="docs/assets/hamburgerMenu.png" alt="Hamburger Menu" class="readme-img-bounded readme-img-300">
+                </div>
+                <p></p>
+                <h3 class="readme-spaced-heading">Load / Save</h3>
+                <p>I recommend exporting a backup of your data to a locally saved JSON file using the <code>Save</code> button in the hamburger drop-down menu.</p>
+                <p>This allows you to Load the data back into the same browser - or into a different browser or device if needed.</p>
+                <p>Please note that any changes made after saving will not automatically sync between browsers or devices.</p>
+                <p>You are also free to create and keep multiple save files if you wish - how you manage them is entirely up to you.</p>
+            </section>
+
+            <!-- Data Storage -->
+            <h3 class="readme-spaced-heading">Data Storage</h3>
+            <p>Your data is stored locally in your browser using localStorage, which means it does not sync across different browsers or devices.</p>
+            <p>Before <code>v1.3.0</code> - if you cleared your browser data or switched to another device or browser without a save file, your progress may have been unavailable or permanently lost.</p>
+            <p>Now, it is very quick to re-create your previous state by using these three features:</p>
+            <ul>
+                <li>Import zeepsave file</li>
+                <li>Sign in with Steam</li>
+                <li>DLC checkboxes</li>
+            </ul>
+            <p>It is even quicker if you create a save file as this effectively reloads all three of those things at once - but it is now not a terrible thing if you do not.</p>
+
+            <!-- Theme Toggle -->
+            <h3 class="readme-spaced-heading">Theme Toggle</h3>
+            <p>Select your preferred light or dark theme (dark is default) - this is now implemented site wide.</p>
+
+            <!-- Lock Map Clicks Toggle -->
+            <h3 class="readme-spaced-heading">Lock Map Clicks Toggle</h3>
+            <p>Lock Map Clicks is used to change the way you interact with the main <code>Adventure Map page</code>.</p>
+
+            <p>If this option is set to <code>true</code>, you will not be able to edit the map pins states manually - this is now the recommended approach.</p>
+            <p>Instead, you should update them automatically using the <code>Import Zeepsave</code> button.</p>
+            <p>This applies to both manually editing map pins and managing collectible items in level popup cards.  Additionally, the level popup card will self hide when your mouse pointer is not on the map pin or popup card.</p>
+
+            <p>Manual editing remains available for players who prefer the old system, simply set this to <code>false</code>.</p>
+           
+            <!-- Read Me -->
+            <h3 class="readme-spaced-heading">Read Me</h3>
+            <p>If you are reading this page, then you have most likely already found the Read Me button in the hamburger drop-down menu.</p>       
+        </section>
+
+        <!-- Cosmetics Index -->
+        <section id="cosmetics-guide" class="panel readme-section-spacing">
+            <div class="panel-heading">
+                <div>
+                    Cosmetics Index
+                    <div class="panel-kicker">Browsing and Filtering Items</div>
+                </div>
+            </div>
+            <p>This page allows you to easily browse, search, and sort nearly all of the <code>3,500+</code> cosmetics that are in the game.</p>
+            <p>These cosmetics are unlocked via Adventure Map collectables, medal times, achievements, DLC and you also get some free ones when you purchase Zeepkist.</p>
+            <p>The only items that are not in the index, are any competition or custom cosmetics, as these are not available to every player.</p>            
+        
+            <!-- Top Menu Bar -->
+            <h3 class="readme-spaced-heading">Top Menu Bar</h3>
+            <div class="readme-img-center">
+                <img src="docs/assets/cosmeticTopBar.png" alt="Cosmetics Top Bar" class="readme-img-wide">
+            </div>
+            <p>The top menu bar displays the number of currently viewable cosmetics alongside the total available. In the example above, all cosmetics are visible as no filters have been used, so the text is therefore shown as 3599/3599.</p>
+            <p>You can also use one or more of the dropdown menus to filter your results by <code>color</code>, <code>level</code>, <code>cosmetic type</code>, <code>unlocked status</code> or use the <code>text search box</code> for a broader search based on item criteria.</p>
+            <p>So for example, you can use the color dropdown and select <code>Blue</code> to find all items with some blue in them. In this example you get a result of <code>475 blue</code> cosmetics.</p>
+            <div class="readme-img-center">
+                <img src="docs/assets/cosmeticBlue.png" alt="Cosmetics Blue" class="readme-img-bounded readme-img-500">
+            </div>
+            <p>You could then filter this large result further by choosing to also only show <code>hats</code> from the cosmetic types dropdown. This reduces the result to <code>49 blue hats</code>.</p>
+            <div class="readme-img-center">
+                <img src="docs/assets/cosmeticBlueHat.png" alt="Cosmetics Blue Hat" class="readme-img-wide">
+            </div>
+            <p>Next you could filter it even more by adding a search box filter for <code>plaid</code>. The result would be a list of <code>5 blue plaid hats</code> as shown below.</p> 
+            <div class="readme-img-center">
+                <img src="docs/assets/cosmeticBluePlaidHat.png" alt="Cosmetics Blue Plaid Hat" class="readme-img-wide">
+            </div>
+            <p>By using various combinations you can easily filter your results to find a specific cosmetic.</p>
+            <p>For example you could search for <code>green</code> in the text box as well as using the color dropdown to select <code>red</code>, and then also only search for <code>paragliders</code>.</p>
+            <p>In this example your result would show <code>3 paragliders</code> which feature <code>green</code> and <code>red</code> in them (example below).</p>
+            <div class="readme-img-center">
+                <img src="docs/assets/cosmeticGreenRedParaglider.png" alt="Cosmetics Green Red Paraglider" class="readme-img-wide">
+            </div>
+
+            <!-- Sorting -->
+            <h3 class="readme-spaced-heading">Sorting</h3>
+            <p>You can additionally sort the results by name, level or location order in the garage, all in ascending or descending order.</p>
+            <p>This can be used alone or in combination with the other filters.</p>
+
+            <!-- Cosmetic Cards -->
+            <section id="cards">
+                <h3 class="readme-spaced-heading readme-sub-heading">Cosmetic Cards</h3> 
+                <div class="readme-img-center">
+                    <img src="docs/assets/cosmeticParagliders.png" alt="Cosmetic Cards" class="readme-img-bounded readme-img-500">
+                </div>
+                <p>Each cosmetic item will be displayed in a card with a lot of usefull information described in greater detail below.</p>
+            </section>
+
+            <!-- Card Thumbnail -->
+            <h3 class="readme-spaced-heading">Card Thumbnail</h3>
+            <p>In this top section you will see a thumbnail of the cosmetic item.</p>
+            <p>For each type of cosmetic, the background color will be different. For example, all hats will have a green background, whilst every paraglider has a blue background.</p>
+
+            <!-- Unlocked Icon -->
+            <h3 class="readme-spaced-heading">Unlocked Icon</h3>
+            <p>In the top right of every thumbnail is a small icon denoting how this particular cosmetic is unlocked.</p>
+            <p>So you may see one of the following icons.</p>
+            <div class="readme-img-center">
+                <img src="docs/assets/cosmeticIconUnlocked.png" alt="Cosmetic Unlocked Icon" class="readme-img-bounded readme-img-300">
+            </div>
+            <p>Note that the Yannic smile icon is for included free cosmetic items that are already unlocked for you when you first play the game.</p>
+
+            <!-- YouTube Videos -->
+            <section id="youtube">
+                <h3 class="readme-spaced-heading readme-sub-heading">YouTube Videos</h3> 
+                <p>Some cosmetic items will display a YouTube video link when you hover over their thumbnail.</p>
+                <p>Clicking the link will open a popup window containing a video guide that shows you how to obtain that specific cosmetic item.</p>
+                <p>This may link directly to the relevant timestamp in the level's <code>All Collectables</code> video or, for items unlocked by achieving a specific medal time, to the corresponding <code>Author Run</code> video.</p>
+                <div class="readme-img-center">
+                    <img src="docs/assets/cosmeticVideoLinks.png" alt="Cosmetic Youtube Links" class="readme-img-bounded readme-img-300">
+                </div>
+            </section>
+
+            <!-- Collectable Cosmetic -->
+            <h3 class="readme-spaced-heading">Collectable Cosmetic</h3>
+            <p>If it is a collectable gift, then you will be shown where it is located and how to obtain it.</p>
+
+            <!-- Medal Cosmetic -->
+            <h3 class="readme-spaced-heading">Medal Cosmetic</h3>
+            <p>In the case of a cosmetic that is unlocked by completing a level in a medal time, you will instead be linked to an <code>Author Run</code> video.</p>
+            <p>Note that the video only shows you my sucessful author run which may include skips or shortcuts. For some lower medals (bronze, silver, gold) you may prefer to take a slightly easier route to safely get them if you don't think you can get the author medal at this point in time.</p>
+
+            <!-- DLC Cosmetic -->
+            <h3 class="readme-spaced-heading">DLC Cosmetic</h3>
+            <p>DLC cosmetics do not have any associated YouTube videos as these are obtained by buying DLC from Steam (Early Access Testing DLC is free).</p>
+
+            <!-- Steam Challenge Cosmetic -->
+            <h3 class="readme-spaced-heading">Steam Challenge Cosmetic</h3>
+            <p>And finally, achievement cosmetics are obtained by completeing Steam challenges.</p>
+            <p>Note that some achievements might have a different icon type in the top right of the thumbnail as they are obtained by doing something involving another icon. For example the <code>1 Author Medal Achievement</code> will show a medal icon instead of an achievement icon.</p>
+            <p>All others will have my standard trophy achievement icon.</p>
+            <div class="readme-img-center">
+                <img src="docs/assets/achievementIcon.png" alt="Achievement Icon" class="readme-img-bounded readme-img-200">
+            </div>
+            <p>However, all cosmetics which are Steam achievments will have their level vairable set to <code>Achievement</code> regardless of the displayed icon.</p>
+            <p>Therefore you can use the level dropdown filter to choose <code>Achievement</code> to view all cosmetics obtained by completing a Steam challenge.</p>
+
+            <!-- Card Information Section -->
+            <section id="card-info">
+                <h3 class="readme-spaced-heading readme-sub-heading">Card Information Section</h3>
+                <p>Underneath the thumbnail section you will first find the description of the item.</p>
+                <p>Next, is the level number - although in some special cases it will show one of the following instead:-</p>
+                <ul>
+                    <li>Achievement</li>
+                    <li>Bobo Tires DLC</li>
+                    <li>Early Access Testing DLC</li>
+                    <li>Included with Zeepkist</li>
+                    <li>King's Day DLC</li>
+                </ul>
+                <p>Just below this is the cosmetic type folder in the garage where the cosmetic can be found. These are either <code>Zeepkists</code>, <code>Hats</code>, <code>Glasses</code>, <code>Wheels</code>, <code>Character</code>, <code>Paragliders</code> or <code>Horns</code>.</p>
+                <p>The page and item number is at the bottom, so that you can find it more easily in the garage.</p>
+            </section>
+
+            <!-- Page & Item Numbers -->
+            <h3 class="readme-spaced-heading">Page & Item Numbers</h3>
+            <p>The <code>Page</code> and <code>Item</code> numbers are based on having all of the readily available cosmetics unlocked.</p>
+            <p>Sometimes these item numbers may be slightly off as the folders will only show the cosmetics you have unlocked, so the item you want may be further to the left in the list.</p>
+            <p>Also, I have not included any competiton or custom cosmetics in the index as these items are not generally available to everyone. Therefore, you may find that if you own one of these, it may also displace the location numbers slightly.</p>
+            <p>So for example, if you want to find the <code>green & black plaid shiny character</code>, look in <code>character</code> -> <code>whole character</code> -> <code>shiny plaid colors</code> -> <code>page 2</code> -> <code>item 2</code></p>
+            <div class="readme-img-center">
+                <img src="docs/assets/greenBlackPlaidShinyCharacter.png" alt="Green Black Plaid Shiny Character" class="readme-img-bounded readme-img-300">
+            </div>
+
+            <!-- Featured Colors -->
+            <h3 class="readme-spaced-heading">Featured Colors</h3>
+            <p>In the bottom right of each card is up to three colors that are featured in the cosmetic item.</p>
+            <p>There may be additional colors, but these are the most predominant colors.</p>
+            <p>Note that to keep the total number of colors to a minimum, and to make it easier to catagorise and find items, I chose these 15 colors to describe all cosmetics.</p>
+            <ul>
+                <li>Black</li>
+                <li>Blue</li>
+                <li>Bronze</li>
+                <li>Brown</li>
+                <li>Gold</li>
+                <li>Green</li>
+                <li>Grey</li>
+                <li>Orange</li>
+                <li>Pink</li>
+                <li>Purple</li>
+                <li>Rainbow</li>
+                <li>Red</li>
+                <li>Silver</li>
+                <li>White</li>
+                <li>Yellow</li>
+            </ul>
+
+            <!-- Seasonal Video Links -->
+            <h3 class="readme-spaced-heading">Seasonal Video Links</h3>
+            <p>Seasonal videos will only be available in either October or December for the Pumpkin and Snowflake collectables.</p>
+            <p>They should automatically be seen when hovering over the thumbnail when they are actually collectable to help prevent clutter and confusion for the rest of the year.</p>
+            <p>All YouTube videos are always available at <a href="https://www.youtube.com/cactuzhead" class="readme-link">https://www.youtube.com/cactuzhead</a> at any time of the year - if you really want to see them.</p>
+
+            <code>Note, I have not currently created the Snowflakes.</code>
+            <p>I only started this project in January 2026 and so missed the chance to record these collectables with my 2nd Steam account (I had already completed them all in my main account), but I will endeavor to collect them all and update this website in October and December 2026 as soon as I can record, edit, publish the videos and update the websites json data.</p>
+
+            <p><code>[UPDATE]</code> - The pumpkins video was added 2nd October 2026 - and is available as timestamped links when you hover over each levels thumbnail on the Adventure Map page.</p>    
+            <p>I will post in the Zeepkist discord when they have been added.</p>
+
+            <!-- Unlocked Cosmetics -->
+            <h3 class="readme-spaced-heading">Unlocked Cosmetics</h3>
+            <p>If you use the <code>Import Zeepsave</code> button (found on the adventure map page), it will grab all your unlocked cosmetics and update them in your <code>Cosmetics Index</code> automatically.</p>
+            <p>All Locked cosmetics will be highlighted in red in the Cosmetics Index page, whilst unlocked ones will appear normal.</p>
+
+            <div class="readme-img-center">
+                <img src="docs/assets/redLocked.png" alt="Unlocked & Locked Cosmetics" class="readme-img-bounded readme-img-500">
+            </div>
+
+            <p>You can also now filter your results using the new filter dropdown with <code>All Cosmetics</code>, <code>Unlocked</code> or <code>Locked</code> dropdown as options. And remember that you can use multiple filters to narrow down your search.</p>
+            <div class="readme-img-center">
+                <img src="docs/assets/filterLocked.png" alt="Unlocked.Locked Filter" class="readme-img-bounded readme-img-500">
+            </div>
+        </section>
+
+        <!-- Achievements List Page -->
+        <section id="achievements-list" class="panel readme-section-spacing">
+            <div class="panel-heading">
+                <div>
+                    Achievements List Page
+                    <div class="panel-kicker">Sign in with Steam</div>
+                </div>
+            </div>        
+            <p>This page allows you to view your unlocked and locked Steam achievements if you use the <code>Sign in with Steam</code> button on the main <code>Adventure Map</code> page.</p>
+            <div class="readme-img-center">
+                <img src="docs/assets/achievements.png" alt="Steam Achievements Page" class="readme-img-bounded readme-img-600">
+            </div>
+            <p>🔒 Only public Steam IDs and achievements are accessed. No personal data is stored.</p>
+            <p>🌐 For this to work properly, in Steam go to <code>My Profile</code> > <code>Privacy Settings</code> and make sure these are set accordingly:</p>
+
+            <ul>
+                <li><b>My Profile</b> must be set to Public.</li>
+                <li><b>Game Details</b> must be set to Public.</li>
+                <li>In the <b>Game Details</b> section <code>Always keep my total playtime private...</code> should be <b>unchecked</b>.</li>
+            </ul>
+
+            <!-- User Steam ID -->
+            <h3 class="readme-spaced-heading">User Steam ID</h3>
+            <p>If you <code>Sign in with Steam</code> your Steam ID number will be displayed on the left side of the topbar.</p>
+        </section>
+        
+
+        <!-- Steam Stats Page -->
+        <section id="steam-stats" class="panel readme-section-spacing">
+            <div class="panel-heading">
+                <div>
+                    Steam Stats Page
+                    <div class="panel-kicker">Sign in with Steam</div>
+                </div>
+            </div>
+
+            <p>If you use the <code>Sign in with Steam</code> button on the main <code>Adventure Map</code> page, the <code>Steam Stats</code> page will provide a detailed overview of your Zeepkist playtime, using statistics reported by Steam.</p>
+            <p>Together, the panels on this page, provides a comprehensive snapshot of your Zeepkist history, showing not only how long you have played, but also your recent activity, preferred platform and the additional statistics available through Steam.</p>
+            <p>&nbsp;</p>            
+            <p>🔒 Only public Steam IDs and achievements are accessed. No personal data is stored.</p>
+            <p>🌐 For this to work properly, in Steam go to <code>My Profile</code> > <code>Privacy Settings</code> and make sure these are set accordingly:</p>
+
+            <ul>
+                <li><b>My Profile</b> must be set to Public.</li>
+                <li><b>Game Details</b> must be set to Public.</li>
+                <li>In the <b>Game Details</b> section <code>Always keep my total playtime private...</code> should be <b>unchecked</b>.</li>
+            </ul>
+
+            <div class="readme-img-center">
+                <img src="docs/assets/steamStats.png" alt="Steam Stats Page" class="readme-img-bounded readme-img-500">
+            </div>
+
+            <!-- User Steam ID -->
+            <h3 class="readme-spaced-heading">User Steam ID</h3>
+            <p>If you <code>Sign in with Steam</code> your Steam ID number will be displayed on the left side of the topbar.</p>
+
+            <!-- Playtime Overview -->
+            <h3 class="readme-spaced-heading">Playtime Overview</h3>
+            <p>Displays your total recorded Zeepkist playtime across all platforms, including the equivalent time in days and hours. It also shows how many platforms have recorded playtime and how much time you have spent playing during the last two weeks.</p>
+
+            <!-- Recent Activity -->
+            <h3 class="readme-spaced-heading">Recent Activity</h3>
+            <p>Shows your recorded playtime over the last 14 days, including the total hours and minutes played. A progress bar compares this activity against a target of one hour per day, with the recorded minutes and percentage of lifetime playtime displayed for context.</p>
+
+            <!-- Platform Split -->
+            <h3 class="readme-spaced-heading">Platform Split</h3>
+            <p>Provides a breakdown of your lifetime playtime by operating system or platform: Windows, Linux, macOS and Steam Deck. A doughnut chart visualises each platform's share of the total, alongside the recorded time and percentage for each. Small differences between platform totals and the overall total may occur due to Steam's reporting.</p>
+
+            <!-- Time by Platform -->
+            <h3 class="readme-spaced-heading">Time by Platform</h3>
+            <p>Displays the same platform statistics in a horizontal bar chart, making it easy to compare how much time you have spent on each platform. The bars are scaled relative to the platform with the highest recorded playtime, helping highlight your preferred gaming platform.</p>
+
+            <!-- Last Played -->
+            <h3 class="readme-spaced-heading">Last Played</h3>
+            <p>Shows the most recent activity timestamp reported by Steam, converted into a readable date and local time. It also indicates whether Community Stats are available for Zeepkist and displays its Steam App ID.</p>
+
+            <!-- Additional Playtime Data -->
+            <h3 class="readme-spaced-heading">Additional Playtime Data</h3>
+            <p>Displays supplementary information returned by Steam, including disconnected playtime, disconnected minutes and the game's icon. Disconnected playtime is shown separately and is not added to the lifetime total, as it may overlap with time already recorded elsewhere.</p>
+        </section>
+
+    </div>
+    </main>
+    <script src="nav.js"></script>
+    <script src="script_collectables.js"></script>
+    <script src="readme.js"></script>
+</body>
+</html>
